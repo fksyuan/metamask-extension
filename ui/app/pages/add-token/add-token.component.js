@@ -150,7 +150,7 @@ class AddToken extends Component {
       autoFilled: false,
     })
 
-    const isValidAddress = ethUtil.isValidAddress(customAddress)
+    const isValidAddress = ethUtil.isBech32Address(customAddress)
     const standardAddress = ethUtil.addHexPrefix(customAddress).toLowerCase()
 
     switch (true) {

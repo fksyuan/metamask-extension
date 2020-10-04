@@ -65,7 +65,10 @@ export function isValidAddress (address) {
   if (!address || address === '0x0000000000000000000000000000000000000000') {
     return false
   }
-  const prefixed = address.startsWith('0X') ? address : ethUtil.addHexPrefix(address)
+  const prefixed = address.startsWith('atx') ? address : ethUtil.addHexPrefix(address)
+  if (prefixed.startsWith('atx')) {
+    return ethUtil.isBech32Address(prefixed)
+  }
   return (isAllOneCase(prefixed.slice(2)) && ethUtil.isValidAddress(prefixed)) || ethUtil.isValidChecksumAddress(prefixed)
 }
 

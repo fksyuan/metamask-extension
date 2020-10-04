@@ -1,4 +1,4 @@
-import { addHexPrefix, isValidAddress } from 'ethereumjs-util'
+import { addHexPrefix, isBech32Address } from 'ethereumjs-util'
 
 const normalizers = {
   from: (from) => addHexPrefix(from),
@@ -57,7 +57,7 @@ export function validateFrom (txParams) {
   if (!(typeof txParams.from === 'string')) {
     throw new Error(`Invalid from address ${txParams.from} not a string`)
   }
-  if (!isValidAddress(txParams.from)) {
+  if (!isBech32Address(txParams.from)) {
     throw new Error('Invalid from address')
   }
 }
@@ -75,7 +75,7 @@ export function validateRecipient (txParams) {
     } else {
       throw new Error('Invalid recipient address')
     }
-  } else if (txParams.to !== undefined && !isValidAddress(txParams.to)) {
+  } else if (txParams.to !== undefined && !isBech32Address(txParams.to)) {
     throw new Error('Invalid recipient address')
   }
   return txParams

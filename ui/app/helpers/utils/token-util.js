@@ -4,6 +4,7 @@ import BigNumber from 'bignumber.js'
 import contractMap from 'eth-contract-metadata'
 import { conversionUtil, multiplyCurrencies } from './conversion-util'
 import { formatCurrency } from './confirm-tx.util'
+import { toBech32Address } from 'ethereumjs-util'
 
 const casedContractMap = Object.keys(contractMap).reduce((acc, base) => {
   return {
@@ -142,7 +143,8 @@ export function getTokenValue (tokenParams = []) {
 
 export function getTokenToAddress (tokenParams = []) {
   const toAddressData = tokenParams.find((param) => param.name === '_to')
-  return toAddressData ? toAddressData.value : tokenParams[0].value
+  const addr = toAddressData ? toAddressData.value : tokenParams[0].value
+  return toBech32Address('atx', addr)
 }
 
 /**

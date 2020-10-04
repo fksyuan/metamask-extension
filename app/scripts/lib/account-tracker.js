@@ -23,6 +23,7 @@ import {
   SINGLE_CALL_BALANCES_ADDRESS_ROPSTEN,
   SINGLE_CALL_BALANCES_ADDRESS_KOVAN,
 } from '../controllers/network/contract-addresses'
+import ethUtil from 'ethereumjs-util'
 
 export default class AccountTracker {
 
@@ -199,21 +200,21 @@ export default class AccountTracker {
     const currentNetwork = this.network.getNetworkState()
 
     switch (currentNetwork) {
-      case MAINNET_NETWORK_ID.toString():
-        await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS)
-        break
-
-      case RINKEBY_NETWORK_ID.toString():
-        await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_RINKEBY)
-        break
-
-      case ROPSTEN_NETWORK_ID.toString():
-        await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_ROPSTEN)
-        break
-
-      case KOVAN_NETWORK_ID.toString():
-        await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_KOVAN)
-        break
+      // case MAINNET_NETWORK_ID.toString():
+      //   await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS)
+      //   break
+      //
+      // case RINKEBY_NETWORK_ID.toString():
+      //   await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_RINKEBY)
+      //   break
+      //
+      // case ROPSTEN_NETWORK_ID.toString():
+      //   await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_ROPSTEN)
+      //   break
+      //
+      // case KOVAN_NETWORK_ID.toString():
+      //   await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_KOVAN)
+      //   break
 
       default:
         await Promise.all(addresses.map(this._updateAccount.bind(this)))

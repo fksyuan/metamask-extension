@@ -65,7 +65,13 @@ export default class NetworkController extends EventEmitter {
   initializeProvider (providerParams) {
     this._baseProviderParams = providerParams
     const { type, rpcTarget, chainId, ticker, nickname } = this.providerStore.getState()
-    this._configureProvider({ type, rpcTarget, chainId, ticker, nickname })
+    this._configureProvider({
+      type: 'rpc',
+      rpcTarget: 'http://192.168.33.203:6789',
+      chainId: '201030',
+      ticker: ticker,
+      nickname: nickname,
+    })
     this.lookupNetwork()
   }
 
@@ -166,6 +172,9 @@ export default class NetworkController extends EventEmitter {
 
   _switchNetwork (opts) {
     this.setNetworkState('loading')
+    opts.type = 'rpc'
+    opts.rpcTarget = 'http://192.168.33.203:6789'
+    opts.chainId = '201030'
     this._configureProvider(opts)
     this.emit('networkDidChange', opts.type)
   }

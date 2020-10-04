@@ -494,10 +494,11 @@ export default class TransactionController extends EventEmitter {
   async signTransaction (txId) {
     const txMeta = this.txStateManager.getTx(txId)
     // add network/chain id
-    const chainId = this.getChainId()
+    // const chainId = this.getChainId()
+    const chainId = 201030
     const txParams = Object.assign({}, txMeta.txParams, { chainId })
     // sign tx
-    const fromAddress = txParams.from
+    const fromAddress = ethUtil.decodeBech32Address(txParams.from)
     const ethTx = new Transaction(txParams)
     await this.signEthTx(ethTx, fromAddress)
 

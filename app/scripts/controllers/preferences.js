@@ -1,7 +1,7 @@
 import ObservableStore from 'obs-store'
 import { addInternalMethodPrefix } from './permissions'
 import { normalize as normalizeAddress } from 'eth-sig-util'
-import { isValidAddress, sha3, bufferToHex } from 'ethereumjs-util'
+import { isValidAddress, sha3, bufferToHex, toBech32Address } from 'ethereumjs-util'
 
 export default class PreferencesController {
 
@@ -371,7 +371,10 @@ export default class PreferencesController {
    *
    */
   setSelectedAddress (_address) {
-    const address = normalizeAddress(_address)
+    let address = _address
+    if (!_address.startsWith('atx')) {
+      address = normalizeAddress(_address)
+    }
     this._updateTokens(address)
 
     const { identities, tokens } = this.store.getState()
