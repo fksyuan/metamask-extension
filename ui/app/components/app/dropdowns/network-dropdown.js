@@ -360,29 +360,29 @@ class NetworkDropdown extends Component {
         {/*    {this.context.t('goerli')}*/}
         {/*  </span>*/}
         {/* </DropdownMenuItem>*/}
-        <DropdownMenuItem
-          key="default"
-          closeMenu={() => this.props.hideNetworkDropdown()}
-          onClick={() => this.handleClick('localhost')}
-          style={dropdownMenuItemStyle}
-        >
-          {
-            providerType === 'localhost'
-              ? <i className="fa fa-check" />
-              : <div className="network-check__transparent">✓</div>
-          }
-          <NetworkDropdownIcon isSelected={providerType === 'localhost'} innerBorder="1px solid #9b9b9b" />
-          <span
-            className="network-name-item"
-            style={{
-              color: providerType === 'localhost'
-                ? '#ffffff'
-                : '#9b9b9b',
-            }}
-          >
-            {this.context.t('localhost')}
-          </span>
-        </DropdownMenuItem>
+        {/* <DropdownMenuItem*/}
+        {/*  key="default"*/}
+        {/*  closeMenu={() => this.props.hideNetworkDropdown()}*/}
+        {/*  onClick={() => this.handleClick('localhost')}*/}
+        {/*  style={dropdownMenuItemStyle}*/}
+        {/* >*/}
+        {/*  {*/}
+        {/*    providerType === 'localhost'*/}
+        {/*      ? <i className="fa fa-check" />*/}
+        {/*      : <div className="network-check__transparent">✓</div>*/}
+        {/*  }*/}
+        {/*  <NetworkDropdownIcon isSelected={providerType === 'localhost'} innerBorder="1px solid #9b9b9b" />*/}
+        {/*  <span*/}
+        {/*    className="network-name-item"*/}
+        {/*    style={{*/}
+        {/*      color: providerType === 'localhost'*/}
+        {/*        ? '#ffffff'*/}
+        {/*        : '#9b9b9b',*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    {this.context.t('localhost')}*/}
+        {/*  </span>*/}
+        {/* </DropdownMenuItem>*/}
         {this.renderCustomOption(this.props.provider)}
         {this.renderCommonRpc(rpcListDetail, this.props.provider)}
         <DropdownMenuItem

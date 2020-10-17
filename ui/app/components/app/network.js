@@ -134,33 +134,32 @@ export default class Network extends Component {
         //   )
 
       default:
-        return (
-          <NetworkIndicator
-            disabled={disabled}
-            hoverText={providerNick || providerName || providerUrl || null}
-            onClick={onClick}
-            providerName={providerName}
-          >
-            {
-              networkNumber === 'loading'
-                ? (
-                  <span className="pointer network-loading-spinner" onClick={(event) => onClick(event)}>
-                    <img title={t('attemptingConnect')} src="images/loading.svg" alt="" />
-                  </span>
-                )
-                : (
-                  <i className="fa fa-question-circle fa-lg" style={{ color: 'rgb(125, 128, 130)' }} />
-                )
-            }
-            <div className="network-name">
-              {
-                providerName === 'localhost'
-                  ? t('localhost')
-                  : providerNick || t('privateNetwork')
-              }
-            </div>
-          </NetworkIndicator>
-        )
+        return null
+          // {/* <NetworkIndicator*/}
+          // {/*  disabled={disabled}*/}
+          // {/*  hoverText={providerNick || providerName || providerUrl || null}*/}
+          // {/*  onClick={onClick}*/}
+          // {/*  providerName={providerName}*/}
+          // {/* >*/}
+          // {/*  {*/}
+          // {/*    networkNumber === 'loading'*/}
+          // {/*      ? (*/}
+          // {/*        <span className="pointer network-loading-spinner" onClick={(event) => onClick(event)}>*/}
+          // {/*          <img title={t('attemptingConnect')} src="images/loading.svg" alt="" />*/}
+          // {/*        </span>*/}
+          // {/*      )*/}
+          // {/*      : (*/}
+          // {/*        <i className="fa fa-question-circle fa-lg" style={{ color: 'rgb(125, 128, 130)' }} />*/}
+          // {/*      )*/}
+          // {/*  }*/}
+          // {/*  <div className="network-name">*/}
+          // {/*    {*/}
+          // {/*      providerName === 'localhost'*/}
+          // {/*        ? t('localhost')*/}
+          // {/*        : providerNick || t('privateNetwork')*/}
+          // {/*    }*/}
+          // {/*  </div>*/}
+          // {/*</NetworkIndicator>*/}
     }
   }
 }
