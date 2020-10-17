@@ -14,7 +14,9 @@ import { useCurrencyDisplay } from '../../../hooks/useCurrencyDisplay'
 
 const AssetList = ({ onClickAsset }) => {
   const history = useHistory()
-  const selectedAccountBalance = useSelector((state) => getCurrentAccountWithSendEtherInfo(state).balance)
+  const selectedAccountBalance = useSelector((state) => {
+    return getCurrentAccountWithSendEtherInfo(state) ? getCurrentAccountWithSendEtherInfo(state).balance : '0x0'
+  })
   const nativeCurrency = useSelector(getNativeCurrency)
   const showFiat = useSelector(getShouldShowFiat)
   const selectTokenEvent = useMetricEvent({

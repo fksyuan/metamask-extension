@@ -16,13 +16,13 @@ export default class Welcome extends PureComponent {
     t: PropTypes.func,
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.animationEventEmitter = new EventEmitter()
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const { history, participateInMetaMetrics, welcomeScreenSeen } = this.props
 
     if (welcomeScreenSeen && participateInMetaMetrics !== null) {
@@ -36,30 +36,31 @@ export default class Welcome extends PureComponent {
     this.props.history.push(INITIALIZE_SELECT_ACTION_ROUTE)
   }
 
-  render () {
+  render() {
     const { t } = this.context
 
     return (
       <div className="welcome-page__wrapper">
         <div className="welcome-page">
-          <Mascot
+          {/* <Mascot
             animationEventEmitter={this.animationEventEmitter}
             width="125"
             height="125"
-          />
+          /> */}
+          <img src='/images/icon-128.png'></img>
           <div className="welcome-page__header">
-            { t('welcome') }
+            {t('welcome')}
           </div>
           <div className="welcome-page__description">
-            <div>{ t('metamaskDescription') }</div>
-            <div>{ t('happyToSeeYou') }</div>
+            <div>{t('metamaskDescription')}</div>
+            <div>{t('happyToSeeYou')}</div>
           </div>
           <Button
             type="primary"
             className="first-time-flow__button"
             onClick={this.handleContinue}
           >
-            { t('getStarted') }
+            {t('getStarted')}
           </Button>
         </div>
       </div>

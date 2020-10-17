@@ -120,7 +120,7 @@ export default class SignatureRequestOriginal extends Component {
           { `${this.context.t('balance')}:` }
         </div>
         <div className="request-signature__balance-value">
-          { `${balanceInEther} ETH` }
+          { `${balanceInEther} ATP` }
         </div>
       </div>
     )

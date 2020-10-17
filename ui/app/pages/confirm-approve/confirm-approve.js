@@ -55,7 +55,7 @@ export default function ConfirmApprove () {
   const decimals = Number(currentToken?.decimals)
   const tokenData = getTokenData(data)
   const tokenValue = tokenData && getTokenValue(tokenData.params)
-  const toAddress = tokenData && getTokenToAddress(tokenData.params)
+  const toAddress = tokenData && getTokenToAddress(tokenData.params, tokenAddress.substring(0, 3))
   const tokenAmount = tokenData && calcTokenAmount(tokenValue, decimals).toString(10)
 
   const [customPermissionAmount, setCustomPermissionAmount] = useState('')

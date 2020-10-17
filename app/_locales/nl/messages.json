@@ -22,7 +22,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -317,8 +317,8 @@
   "revealSeedWordsWarning": {
     "message": "Zorg dat je back-up woorden niet op een openbare plaats bekijkt! Deze woorden kunnen worden gebruikt om al uw accounts opnieuw te genereren (en dus uw account te stelen)."
   },
-  "rinkeby": {
-    "message": "Rinkeby testnetwerk"
+  "alaya": {
+    "message": "Alaya testnetwerk"
   },
   "ropsten": {
     "message": "Ropsten testnetwerk"

@@ -25,7 +25,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -82,8 +82,8 @@
   "connectingToRopsten": {
     "message": "Ropsten Test Ağına bağlanıyor"
   },
-  "connectingToRinkeby": {
-    "message": "Rinkeby Test Ağına bağlanıyor"
+  "connectingToAlaya": {
+    "message": "Alaya Test Ağına bağlanıyor"
   },
   "continueToCoinSwitch": {
     "message": "CoinSwitch'e devam et"
@@ -369,8 +369,8 @@
   "revealSeedWordsWarning": {
     "message": "Açık bir yerde kaynak kelimeliriniz geri getirmeyin! Bu kelimeler tüm hesaplarınızı çalmak için kullanılabilir."
   },
-  "rinkeby": {
-    "message": "Rinkeby Test Ağı"
+  "alaya": {
+    "message": "Alaya Test Ağı"
   },
   "ropsten": {
     "message": "Ropsten Test Ağı"

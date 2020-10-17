@@ -43,7 +43,7 @@ export function validateTxParams (txParams) {
     }
 
     if (value.includes('.')) {
-      throw new Error(`Invalid transaction value of ${txParams.value} number must be in wei`)
+      throw new Error(`Invalid transaction value of ${txParams.value} number must be in von`)
     }
   }
 }

@@ -18,20 +18,20 @@ export default function setupWeb3 (log) {
   let lastSeenNetwork
   let hasBeenWarned = false
 
-  const web3 = new Web3(window.ethereum)
-  web3.setProvider = function () {
-    log.debug('MetaMask - overrode web3.setProvider')
+  const web3a = new Web3A(window.alaya)
+  web3a.setProvider = function () {
+    log.debug('Alaya-MetaMask - overrode web3.setProvider')
   }
-  log.debug('MetaMask - injected web3')
+  log.debug('Alaya-MetaMask - injected web3')
 
-  Object.defineProperty(window.ethereum, '_web3Ref', {
+  Object.defineProperty(window.alaya, '_web3Ref', {
     enumerable: false,
     writable: true,
     configurable: true,
-    value: web3.eth,
+    value: web3a.eth,
   })
 
-  const web3Proxy = new Proxy(web3, {
+  const web3aProxy = new Proxy(web3a, {
     get: (_web3, key) => {
 
       // get the time of use
@@ -45,7 +45,7 @@ export default function setupWeb3 (log) {
 
       if (shouldLogUsage) {
         const name = stringifyKey(key)
-        window.ethereum.request({
+        window.alaya.request({
           method: 'metamask_logInjectedWeb3Usage',
           params: [{ action: 'window.web3 get', name }],
         })
@@ -57,7 +57,7 @@ export default function setupWeb3 (log) {
     set: (_web3, key, value) => {
       const name = stringifyKey(key)
       if (shouldLogUsage) {
-        window.ethereum.request({
+        window.alaya.request({
           method: 'metamask_logInjectedWeb3Usage',
           params: [{ action: 'window.web3 set', name }],
         })
@@ -68,17 +68,17 @@ export default function setupWeb3 (log) {
     },
   })
 
-  Object.defineProperty(global, 'web3', {
+  Object.defineProperty(global, 'web3a', {
     enumerable: false,
     writable: true,
     configurable: true,
-    value: web3Proxy,
+    value: web3aProxy,
   })
 
-  window.ethereum._publicConfigStore.subscribe((state) => {
+  window.alaya._publicConfigStore.subscribe((state) => {
     // if the auto refresh on network change is false do not
     // do anything
-    if (!window.ethereum.autoRefreshOnNetworkChange) {
+    if (!window.alaya.autoRefreshOnNetworkChange) {
       return
     }
 

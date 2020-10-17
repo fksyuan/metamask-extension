@@ -5,7 +5,7 @@ import CurrencyDisplay from '../currency-display'
 import { getWeiHexFromDecimalValue } from '../../../helpers/utils/conversions.util'
 import ethUtil from 'ethereumjs-util'
 import { conversionUtil, multiplyCurrencies } from '../../../helpers/utils/conversion-util'
-import { ETH } from '../../../helpers/constants/common'
+import { ATP } from '../../../helpers/constants/common'
 
 /**
  * Component that allows user to enter token values as a number, and props receive a converted
@@ -99,16 +99,16 @@ export default class TokenInput extends PureComponent {
       currency = currentCurrency
       numberOfDecimals = 2
     } else {
-      // Display ETH
-      currency = ETH
+      // Display ATP
+      currency = ATP
       numberOfDecimals = 6
     }
 
     const decimalEthValue = (decimalValue * tokenExchangeRate) || 0
     const hexWeiValue = getWeiHexFromDecimalValue({
       value: decimalEthValue,
-      fromCurrency: ETH,
-      fromDenomination: ETH,
+      fromCurrency: ATP,
+      fromDenomination: ATP,
     })
 
     return tokenExchangeRate

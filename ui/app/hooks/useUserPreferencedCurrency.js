@@ -1,6 +1,6 @@
 import { getPreferences, getShouldShowFiat, getNativeCurrency } from '../selectors'
 import { useSelector } from 'react-redux'
-import { PRIMARY, SECONDARY, ETH } from '../helpers/constants/common'
+import { PRIMARY, SECONDARY, ATP } from '../helpers/constants/common'
 
 /**
  * Defines the shape of the options parameter for useUserPreferencedCurrency
@@ -39,8 +39,8 @@ export function useUserPreferencedCurrency (type, opts = {}) {
   let currency, numberOfDecimals
   if (!showFiat || (type === PRIMARY && useNativeCurrencyAsPrimaryCurrency) ||
     (type === SECONDARY && !useNativeCurrencyAsPrimaryCurrency)) {
-    // Display ETH
-    currency = nativeCurrency || ETH
+    // Display ATP
+    currency = nativeCurrency || ATP
     numberOfDecimals = opts.numberOfDecimals || opts.ethNumberOfDecimals || 6
   } else if ((type === SECONDARY && useNativeCurrencyAsPrimaryCurrency) ||
     (type === PRIMARY && !useNativeCurrencyAsPrimaryCurrency)) {

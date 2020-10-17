@@ -125,7 +125,7 @@ export default class ConfirmEncryptionPublicKey extends Component {
           { `${t('balance')}:` }
         </div>
         <div className="request-encryption-public-key__balance-value">
-          { `${balanceInEther} ETH` }
+          { `${balanceInEther} ATP` }
         </div>
       </div>
     )

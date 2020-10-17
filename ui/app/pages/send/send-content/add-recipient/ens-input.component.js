@@ -122,7 +122,7 @@ export default class EnsInput extends Component {
 
     if (!networkHasEnsSupport && !isValidAddress(input) && !isValidAddressHead(input)) {
       updateEnsResolution('')
-      updateEnsResolutionError(!networkHasEnsSupport ? 'Network does not support ENS' : '')
+      updateEnsResolutionError('')
       return
     }
 
@@ -275,3 +275,4 @@ export default class EnsInput extends Component {
 function getNetworkEnsSupport (network) {
   return Boolean(networkMap[network])
 }
+

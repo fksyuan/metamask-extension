@@ -82,7 +82,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -152,8 +152,8 @@
   "browserNotSupported": {
     "message": "متصفحك غير مدعوم..."
   },
-  "builtInCalifornia": {
-    "message": "تم تصميم وإنشاء MetaMask في ولاية كاليفورنيا."
+  "buildInShenzhen": {
+    "message": "تم تصميم وتصنيع ATON (الويب) في Shenzhen."
   },
   "buyWithWyre": {
     "message": "قم بشراء عملة إيثير بواسطة Wyre"
@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "جارِ الاتصال بشبكة اختبار Ropsten "
   },
-  "connectingToRinkeby": {
-    "message": "جارِ الاتصال بشبكة اختبار Rinkeby "
+  "connectingToAlaya": {
+    "message": "جارِ الاتصال بشبكة اختبار Alaya "
   },
   "connectingToLocalhost": {
     "message": "جاري الاتصال بالمضيف المحلي 8545"
@@ -454,7 +454,7 @@
     "message": "وحدات جاس المستخدمة"
   },
   "gasPrice": {
-    "message": "سعر عملة جاس (GWEI)"
+    "message": "سعر عملة جاس (GVON)"
   },
   "gasPriceExtremelyLow": {
     "message": "سعر الجاس منخفض للغاية"
@@ -897,8 +897,8 @@
   "readyToConnect": {
     "message": "هل أنت جاهز للاتصال؟"
   },
-  "rinkeby": {
-    "message": "شبكة اختبارات Rinkeby"
+  "alaya": {
+    "message": "شبكة اختبارات Alaya"
   },
   "ropsten": {
     "message": "شبكة اختبار Ropsten"

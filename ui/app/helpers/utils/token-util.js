@@ -141,10 +141,10 @@ export function getTokenValue (tokenParams = []) {
   return valueData && valueData.value
 }
 
-export function getTokenToAddress (tokenParams = []) {
+export function getTokenToAddress (tokenParams = [], hrp) {
   const toAddressData = tokenParams.find((param) => param.name === '_to')
   const addr = toAddressData ? toAddressData.value : tokenParams[0].value
-  return toBech32Address('atx', addr)
+  return toBech32Address(hrp, addr)
 }
 
 /**

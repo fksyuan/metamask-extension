@@ -15,7 +15,7 @@ export default function getAccountLink (address, network, rpcPrefs) {
     case 3: // ropsten test net
       link = `https://ropsten.etherscan.io/address/${address}`
       break
-    case 4: // rinkeby test net
+    case 201018: // rinkeby test net
       link = `https://rinkeby.etherscan.io/address/${address}`
       break
     case 42: // kovan test net

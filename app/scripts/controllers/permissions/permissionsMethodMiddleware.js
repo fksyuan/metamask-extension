@@ -21,24 +21,24 @@ export default function createPermissionsMethodMiddleware ({
 
     switch (req.method) {
 
-      // Intercepting eth_accounts requests for backwards compatibility:
+      // Intercepting platon_accounts requests for backwards compatibility:
       // The getAccounts call below wraps the rpc-cap middleware, and returns
       // an empty array in case of errors (such as 4100:unauthorized)
-      case 'eth_accounts':
+      case 'platon_accounts':
 
         res.result = await getAccounts()
         return
 
-      case 'eth_requestAccounts':
+      case 'platon_requestAccounts':
 
         if (isProcessingRequestAccounts) {
           res.error = ethErrors.rpc.resourceUnavailable(
-            'Already processing eth_requestAccounts. Please wait.',
+            'Already processing platon_requestAccounts. Please wait.',
           )
           return
         }
 
-        if (hasPermission('eth_accounts')) {
+        if (hasPermission('platon_accounts')) {
           isProcessingRequestAccounts = true
           await getUnlockPromise()
           isProcessingRequestAccounts = false
@@ -87,13 +87,13 @@ export default function createPermissionsMethodMiddleware ({
       // register return handler to send accountsChanged notification
       case 'wallet_requestPermissions':
 
-        if ('eth_accounts' in req.params?.[0]) {
+        if ('platon_accounts' in req.params?.[0]) {
 
           responseHandler = async () => {
 
             if (Array.isArray(res.result)) {
               for (const permission of res.result) {
-                if (permission.parentCapability === 'eth_accounts') {
+                if (permission.parentCapability === 'platon_accounts') {
                   notifyAccountsChanged(await getAccounts())
                 }
               }

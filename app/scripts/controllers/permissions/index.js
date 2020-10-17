@@ -97,7 +97,7 @@ export class PermissionsController {
       hasPermission: this.hasPermission.bind(this, origin),
       notifyAccountsChanged: this.notifyAccountsChanged.bind(this, origin),
       requestAccountsPermission: this._requestPermissions.bind(
-        this, { origin }, { eth_accounts: {} },
+        this, { origin }, { platon_accounts: {} },
       ),
     }))
 
@@ -109,13 +109,13 @@ export class PermissionsController {
   }
 
   /**
-   * Request {@code eth_accounts} permissions
+   * Request {@code platon_accounts} permissions
    * @param {string} origin - The requesting origin
    * @returns {Promise<string>} The permissions request ID
    */
   async requestAccountsPermissionWithId (origin) {
     const id = nanoid()
-    this._requestPermissions({ origin }, { eth_accounts: {} }, id)
+    this._requestPermissions({ origin }, { platon_accounts: {} }, id)
     return id
   }
 
@@ -268,7 +268,7 @@ export class PermissionsController {
   }
 
   /**
-   * Expose an account to the given origin. Changes the eth_accounts
+   * Expose an account to the given origin. Changes the platon_accounts
    * permissions and emits accountsChanged.
    *
    * Throws error if the origin or account is invalid, or if the update fails.
@@ -287,13 +287,13 @@ export class PermissionsController {
 
     const oldPermittedAccounts = this._getPermittedAccounts(origin)
     if (!oldPermittedAccounts) {
-      throw new Error(`Origin does not have 'eth_accounts' permission`)
+      throw new Error(`Origin does not have 'platon_accounts' permission`)
     } else if (oldPermittedAccounts.includes(account)) {
       throw new Error('Account is already permitted for origin')
     }
 
     this.permissions.updateCaveatFor(
-      origin, 'eth_accounts',
+      origin, 'platon_accounts',
       CAVEAT_NAMES.exposedAccounts,
       [...oldPermittedAccounts, account],
     )
@@ -304,9 +304,9 @@ export class PermissionsController {
   }
 
   /**
-   * Removes an exposed account from the given origin. Changes the eth_accounts
+   * Removes an exposed account from the given origin. Changes the platon_accounts
    * permission and emits accountsChanged.
-   * If origin only has a single permitted account, removes the eth_accounts
+   * If origin only has a single permitted account, removes the platon_accounts
    * permission from the origin.
    *
    * Throws error if the origin or account is invalid, or if the update fails.
@@ -325,7 +325,7 @@ export class PermissionsController {
 
     const oldPermittedAccounts = this._getPermittedAccounts(origin)
     if (!oldPermittedAccounts) {
-      throw new Error(`Origin does not have 'eth_accounts' permission`)
+      throw new Error(`Origin does not have 'platon_accounts' permission`)
     } else if (!oldPermittedAccounts.includes(account)) {
       throw new Error('Account is not permitted for origin')
     }
@@ -334,11 +334,11 @@ export class PermissionsController {
       .filter((acc) => acc !== account)
 
     if (newPermittedAccounts.length === 0) {
-      this.removePermissionsFor({ [origin]: [ 'eth_accounts' ] })
+      this.removePermissionsFor({ [origin]: [ 'platon_accounts' ] })
     } else {
 
       this.permissions.updateCaveatFor(
-        origin, 'eth_accounts',
+        origin, 'platon_accounts',
         CAVEAT_NAMES.exposedAccounts,
         newPermittedAccounts,
       )
@@ -350,7 +350,7 @@ export class PermissionsController {
   }
 
   /**
-   * Remove all permissions associated with a particular account. Any eth_accounts
+   * Remove all permissions associated with a particular account. Any platon_accounts
    * permissions left with no permitted accounts will be removed as well.
    *
    * Throws error if the account is invalid, or if the update fails.
@@ -371,7 +371,7 @@ export class PermissionsController {
    * Finalizes a permissions request. Throws if request validation fails.
    * Clones the passed-in parameters to prevent inadvertent modification.
    * Sets (adds or replaces) caveats for the following permissions:
-   * - eth_accounts: the permitted accounts caveat
+   * - platon_accounts: the permitted accounts caveat
    *
    * @param {Object} requestedPermissions - The requested permissions.
    * @param {string[]} requestedAccounts - The accounts to expose, if any.
@@ -382,7 +382,7 @@ export class PermissionsController {
     const finalizedPermissions = cloneDeep(requestedPermissions)
     const finalizedAccounts = cloneDeep(requestedAccounts)
 
-    const { eth_accounts: ethAccounts } = finalizedPermissions
+    const { platon_accounts: ethAccounts } = finalizedPermissions
 
     if (ethAccounts) {
 
@@ -485,7 +485,7 @@ export class PermissionsController {
         origin,
         perms.map((methodName) => {
 
-          if (methodName === 'eth_accounts') {
+          if (methodName === 'platon_accounts') {
             this.notifyAccountsChanged(origin, [])
           }
 
@@ -604,7 +604,7 @@ export class PermissionsController {
    */
   _getPermittedAccounts (origin) {
     const permittedAccounts = this.permissions
-      .getPermission(origin, 'eth_accounts')
+      .getPermission(origin, 'platon_accounts')
       ?.caveats
       ?.find((caveat) => caveat.name === CAVEAT_NAMES.exposedAccounts)
       ?.value
@@ -630,7 +630,7 @@ export class PermissionsController {
     const domains = this.permissions.getDomains() || {}
     const connectedDomains = Object.entries(domains)
       .filter(([_, { permissions }]) => {
-        const ethAccounts = permissions.find((permission) => permission.parentCapability === 'eth_accounts')
+        const ethAccounts = permissions.find((permission) => permission.parentCapability === 'platon_accounts')
         const exposedAccounts = ethAccounts
           ?.caveats
           .find((caveat) => caveat.name === 'exposedAccounts')

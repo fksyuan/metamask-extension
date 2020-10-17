@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import contractMap from 'eth-contract-metadata'
 
 import BlockieIdenticon from './blockieIdenticon'
-import { checksumAddress } from '../../../helpers/utils/util'
+// import { checksumAddress } from '../../../helpers/utils/util'
 import Jazzicon from '../jazzicon'
 
 const getStyles = (diameter) => (
@@ -83,7 +83,7 @@ export default class Identicon extends PureComponent {
     }
 
     if (address) {
-      const checksummedAddress = checksumAddress(address)
+      const checksummedAddress = address
 
       if (contractMap[checksummedAddress] && contractMap[checksummedAddress].logo) {
         return this.renderJazzicon()
@@ -99,7 +99,7 @@ export default class Identicon extends PureComponent {
     return (
       <img
         className={classnames('identicon__eth-logo', className)}
-        src="./images/eth_logo.svg"
+        src="./images/icon-38.png"
         style={getStyles(diameter)}
       />
     )

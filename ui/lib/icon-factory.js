@@ -1,6 +1,6 @@
 let iconFactory
 import { isValidAddress } from 'ethereumjs-util'
-import { checksumAddress } from '../app/helpers/utils/util'
+// import { checksumAddress } from '../app/helpers/utils/util'
 import contractMap from 'eth-contract-metadata'
 
 export default function iconFactoryGenerator (jazzicon) {
@@ -16,7 +16,7 @@ function IconFactory (jazzicon) {
 }
 
 IconFactory.prototype.iconForAddress = function (address, diameter) {
-  const addr = checksumAddress(address)
+  const addr = address
   if (iconExistsFor(addr)) {
     return imageElFor(addr)
   }

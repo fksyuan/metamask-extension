@@ -6,7 +6,7 @@
     "message": "Līguma mijiedarbības"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Alaya-MetaMask",
     "description": "The name of the application"
   },
   "reject": {
@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "Pieslēdzas Ropsten testa tīklam"
   },
-  "connectingToRinkeby": {
-    "message": "Pieslēdzas Rinkeby testa tīklam"
+  "connectingToAlaya": {
+    "message": "Pieslēdzas Alaya testa tīklam"
   },
   "connectingToLocalhost": {
     "message": "Savienojas ar vietējo resursdatoru 8545"
@@ -900,8 +900,8 @@
   "readyToConnect": {
     "message": "Vai esat gatavi izveidot savienojumu?"
   },
-  "rinkeby": {
-    "message": "Rinkeby testa tīkls"
+  "alaya": {
+    "message": "Alaya testa tīkls"
   },
   "ropsten": {
     "message": "Ropsten testa tīkls"

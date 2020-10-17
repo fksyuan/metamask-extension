@@ -9,21 +9,21 @@ const tests = [
   {
     state: {
       useNativeCurrencyAsPrimaryCurrency: true,
-      nativeCurrency: 'ETH',
+      nativeCurrency: 'ATP',
       showFiat: true,
     },
     params: {
       type: 'PRIMARY',
     },
     result: {
-      currency: 'ETH',
+      currency: 'ATP',
       numberOfDecimals: 6,
     },
   },
   {
     state: {
       useNativeCurrencyAsPrimaryCurrency: false,
-      nativeCurrency: 'ETH',
+      nativeCurrency: 'ATP',
       showFiat: true,
     },
     params: {
@@ -37,7 +37,7 @@ const tests = [
   {
     state: {
       useNativeCurrencyAsPrimaryCurrency: true,
-      nativeCurrency: 'ETH',
+      nativeCurrency: 'ATP',
       showFiat: true,
     },
     params: {
@@ -53,7 +53,7 @@ const tests = [
   {
     state: {
       useNativeCurrencyAsPrimaryCurrency: false,
-      nativeCurrency: 'ETH',
+      nativeCurrency: 'ATP',
       showFiat: true,
     },
     params: {
@@ -63,14 +63,14 @@ const tests = [
       fiatPrefix: 'a',
     },
     result: {
-      currency: 'ETH',
+      currency: 'ATP',
       numberOfDecimals: 3,
     },
   },
   {
     state: {
       useNativeCurrencyAsPrimaryCurrency: false,
-      nativeCurrency: 'ETH',
+      nativeCurrency: 'ATP',
       showFiat: false,
     },
     params: {
@@ -84,7 +84,7 @@ const tests = [
   {
     state: {
       useNativeCurrencyAsPrimaryCurrency: false,
-      nativeCurrency: 'ETH',
+      nativeCurrency: 'ATP',
       showFiat: true,
     },
     params: {
@@ -98,7 +98,7 @@ const tests = [
   {
     state: {
       useNativeCurrencyAsPrimaryCurrency: false,
-      nativeCurrency: 'ETH',
+      nativeCurrency: 'ATP',
       showFiat: true,
     },
     params: {

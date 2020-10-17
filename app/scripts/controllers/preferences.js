@@ -372,7 +372,7 @@ export default class PreferencesController {
    */
   setSelectedAddress (_address) {
     let address = _address
-    if (!_address.startsWith('atx')) {
+    if (!(_address.startsWith('atx') || _address.startsWith('atp'))) {
       address = normalizeAddress(_address)
     }
     this._updateTokens(address)
@@ -521,7 +521,7 @@ export default class PreferencesController {
    * @returns {Promise<array>} - Promise resolving to updated frequentRpcList.
    *
    */
-  addToFrequentRpcList (url, chainId, ticker = 'ETH', nickname = '', rpcPrefs = {}) {
+  addToFrequentRpcList (url, chainId, ticker = 'ATP', nickname = '', rpcPrefs = {}) {
     const rpcList = this.getFrequentRpcListDetail()
     const index = rpcList.findIndex((element) => {
       return element.rpcUrl === url

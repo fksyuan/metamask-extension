@@ -28,7 +28,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -426,8 +426,8 @@
   "revealSeedWordsWarning": {
     "message": "อย่าเปิดเผยคำกลุ่มคำชีดของคุณในที่สาธารณะ! คำเหล่านี้สามารถใช้เพื่อขโมยบัญชีทั้งหมดของคุณ"
   },
-  "rinkeby": {
-    "message": "เครือข่ายทดสอบ Rinkeby"
+  "alaya": {
+    "message": "เครือข่ายทดสอบ Alaya"
   },
   "ropsten": {
     "message": "เครือข่ายทดสอบ Ropsten"

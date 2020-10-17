@@ -82,7 +82,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -236,8 +236,8 @@
   "connectingToRopsten": {
     "message": "Povezuje se na Ropsten Test mrežu"
   },
-  "connectingToRinkeby": {
-    "message": "Poezivanje na Rinkeby Test mrežu"
+  "connectingToAlaya": {
+    "message": "Poezivanje na Alaya Test mrežu"
   },
   "connectingToLocalhost": {
     "message": "Povezuje se na lokalnog hosta 8545"
@@ -895,8 +895,8 @@
   "readyToConnect": {
     "message": "Spremni za povezivanje?"
   },
-  "rinkeby": {
-    "message": "Rinkeby test mreža"
+  "alaya": {
+    "message": "Alaya test mreža"
   },
   "ropsten": {
     "message": "Test mreža Ropsten"

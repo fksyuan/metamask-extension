@@ -194,6 +194,7 @@ export default class MetamaskController extends EventEmitter {
       keyringTypes: additionalKeyrings,
       initState: initState.KeyringController,
       getNetwork: this.networkController.getNetworkState.bind(this.networkController),
+      hrp: this.networkController.getNetworkState() === '201018' ? 'atp' : 'atx',
       encryptor: opts.encryptor || undefined,
     })
     this.keyringController.memStore.subscribe((s) => this._onKeyringControllerUpdate(s))
@@ -344,7 +345,7 @@ export default class MetamaskController extends EventEmitter {
       version,
       // account mgmt
       getAccounts: async ({ origin }) => {
-        if (origin === 'metamask') {
+        if (origin === 'alaya-metamask') {
           const selectedAddress = this.preferencesController.getSelectedAddress()
           return selectedAddress ? [selectedAddress] : []
         } else if (this.isUnlocked()) {
@@ -597,6 +598,7 @@ export default class MetamaskController extends EventEmitter {
       } else {
         vault = await this.keyringController.createNewVaultAndKeychain(password)
         const accounts = await this.keyringController.getAccounts()
+        log.info('createNewVaultAndKeychain - accounts: ', accounts)
         this.preferencesController.setAddresses(accounts)
         this.selectFirstIdentity()
       }
@@ -639,12 +641,13 @@ export default class MetamaskController extends EventEmitter {
       const vault = await keyringController.createNewVaultAndRestore(password, seed)
 
       const ethQuery = new EthQuery(this.provider)
-      accounts = await keyringController.getAccounts()
+      accounts = await keyringController.getAccounts(this.networkController.getNetworkState() === '201018' ? 'atp' : 'atx')
+      log.info('createNewVaultAndRestore - accounts: ', accounts)
       lastBalance = await this.getBalance(accounts[accounts.length - 1], ethQuery)
 
       const primaryKeyring = keyringController.getKeyringsByType('HD Key Tree')[0]
       if (!primaryKeyring) {
-        throw new Error('MetamaskController - No HD Key Tree found')
+        throw new Error('Alaya-MetamaskController - No HD Key Tree found')
       }
 
       // seek out the first zero balance
@@ -712,13 +715,13 @@ export default class MetamaskController extends EventEmitter {
     // Filter ERC20 tokens
     const filteredAccountTokens = {}
     Object.keys(accountTokens).forEach((address) => {
-      const checksummedAddress = ethUtil.toChecksumAddress(address)
+      const checksummedAddress = address
       filteredAccountTokens[checksummedAddress] = {}
       Object.keys(accountTokens[address]).forEach(
         (networkType) => (filteredAccountTokens[checksummedAddress][networkType] = networkType !== 'mainnet' ?
           accountTokens[address][networkType] :
           accountTokens[address][networkType].filter(({ address }) => {
-            const tokenAddress = ethUtil.toChecksumAddress(address)
+            const tokenAddress = address
             return contractMap[tokenAddress] ? contractMap[tokenAddress].erc20 : true
           })
         ),
@@ -737,14 +740,14 @@ export default class MetamaskController extends EventEmitter {
     // Accounts
     const hdKeyring = this.keyringController.getKeyringsByType('HD Key Tree')[0]
     const simpleKeyPairKeyrings = this.keyringController.getKeyringsByType('Simple Key Pair')
-    const hdAccounts = await hdKeyring.getAccounts()
+    const hdAccounts = await hdKeyring.getAccounts(this.networkController.getNetworkState() === '201018' ? 'atp' : 'atx')
     const simpleKeyPairKeyringAccounts = await Promise.all(
-      simpleKeyPairKeyrings.map((keyring) => keyring.getAccounts()),
+      simpleKeyPairKeyrings.map((keyring) => keyring.getAccounts(this.networkController.getNetworkState() === '201018' ? 'atp' : 'atx')),
     )
     const simpleKeyPairAccounts = simpleKeyPairKeyringAccounts.reduce((acc, accounts) => [...acc, ...accounts], [])
     const accounts = {
-      hd: hdAccounts.filter((item, pos) => (hdAccounts.indexOf(item) === pos)).map((address) => ethUtil.toChecksumAddress(address)),
-      simpleKeyPair: simpleKeyPairAccounts.filter((item, pos) => (simpleKeyPairAccounts.indexOf(item) === pos)).map((address) => ethUtil.toChecksumAddress(address)),
+      hd: hdAccounts.filter((item, pos) => (hdAccounts.indexOf(item) === pos)).map((address) => address.toLowerCase()),
+      simpleKeyPair: simpleKeyPairAccounts.filter((item, pos) => (simpleKeyPairAccounts.indexOf(item) === pos)).map((address) => address.toLowerCase()),
       ledger: [],
       trezor: [],
     }
@@ -754,7 +757,7 @@ export default class MetamaskController extends EventEmitter {
     let transactions = this.txController.store.getState().transactions
     // delete tx for other accounts that we're not importing
     transactions = transactions.filter((tx) => {
-      const checksummedTxFrom = ethUtil.toChecksumAddress(tx.txParams.from)
+      const checksummedTxFrom = tx.txParams.from.toLowerCase()
       return (
         accounts.hd.includes(checksummedTxFrom)
       )
@@ -843,7 +846,7 @@ export default class MetamaskController extends EventEmitter {
         keyringName = LedgerBridgeKeyring.type
         break
       default:
-        throw new Error('MetamaskController:getKeyringForDevice - Unknown device')
+        throw new Error('Alaya-MetamaskController:getKeyringForDevice - Unknown device')
     }
     let keyring = await this.keyringController.getKeyringsByType(keyringName)[0]
     if (!keyring) {
@@ -986,13 +989,13 @@ export default class MetamaskController extends EventEmitter {
     const serialized = await primaryKeyring.serialize()
     const seedWords = serialized.mnemonic
 
-    const accounts = await primaryKeyring.getAccounts()
+    const accounts = await primaryKeyring.getAccounts(this.networkController.getNetworkState() === '201018' ? 'atp' : 'atx')
     if (accounts.length < 1) {
       throw new Error('MetamaskController - No accounts found')
     }
 
     try {
-      await seedPhraseVerifier.verifyAccounts(accounts, seedWords)
+      await seedPhraseVerifier.verifyAccounts(accounts, seedWords, { hrp: this.networkController.getNetworkState() === '201018' ? 'atp' : 'atx' })
       return seedWords
     } catch (err) {
       log.error(err.message)
@@ -1047,7 +1050,7 @@ export default class MetamaskController extends EventEmitter {
   async importAccountWithStrategy (strategy, args) {
     const privateKey = await accountImporter.importAccount(strategy, args)
     const keyring = await this.keyringController.addNewKeyring('Simple Key Pair', [ privateKey ])
-    const accounts = await keyring.getAccounts()
+    const accounts = await keyring.getAccounts(this.networkController.getNetworkState() === '201018' ? 'atp' : 'atx')
     // update accounts in preferences controller
     const allAccounts = await this.keyringController.getAccounts()
     this.preferencesController.setAddresses(allAccounts)
@@ -1482,8 +1485,8 @@ export default class MetamaskController extends EventEmitter {
     const mux = setupMultiplex(connectionStream)
 
     // messages between inpage and background
-    this.setupProviderConnection(mux.createStream('provider'), sender)
-    this.setupPublicConfig(mux.createStream('publicConfig'))
+    this.setupProviderConnection(mux.createStream('providera'), sender)
+    this.setupPublicConfig(mux.createStream('publicConfiga'))
   }
 
   /**
@@ -1500,7 +1503,7 @@ export default class MetamaskController extends EventEmitter {
     const mux = setupMultiplex(connectionStream)
     // connect features
     this.setupControllerConnection(mux.createStream('controller'))
-    this.setupProviderConnection(mux.createStream('provider'), sender, true)
+    this.setupProviderConnection(mux.createStream('providera'), sender, true)
   }
 
   /**
@@ -1514,7 +1517,7 @@ export default class MetamaskController extends EventEmitter {
    */
   sendPhishingWarning (connectionStream, hostname) {
     const mux = setupMultiplex(connectionStream)
-    const phishingStream = mux.createStream('phishing')
+    const phishingStream = mux.createStream('phishinga')
     phishingStream.write({ hostname })
   }
 
@@ -1560,7 +1563,7 @@ export default class MetamaskController extends EventEmitter {
    */
   setupProviderConnection (outStream, sender, isInternal) {
     const origin = isInternal
-      ? 'metamask'
+      ? 'alaya-metamask'
       : (new URL(sender.url)).origin
     let extensionId
     if (sender.id !== extension.runtime.id) {
@@ -1688,7 +1691,7 @@ export default class MetamaskController extends EventEmitter {
    */
   addConnection (origin, { engine }) {
 
-    if (origin === 'metamask') {
+    if (origin === 'alaya-metamask') {
       return null
     }
 
@@ -1912,7 +1915,7 @@ export default class MetamaskController extends EventEmitter {
    * @returns {Promise<String>} - The RPC Target URL confirmed.
    */
 
-  async updateAndSetCustomRpc (rpcUrl, chainId, ticker = 'ETH', nickname, rpcPrefs) {
+  async updateAndSetCustomRpc (rpcUrl, chainId, ticker = 'ATP', nickname, rpcPrefs) {
     await this.preferencesController.updateRpc({ rpcUrl, chainId, ticker, nickname, rpcPrefs })
     this.networkController.setRpcTarget(rpcUrl, chainId, ticker, nickname, rpcPrefs)
     return rpcUrl
@@ -1927,7 +1930,7 @@ export default class MetamaskController extends EventEmitter {
    * @param {string} nickname - Optional nickname of the selected network.
    * @returns {Promise<String>} - The RPC Target URL confirmed.
    */
-  async setCustomRpc (rpcTarget, chainId, ticker = 'ETH', nickname = '', rpcPrefs = {}) {
+  async setCustomRpc (rpcTarget, chainId, ticker = 'ATP', nickname = '', rpcPrefs = {}) {
     const frequentRpcListDetail = this.preferencesController.getFrequentRpcListDetail()
     const rpcSettings = frequentRpcListDetail.find((rpc) => rpcTarget === rpc.rpcUrl)
 

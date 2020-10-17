@@ -39,7 +39,7 @@ export default class EnsController {
   }
 
   reverseResolveAddress (address) {
-    return this._reverseResolveAddress(ethUtil.toChecksumAddress(address))
+    return this._reverseResolveAddress(address.toLowerCase)
   }
 
   async _reverseResolveAddress (address) {
@@ -72,7 +72,7 @@ export default class EnsController {
       return undefined
     }
 
-    if (ethUtil.toChecksumAddress(registeredAddress) !== address) {
+    if (registeredAddress !== address) {
       return undefined
     }
 

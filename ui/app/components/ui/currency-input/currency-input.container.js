@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import CurrencyInput from './currency-input.component'
-import { ETH } from '../../../helpers/constants/common'
+import { ATP } from '../../../helpers/constants/common'
 import {
   getSendMaxModeState,
   getIsMainnet,
@@ -29,7 +29,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...stateProps,
     ...dispatchProps,
     ...ownProps,
-    nativeSuffix: nativeCurrency || ETH,
+    nativeSuffix: nativeCurrency || ATP,
     fiatSuffix: currentCurrency.toUpperCase(),
   }
 }

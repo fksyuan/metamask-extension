@@ -4,7 +4,7 @@ import createAsyncMiddleware from 'json-rpc-engine/src/createAsyncMiddleware'
 export function createPendingNonceMiddleware ({ getPendingNonce }) {
   return createAsyncMiddleware(async (req, res, next) => {
     const { method, params } = req
-    if (method !== 'eth_getTransactionCount') {
+    if (method !== 'platon_getTransactionCount') {
       return next()
     }
     const [param, blockRef] = params
@@ -18,7 +18,7 @@ export function createPendingNonceMiddleware ({ getPendingNonce }) {
 export function createPendingTxMiddleware ({ getPendingTransactionByHash }) {
   return createAsyncMiddleware(async (req, res, next) => {
     const { method, params } = req
-    if (method !== 'eth_getTransactionByHash') {
+    if (method !== 'platon_getTransactionByHash') {
       return next()
     }
     const [hash] = params

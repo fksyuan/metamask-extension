@@ -36,10 +36,10 @@ function injectScript (content) {
     const scriptTag = document.createElement('script')
     scriptTag.setAttribute('async', 'false')
     scriptTag.textContent = content
-    container.insertBefore(scriptTag, container.children[0])
+    container.insertBefore(scriptTag, container.children[1])
     container.removeChild(scriptTag)
   } catch (e) {
-    console.error('MetaMask provider injection failed.', e)
+    console.error('Alaya-MetaMask provider injection failed.', e)
   }
 }
 
@@ -60,8 +60,8 @@ async function start () {
 async function setupStreams () {
   // the transport-specific streams for communication between inpage and background
   const pageStream = new LocalMessageDuplexStream({
-    name: 'contentscript',
-    target: 'inpage',
+    name: 'contentscripta',
+    target: 'inpagea',
   })
   const extensionPort = extension.runtime.connect({ name: 'contentscript' })
   const extensionStream = new PortStream(extensionPort)
@@ -77,21 +77,21 @@ async function setupStreams () {
     pageMux,
     pageStream,
     pageMux,
-    (err) => logStreamDisconnectWarning('MetaMask Inpage Multiplex', err),
+    (err) => logStreamDisconnectWarning('Alaya-MetaMask Inpage Multiplex', err),
   )
   pump(
     extensionMux,
     extensionStream,
     extensionMux,
-    (err) => logStreamDisconnectWarning('MetaMask Background Multiplex', err),
+    (err) => logStreamDisconnectWarning('Alaya-MetaMask Background Multiplex', err),
   )
 
   // forward communication across inpage-background for these channels only
-  forwardTrafficBetweenMuxers('provider', pageMux, extensionMux)
-  forwardTrafficBetweenMuxers('publicConfig', pageMux, extensionMux)
+  forwardTrafficBetweenMuxers('providera', pageMux, extensionMux)
+  forwardTrafficBetweenMuxers('publicConfiga', pageMux, extensionMux)
 
   // connect "phishing" channel to warning system
-  const phishingStream = extensionMux.createStream('phishing')
+  const phishingStream = extensionMux.createStream('phishinga')
   phishingStream.once('data', redirectToPhishingWarning)
 }
 
@@ -214,7 +214,7 @@ function blockedDomainCheck () {
  * Redirects the current page to a phishing information page
  */
 function redirectToPhishingWarning () {
-  console.log('MetaMask - routing to Phishing Warning component')
+  console.log('Alaya-MetaMask - routing to Phishing Warning component')
   const extensionURL = extension.runtime.getURL('phishing.html')
   window.location.href = `${extensionURL}#${querystring.stringify({
     hostname: window.location.hostname,

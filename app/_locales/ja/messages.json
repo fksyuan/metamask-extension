@@ -79,7 +79,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -390,8 +390,8 @@
   "revealSeedWords": {
     "message": "パスフレーズを表示"
   },
-  "rinkeby": {
-    "message": "Rinkebyテストネットワーク"
+  "alaya": {
+    "message": "Alayaテストネットワーク"
   },
   "ropsten": {
     "message": "Ropstenテストネットワーク"

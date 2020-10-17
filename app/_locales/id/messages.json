@@ -6,7 +6,7 @@
     "message": "Interaksi Kontrak"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "reject": {
@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "Menghubungkan ke Jaringan Uji Coba Ropsten "
   },
-  "connectingToRinkeby": {
-    "message": "Menghubungkan ke Jaringan Uji Coba Rinkeby  "
+  "connectingToAlaya": {
+    "message": "Menghubungkan ke Jaringan Uji Coba Alaya  "
   },
   "connectingToLocalhost": {
     "message": "Menghubungkan ke Localhost 8545"
@@ -885,8 +885,8 @@
   "readyToConnect": {
     "message": "Siap untuk Menyambung?"
   },
-  "rinkeby": {
-    "message": "Jaringan Uji Rinkeby"
+  "alaya": {
+    "message": "Jaringan Uji Alaya"
   },
   "ropsten": {
     "message": "Jaringan Tes Ropsten"

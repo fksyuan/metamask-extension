@@ -25,7 +25,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -82,8 +82,8 @@
   "connectingToRopsten": {
     "message": "Соединение с тестовой сетью Ropsten"
   },
-  "connectingToRinkeby": {
-    "message": "Соединение с тестовой сетью Rinkeby"
+  "connectingToAlaya": {
+    "message": "Соединение с тестовой сетью Alaya"
   },
   "continueToCoinSwitch": {
     "message": "Продолжить в CoinSwitch"
@@ -363,8 +363,8 @@
   "revealSeedWordsWarning": {
     "message": "Не восстанавливайте ключевую фразу в общественном месте! Она может быть использована для кражи всех ваших счетов."
   },
-  "rinkeby": {
-    "message": "Тестовая сеть Rinkeby"
+  "alaya": {
+    "message": "Тестовая сеть Alaya"
   },
   "ropsten": {
     "message": "Тестовая сеть Ropsten"

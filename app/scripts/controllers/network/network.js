@@ -7,7 +7,6 @@ import JsonRpcEngine from 'json-rpc-engine'
 import providerFromEngine from 'eth-json-rpc-middleware/providerFromEngine'
 import log from 'loglevel'
 import createMetamaskMiddleware from './createMetamaskMiddleware'
-import createInfuraClient from './createInfuraClient'
 import createJsonRpcClient from './createJsonRpcClient'
 import createLocalhostClient from './createLocalhostClient'
 import { createSwappableProxy, createEventEmitterProxy } from 'swappable-obj-proxy'
@@ -15,30 +14,39 @@ import { createSwappableProxy, createEventEmitterProxy } from 'swappable-obj-pro
 const networks = { networkList: {} }
 
 import {
-  RINKEBY,
+  ALAYA,
   MAINNET,
   LOCALHOST,
   INFURA_PROVIDER_TYPES,
 } from './enums'
+import { defaultNetworksData } from './network-constants'
 
 const env = process.env.METAMASK_ENV
 const METAMASK_DEBUG = process.env.METAMASK_DEBUG
 
 let defaultProviderConfigType
+let defaultProviderConfigURL
+let defaultProviderConfigChainID
 if (process.env.IN_TEST === 'true') {
   defaultProviderConfigType = LOCALHOST
 } else if (METAMASK_DEBUG || env === 'test') {
-  defaultProviderConfigType = RINKEBY
+  defaultProviderConfigType = ALAYA
+  defaultProviderConfigURL = defaultNetworksData['alaya'].rpcTarget
+  defaultProviderConfigChainID = defaultNetworksData['alaya'].chainId
 } else {
   defaultProviderConfigType = MAINNET
+  defaultProviderConfigURL = defaultNetworksData['mainnet'].rpcTarget
+  defaultProviderConfigChainID = defaultNetworksData['mainnet'].chainId
 }
 
 const defaultProviderConfig = {
   type: defaultProviderConfigType,
+  rpcTarget: defaultProviderConfigURL,
+  chainId: defaultProviderConfigChainID,
 }
 
 const defaultNetworkConfig = {
-  ticker: 'ETH',
+  ticker: 'ATP',
 }
 
 export default class NetworkController extends EventEmitter {
@@ -65,13 +73,7 @@ export default class NetworkController extends EventEmitter {
   initializeProvider (providerParams) {
     this._baseProviderParams = providerParams
     const { type, rpcTarget, chainId, ticker, nickname } = this.providerStore.getState()
-    this._configureProvider({
-      type: 'rpc',
-      rpcTarget: 'http://192.168.33.203:6789',
-      chainId: '201030',
-      ticker: ticker,
-      nickname: nickname,
-    })
+    this._configureProvider({ type, rpcTarget, chainId, ticker, nickname })
     this.lookupNetwork()
   }
 
@@ -128,13 +130,18 @@ export default class NetworkController extends EventEmitter {
         if (err) {
           return this.setNetworkState('loading')
         }
+        if (defaultNetworksData[type]) {
+          network = defaultNetworksData[type].chainId
+        } else {
+          network = this.networkConfig.getState().chainId
+        }
         log.info('web3.getNetwork returned ' + network)
         this.setNetworkState(network, type)
       }
     })
   }
 
-  setRpcTarget (rpcTarget, chainId, ticker = 'ETH', nickname = '', rpcPrefs) {
+  setRpcTarget (rpcTarget, chainId, ticker = 'ATP', nickname = '', rpcPrefs) {
     const providerConfig = {
       type: 'rpc',
       rpcTarget,
@@ -146,9 +153,12 @@ export default class NetworkController extends EventEmitter {
     this.providerConfig = providerConfig
   }
 
-  async setProviderType (type, rpcTarget = '', ticker = 'ETH', nickname = '') {
+  async setProviderType (type, rpcTarget = '', ticker = 'ATP', nickname = '') {
     assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
     assert(INFURA_PROVIDER_TYPES.includes(type) || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
+    if (rpcTarget === '') {
+      rpcTarget = defaultNetworksData[type].rpcTarget
+    }
     const providerConfig = { type, rpcTarget, ticker, nickname }
     this.providerConfig = providerConfig
   }
@@ -172,9 +182,6 @@ export default class NetworkController extends EventEmitter {
 
   _switchNetwork (opts) {
     this.setNetworkState('loading')
-    opts.type = 'rpc'
-    opts.rpcTarget = 'http://192.168.33.203:6789'
-    opts.chainId = '201030'
     this._configureProvider(opts)
     this.emit('networkDidChange', opts.type)
   }
@@ -198,15 +205,22 @@ export default class NetworkController extends EventEmitter {
 
   _configureInfuraProvider ({ type }) {
     log.info('NetworkController - configureInfuraProvider', type)
-    const networkClient = createInfuraClient({
-      network: type,
-    })
-    this._setNetworkClient(networkClient)
-    // setup networkConfig
-    const settings = {
-      ticker: 'ETH',
+    const rpcUrl = defaultNetworksData[type].rpcTarget
+    const networkClient = createJsonRpcClient({ rpcUrl })
+    networks.networkList[type] = {
+      chainId: defaultNetworksData[type].chainId,
+      rpcUrl,
+      ticker: defaultNetworksData[type].ticker || 'ATP',
+      nickname: defaultNetworksData[type].providerType,
     }
+    // setup networkConfig
+    let settings = {
+      network: defaultNetworksData[type].chainId,
+      ticker: 'ATP',
+    }
+    settings = Object.assign(settings, networks.networkList['rpc'])
     this.networkConfig.putState(settings)
+    this._setNetworkClient(networkClient)
   }
 
   _configureLocalhostProvider () {
@@ -222,7 +236,7 @@ export default class NetworkController extends EventEmitter {
     networks.networkList['rpc'] = {
       chainId,
       rpcUrl,
-      ticker: ticker || 'ETH',
+      ticker: ticker || 'ATP',
       nickname,
     }
     // setup networkConfig

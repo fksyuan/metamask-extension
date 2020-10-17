@@ -20,7 +20,7 @@ export default function createMetamaskMiddleware ({
   const metamaskMiddleware = mergeMiddleware([
     createScaffoldMiddleware({
       // staticSubprovider
-      eth_syncing: false,
+      platon_syncing: false,
       web3_clientVersion: `MetaMask/v${version}`,
     }),
     createWalletSubprovider({

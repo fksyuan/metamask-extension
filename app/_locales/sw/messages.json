@@ -6,7 +6,7 @@
     "message": "Mwingiliono wa Mkataba"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "reject": {
@@ -233,8 +233,8 @@
   "connectingToRopsten": {
     "message": "Inaunganisha kwenye Mtandao wa Majaribio wa Ropsten"
   },
-  "connectingToRinkeby": {
-    "message": "Inaunganisha kwenye Mtandao wa Majaribio wa Rinkeby"
+  "connectingToAlaya": {
+    "message": "Inaunganisha kwenye Mtandao wa Majaribio wa Alaya"
   },
   "connectingToLocalhost": {
     "message": "Inaunganisha kwenye Localhost 8545"
@@ -882,8 +882,8 @@
   "readyToConnect": {
     "message": "Uko tayari Kuunganisha?"
   },
-  "rinkeby": {
-    "message": "Mtandao wa Majaribio wa Rinkeby"
+  "alaya": {
+    "message": "Mtandao wa Majaribio wa Alaya"
   },
   "ropsten": {
     "message": "Mtandao wa Majaribio wa Ropsten"

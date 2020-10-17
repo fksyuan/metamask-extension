@@ -291,8 +291,8 @@ export default class Routes extends Component {
         return this.context.t('connectingToRopsten')
       case 'kovan':
         return this.context.t('connectingToKovan')
-      case 'rinkeby':
-        return this.context.t('connectingToRinkeby')
+      case 'alaya':
+        return this.context.t('connectingToAlaya')
       case 'localhost':
         return this.context.t('connectingToLocalhost')
       case 'goerli':
@@ -310,8 +310,8 @@ export default class Routes extends Component {
         return this.context.t('ropsten')
       case 'kovan':
         return this.context.t('kovan')
-      case 'rinkeby':
-        return this.context.t('rinkeby')
+      case 'alaya':
+        return this.context.t('alaya')
       case 'localhost':
         return this.context.t('localhost')
       case 'goerli':

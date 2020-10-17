@@ -82,7 +82,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -239,7 +239,7 @@
   "connectingToRopsten": {
     "message": "রপস্টেন টেস্ট নেটওয়ার্কের সাথে সংযোগ করছে"
   },
-  "connectingToRinkeby": {
+  "connectingToAlaya": {
     "message": "রিঙ্কেবি টেস্ট নেটওয়ার্কের সাথে সংযোগ করছে"
   },
   "connectingToLocalhost": {
@@ -904,7 +904,7 @@
   "readyToConnect": {
     "message": "সংযোগ করার জন্য প্রস্তুত?"
   },
-  "rinkeby": {
+  "alaya": {
     "message": "রিঙ্কেবি টেস্ট নেটওয়ার্ক"
   },
   "ropsten": {

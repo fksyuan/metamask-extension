@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   const { recipientAddress, senderAddress } = ownProps
   let recipientEns
   if (recipientAddress) {
-    const address = checksumAddress(recipientAddress)
+    const address = recipientAddress.toLowerCase()
     recipientEns = ensResolutionsByAddress[address] || ''
   }
   const addressBook = getAddressBook(state)

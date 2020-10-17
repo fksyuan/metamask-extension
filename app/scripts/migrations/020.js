@@ -29,7 +29,7 @@ export default {
 
 function transformState (state) {
   const newState = state
-  if ('metamask' in newState &&
+  if ('alaya-metamask' in newState &&
       !('firstTimeInfo' in newState.metamask)) {
     newState.metamask.firstTimeInfo = {
       version: '3.12.0',

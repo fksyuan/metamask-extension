@@ -6,7 +6,7 @@
     "message": "Szerződéses interakció"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "reject": {
@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "Csatlakozás a Ropsten teszthálózathoz"
   },
-  "connectingToRinkeby": {
-    "message": "Kapcsolódás a Rinkeby Teszthálózathoz"
+  "connectingToAlaya": {
+    "message": "Kapcsolódás a Alaya Teszthálózathoz"
   },
   "connectingToLocalhost": {
     "message": "Csatlakozás a Localhost 8645-höz"
@@ -897,8 +897,8 @@
   "readyToConnect": {
     "message": "Készen áll a csatlakozásra?"
   },
-  "rinkeby": {
-    "message": "Rinkeby teszthálózat"
+  "alaya": {
+    "message": "Alaya teszthálózat"
   },
   "ropsten": {
     "message": "Ropsten teszthálózat"

@@ -6,7 +6,7 @@
     "message": "Interação do Contrato"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "reject": {
@@ -233,8 +233,8 @@
   "connectingToRopsten": {
     "message": "Conectando à Rede de Testes Ropsten"
   },
-  "connectingToRinkeby": {
-    "message": "Conectando-se à rede de teste Rinkeby"
+  "connectingToAlaya": {
+    "message": "Conectando-se à rede de teste Alaya"
   },
   "connectingToLocalhost": {
     "message": "Conectando ao Localhost 8545"
@@ -892,8 +892,8 @@
   "readyToConnect": {
     "message": "Pronto para Conectar?"
   },
-  "rinkeby": {
-    "message": "Rede de Testes Rinkeby"
+  "alaya": {
+    "message": "Rede de Testes Alaya"
   },
   "ropsten": {
     "message": "Rede de Testes Ropsten"

@@ -89,7 +89,7 @@ export default class ThreeBoxController {
           lastMigration: this.lastMigration,
         }
 
-        await this.space.private.set('metamaskBackup', JSON.stringify(newState))
+        await this.space.private.set('alaya-metamaskBackup', JSON.stringify(newState))
         await this.setShowRestorePromptToFalse()
       }
     } catch (error) {
@@ -144,7 +144,7 @@ export default class ThreeBoxController {
       try {
         this.box = await Box.openBox(this.address, this.provider)
         await this._waitForOnSyncDone()
-        this.space = await this.box.openSpace('metamask', {
+        this.space = await this.box.openSpace('alaya-metamask', {
           onSyncDone: async () => {
             const stateUpdate = {
               threeBoxSynced: true,
@@ -169,7 +169,7 @@ export default class ThreeBoxController {
   }
 
   async getLastUpdated () {
-    const res = await this.space.private.get('metamaskBackup')
+    const res = await this.space.private.get('alaya-metamaskBackup')
     const parsedRes = JSON.parse(res || '{}')
     return parsedRes.lastUpdated
   }
@@ -190,7 +190,7 @@ export default class ThreeBoxController {
   }
 
   async restoreFromThreeBox () {
-    const backedUpState = await this.space.private.get('metamaskBackup')
+    const backedUpState = await this.space.private.get('alaya-metamaskBackup')
     const {
       preferences,
       addressBook,

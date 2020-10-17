@@ -16,12 +16,12 @@ const seedPhraseVerifier = {
    * @returns {Promise<void>} - Promises undefined
    *
   */
-  async verifyAccounts (createdAccounts, seedWords) {
+  async verifyAccounts (createdAccounts, seedWords, opt = {}) {
     if (!createdAccounts || createdAccounts.length < 1) {
       throw new Error('No created accounts defined.')
     }
 
-    const keyringController = new KeyringController({})
+    const keyringController = new KeyringController(opt)
     const Keyring = keyringController.getKeyringClassForType('HD Key Tree')
     const opts = {
       mnemonic: seedWords,
@@ -29,7 +29,7 @@ const seedPhraseVerifier = {
     }
 
     const keyring = new Keyring(opts)
-    const restoredAccounts = await keyring.getAccounts()
+    const restoredAccounts = await keyring.getAccounts(opt.hrp)
     log.debug('Created accounts: ' + JSON.stringify(createdAccounts))
     log.debug('Restored accounts: ' + JSON.stringify(restoredAccounts))
 

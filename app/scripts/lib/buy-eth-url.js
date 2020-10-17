@@ -21,8 +21,8 @@ export default function getBuyEthUrl ({ network, address, service }) {
       return `https://metamask.coinswitch.co/?address=${address}&to=eth`
     case 'metamask-faucet':
       return 'https://faucet.metamask.io/'
-    case 'rinkeby-faucet':
-      return 'https://www.rinkeby.io/'
+    case 'alaya-faucet':
+      return 'https://www.alaya.io/'
     case 'kovan-faucet':
       return 'https://github.com/kovan-testnet/faucet'
     case 'goerli-faucet':
@@ -38,8 +38,8 @@ function getDefaultServiceForNetwork (network) {
       return 'wyre'
     case '3':
       return 'metamask-faucet'
-    case '4':
-      return 'rinkeby-faucet'
+    case '201018':
+      return 'alaya-faucet'
     case '42':
       return 'kovan-faucet'
     case '5':

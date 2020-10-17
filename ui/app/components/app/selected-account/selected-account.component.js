@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import copyToClipboard from 'copy-to-clipboard'
-import { shortenAddress, checksumAddress } from '../../../helpers/utils/util'
+import { shortenAddress } from '../../../helpers/utils/util'
 
 import Tooltip from '../../ui/tooltip-v2.js'
 
@@ -21,7 +21,7 @@ class SelectedAccount extends Component {
   render () {
     const { t } = this.context
     const { selectedIdentity } = this.props
-    const checksummedAddress = checksumAddress(selectedIdentity.address)
+    const checksummedAddress = selectedIdentity.address.toLowerCase()
 
     return (
       <div className="selected-account">

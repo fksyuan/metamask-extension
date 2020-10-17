@@ -2,7 +2,7 @@ import urlUtil from 'url'
 import extension from 'extensionizer'
 import resolveEnsToIpfsContentId from './resolver.js'
 
-const supportedTopLevelDomains = ['eth']
+const supportedTopLevelDomains = ['ATP']
 
 export default function setupEnsIpfsResolver ({ provider, getCurrentNetwork, getIpfsGateway }) {
 

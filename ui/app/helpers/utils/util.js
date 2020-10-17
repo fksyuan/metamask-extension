@@ -54,7 +54,8 @@ export function addressSummary (address, firstSegLength = 10, lastSegLength = 4,
   if (!address) {
     return ''
   }
-  let checked = checksumAddress(address)
+  // let checked = checksumAddress(address)
+  let checked = address
   if (!includeHex) {
     checked = ethUtil.stripHexPrefix(checked)
   }
@@ -65,11 +66,12 @@ export function isValidAddress (address) {
   if (!address || address === '0x0000000000000000000000000000000000000000') {
     return false
   }
-  const prefixed = address.startsWith('atx') ? address : ethUtil.addHexPrefix(address)
-  if (prefixed.startsWith('atx')) {
+  const prefixAt = address.startsWith('atx') || address.startsWith('atp')
+  const prefixed = prefixAt ? address : ethUtil.addHexPrefix(address)
+  if (prefixAt) {
     return ethUtil.isBech32Address(prefixed)
   }
-  return (isAllOneCase(prefixed.slice(2)) && ethUtil.isValidAddress(prefixed)) || ethUtil.isValidChecksumAddress(prefixed)
+  return false //(isAllOneCase(prefixed.slice(2)) && ethUtil.isValidAddress(prefixed)) || prefixed.toLowerCase()
 }
 
 export function isValidDomainName (address) {
@@ -117,7 +119,7 @@ export function parseBalance (balance) {
 
 // Takes wei hex, returns an object with three properties.
 // Its "formatted" property is what we generally use to render values.
-export function formatBalance (balance, decimalsToKeep, needsParse = true, ticker = 'ETH') {
+export function formatBalance (balance, decimalsToKeep, needsParse = true, ticker = 'ATP') {
   const parsed = needsParse ? parseBalance(balance) : balance.split('.')
   const beforeDecimal = parsed[0]
   let afterDecimal = parsed[1]
@@ -291,10 +293,7 @@ export function shortenAddress (address = '') {
 }
 
 export function isValidAddressHead (address) {
-  const addressLengthIsLessThanFull = address.length < 42
-  const addressIsHex = isHex(address)
-
-  return addressLengthIsLessThanFull && addressIsHex
+  return /^a[t]{0,1}[px]{0,1}[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{0,38}$/i.test(address)
 }
 
 export function getAccountByAddress (accounts = [], targetAddress) {

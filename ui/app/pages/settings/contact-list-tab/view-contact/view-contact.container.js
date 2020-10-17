@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getAddressBookEntry } from '../../../../selectors'
-import { checksumAddress } from '../../../../helpers/utils/util'
+// import { checksumAddress } from '../../../../helpers/utils/util'
 import {
   CONTACT_EDIT_ROUTE,
   CONTACT_LIST_ROUTE,
@@ -27,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     name,
     address: contact ? address : null,
-    checkSummedAddress: checksumAddress(address),
+    checkSummedAddress: address.toLowerCase(),
     memo,
     editRoute: showingMyAccounts ? CONTACT_MY_ACCOUNTS_EDIT_ROUTE : CONTACT_EDIT_ROUTE,
     listRoute: showingMyAccounts ? CONTACT_MY_ACCOUNTS_ROUTE : CONTACT_LIST_ROUTE,

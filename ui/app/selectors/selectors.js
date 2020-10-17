@@ -1,9 +1,8 @@
 import { NETWORK_TYPES } from '../helpers/constants/common'
-import { stripHexPrefix, addHexPrefix, toBech32Address } from 'ethereumjs-util'
+import { stripHexPrefix, addHexPrefix, toBech32Address, decodeBech32Address } from 'ethereumjs-util'
 import { createSelector } from 'reselect'
 import {
   shortenAddress,
-  checksumAddress,
   getAccountByAddress,
 } from '../helpers/utils/util'
 import { getPermissionsRequestCount } from './permissions'
@@ -73,14 +72,32 @@ export const getMetaMaskAccounts = createSelector(
 )
 
 export function getSelectedAddress (state) {
+  const address = state.metamask.selectedAddress
+  const hrp = state.metamask.network === '201018' ? 'atp' : 'atx'
+  if (address && !address.startsWith(hrp)) {
+    state.metamask.selectedAddress = toBech32Address(hrp, decodeBech32Address(address))
+  }
   return state.metamask.selectedAddress
 }
 
 export function getSelectedIdentity (state) {
   const selectedAddress = getSelectedAddress(state)
   const identities = state.metamask.identities
-
-  return identities[selectedAddress]
+  const newIdentities = {}
+  const hrp = state.metamask.network === '201018' ? 'atp' : 'atx'
+  Object.keys(identities).map((identity) => {
+    if (!identity.startsWith(hrp)) {
+      const addr = toBech32Address(hrp, decodeBech32Address(identity))
+      newIdentities[addr] = identities[identity]
+      delete identities[identity]
+      return addr
+    }
+    return identity
+  })
+  if (Object.keys(newIdentities).length > 0) {
+    state.metamask.identities = newIdentities
+  }
+  return state.metamask.identities[selectedAddress]
 }
 
 export function getNumberOfAccounts (state) {
@@ -97,6 +114,21 @@ export function getMetaMaskKeyrings (state) {
 }
 
 export function getMetaMaskIdentities (state) {
+  const identities = state.metamask.identities
+  const newIdentities = {}
+  const hrp = state.metamask.network === '201018' ? 'atp' : 'atx'
+  Object.keys(identities).map((identity) => {
+    if (!identity.startsWith(hrp)) {
+      const addr = toBech32Address(hrp, decodeBech32Address(identity))
+      newIdentities[addr] = identities[identity]
+      delete identities[identity]
+      return addr
+    }
+    return identity
+  })
+  if (Object.keys(newIdentities).length > 0) {
+    state.metamask.identities = newIdentities
+  }
   return state.metamask.identities
 }
 
@@ -124,7 +156,8 @@ export const getMetaMaskAccountsOrdered = createSelector(
 )
 
 export function isBalanceCached (state) {
-  const selectedAccountBalance = state.metamask.accounts[getSelectedAddress(state)].balance
+  const accountsInfo = state.metamask.accounts[getSelectedAddress(state)]
+  const selectedAccountBalance = accountsInfo ? accountsInfo.balance : '0x0'
   const cachedBalance = getSelectedAccountCachedBalance(state)
 
   return Boolean(!selectedAccountBalance && cachedBalance)
@@ -166,7 +199,7 @@ export function getAddressBook (state) {
 
 export function getAddressBookEntry (state, address) {
   const addressBook = getAddressBook(state)
-  const entry = addressBook.find((contact) => contact.address === checksumAddress(address))
+  const entry = addressBook.find((contact) => contact.address === address)
   return entry
 }
 
@@ -208,7 +241,12 @@ export function getTargetAccountWithSendEtherInfo (state, targetAddress) {
 }
 
 export function getCurrentEthBalance (state) {
-  return getCurrentAccountWithSendEtherInfo(state).balance
+  const balanceInfo = getCurrentAccountWithSendEtherInfo(state)
+  if (!balanceInfo) {
+    return '0x0'
+  }
+  return balanceInfo.balance
+  // return getCurrentAccountWithSendEtherInfo(state).balance
 }
 
 export function getGasIsLoading (state) {
@@ -251,14 +289,14 @@ export function getIsMainnet (state) {
 export function isEthereumNetwork (state) {
   const networkType = getNetworkIdentifier(state)
   const {
-    KOVAN,
+    // KOVAN,
     MAINNET,
-    RINKEBY,
-    ROPSTEN,
-    GOERLI,
+    ALAYA,
+    // ROPSTEN,
+    // GOERLI,
   } = NETWORK_TYPES
 
-  return [ KOVAN, MAINNET, RINKEBY, ROPSTEN, GOERLI].includes(networkType)
+  return [ MAINNET, ALAYA].includes(networkType)
 }
 
 export function getPreferences ({ metamask }) {

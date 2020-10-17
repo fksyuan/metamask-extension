@@ -1450,7 +1450,7 @@ export function setPreviousProvider (type) {
   }
 }
 
-export function updateAndSetCustomRpc (newRpc, chainId, ticker = 'ETH', nickname, rpcPrefs) {
+export function updateAndSetCustomRpc (newRpc, chainId, ticker = 'ATP', nickname, rpcPrefs) {
   return async (dispatch) => {
     log.debug(`background.updateAndSetCustomRpc: ${newRpc} ${chainId} ${ticker} ${nickname}`)
 
@@ -1469,7 +1469,7 @@ export function updateAndSetCustomRpc (newRpc, chainId, ticker = 'ETH', nickname
   }
 }
 
-export function editRpc (oldRpc, newRpc, chainId, ticker = 'ETH', nickname, rpcPrefs) {
+export function editRpc (oldRpc, newRpc, chainId, ticker = 'ATP', nickname, rpcPrefs) {
   return async (dispatch) => {
     log.debug(`background.delRpcTarget: ${oldRpc}`)
     try {
@@ -1495,7 +1495,7 @@ export function editRpc (oldRpc, newRpc, chainId, ticker = 'ETH', nickname, rpcP
   }
 }
 
-export function setRpcTarget (newRpc, chainId, ticker = 'ETH', nickname) {
+export function setRpcTarget (newRpc, chainId, ticker = 'ATP', nickname) {
   return async (dispatch) => {
     log.debug(`background.setRpcTarget: ${newRpc} ${chainId} ${ticker} ${nickname}`)
 
@@ -1534,7 +1534,7 @@ export function addToAddressBook (recipient, nickname = '', memo = '') {
 
     let set
     try {
-      set = await promisifiedBackground.setAddressBook(checksumAddress(recipient), nickname, chainId, memo)
+      set = await promisifiedBackground.setAddressBook(recipient, nickname, chainId, memo)
     } catch (error) {
       log.error(error)
       dispatch(displayWarning('Address book failed to update'))
@@ -1554,7 +1554,7 @@ export function removeFromAddressBook (chainId, addressToRemove) {
   log.debug(`background.removeFromAddressBook`)
 
   return async () => {
-    await promisifiedBackground.removeFromAddressBook(chainId, checksumAddress(addressToRemove))
+    await promisifiedBackground.removeFromAddressBook(chainId, addressToRemove)
   }
 }
 

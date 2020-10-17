@@ -172,8 +172,8 @@ Users with questions, complaints or claims with respect to the Service may conta
 
 ## 15 Related Links ##
 
-**[Terms of Use](https://metamask.io/terms.html)**
+**[Terms of Use](https://aton.test.platon.network/aton-agreement/zh-cn/v0760/agreement.html)**
 
-**[Privacy](https://metamask.io/privacy.html)**
+**[Privacy](https://aton.test.platon.network/aton-agreement/zh-cn/privacyAgreement.html)**
 
 **[Attributions](https://metamask.io/attributions.html)**

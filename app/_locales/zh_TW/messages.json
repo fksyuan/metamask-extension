@@ -1,6 +1,6 @@
 {
   "chartOnlyAvailableEth": {
-    "message": "圖表僅適用於以太坊網路。"
+    "message": "圖表僅適用於Alaya網路。"
   },
   "contractInteraction": {
     "message": "合約互動"
@@ -34,6 +34,9 @@
   },
   "accountSelectionRequired": {
     "message": "必須先選擇一個帳戶!"
+  },
+  "activity": {
+    "message": "交易列表"
   },
   "activityLog": {
     "message": "活動紀錄"
@@ -72,17 +75,17 @@
     "message": "加入建議的代幣"
   },
   "addAcquiredTokens": {
-    "message": "將您已經擁有的代幣顯示於 MetaMask"
+    "message": "將您已經擁有的代幣顯示於 Samurai"
   },
   "amount": {
     "message": "數量"
   },
   "appDescription": {
-    "message": "乙太坊瀏覽器擴充插件",
+    "message": "Alaya瀏覽器擴充插件",
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -93,6 +96,9 @@
   },
   "asset": {
     "message": "資產"
+  },
+  "assets": {
+    "message": "資產列表"
   },
   "attemptingConnect": {
     "message": "正在嘗試連接區塊鏈。"
@@ -110,7 +116,7 @@
     "message": "自動登出計時器（分）"
   },
   "autoLockTimeLimitDescription": {
-    "message": "設定閒置分鐘上限，時間到時 MetaMask 將自動登出"
+    "message": "設定閒置分鐘上限，時間到時 Samurai 將自動登出"
   },
   "average": {
     "message": "平均"
@@ -125,7 +131,7 @@
     "message": "備份你的秘密還原代碼，安全防護錢包與資金。"
   },
   "backupApprovalInfo": {
-    "message": "在裝置遺失、忘記密碼、需要重新安裝 MetaMask、或是想在另一裝置開啟錢包的情形下，你需要此秘密代碼來復原錢包。"
+    "message": "在裝置遺失、忘記密碼、需要重新安裝 Samurai、或是想在另一裝置開啟錢包的情形下，你需要此秘密代碼來復原錢包。"
   },
   "backupNow": {
     "message": "現在備份"
@@ -152,14 +158,17 @@
   "browserNotSupported": {
     "message": "您的瀏覽器尚未支援..."
   },
-  "builtInCalifornia": {
-    "message": "MetaMask 是在加州設計製造"
+  "buildInShenzhen": {
+    "message": "Samurai 是在深圳設計製造"
+  },
+  "buy": {
+    "message": "購買"
   },
   "buyWithWyre": {
-    "message": "用 Wyre 購買 ETH"
+    "message": "用 Wyre 購買 ATP"
   },
   "buyWithWyreDescription": {
-    "message": "Wyre 讓你使用信用卡在 MetaMask 帳號中直接存入 ETH。"
+    "message": "Wyre 讓你使用信用卡在 Samurai 帳號中直接存入 ATP。"
   },
   "buyCoinSwitch": {
     "message": "在CoinSwitch上购买"
@@ -201,7 +210,7 @@
     "message": "關閉"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "您需要在 Google Chrome 瀏覽器使用 MetaMask 連結您的硬體錢包"
+    "message": "您需要在 Google Chrome 瀏覽器使用 Samurai 連結您的硬體錢包"
   },
   "confirm": {
     "message": "確認"
@@ -224,26 +233,23 @@
   "connect": {
     "message": "連線"
   },
+  "connectedSites": {
+    "message": "已連接網站"
+  },
   "connectingTo": {
     "message": "連線到$1"
   },
-  "connectingToKovan": {
-    "message": "連線到 Kovan 測試網路"
-  },
   "connectingToMainnet": {
-    "message": "連線到主 Ethereum 網路"
+    "message": "連線到主 Alaya 網路"
   },
-  "connectingToRopsten": {
-    "message": "連線到 Ropsten 測試網路"
-  },
-  "connectingToRinkeby": {
-    "message": "連線到 Rinkeby 測試網路"
+  "connectingToAlaya": {
+    "message": "連線到 Alaya 測試網路"
   },
   "connectingToLocalhost": {
     "message": "連接至本地主機 8545"
   },
-  "connectingToGoerli": {
-    "message": "連接至 Goerli 測試網路"
+  "contactUs": {
+    "message": "聯繫我們!"
   },
   "continueToWyre": {
     "message": "繼續至 Wyre"
@@ -309,7 +315,7 @@
     "message": "小數點精度"
   },
   "defaultNetwork": {
-    "message": "預設乙太幣交易網路為主網路"
+    "message": "預設ATP交易網路為主網路"
   },
   "delete": {
     "message": "刪除"
@@ -321,16 +327,16 @@
     "message": "存入"
   },
   "depositEther": {
-    "message": "存入乙太幣"
+    "message": "存入ATP"
   },
   "details": {
     "message": "詳情"
   },
   "directDepositEther": {
-    "message": "直接存入乙太幣"
+    "message": "直接存入ATP"
   },
   "directDepositEtherExplainer": {
-    "message": "如果您已經擁有乙太幣，直接存入功能是讓新錢包最快取得乙太幣的方式。"
+    "message": "如果您已經擁有ATP，直接存入功能是讓新錢包最快取得ATP的方式。"
   },
   "done": {
     "message": "完成"
@@ -369,7 +375,7 @@
     "message": "不要分享此助記祠給任何人"
   },
   "endOfFlowMessage5": {
-    "message": "小心網路釣魚！MetaMask 永遠不會主動詢問你的助記詞。"
+    "message": "小心網路釣魚！Samurai 永遠不會主動詢問你的助記詞。"
   },
   "endOfFlowMessage6": {
     "message": "如你需要再次備份助記詞，可至設定 -> 安全。"
@@ -378,7 +384,7 @@
     "message": "如你有任何問題或察覺有異，請寄信給 support@metamask.io"
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask 無法還原你的助記詞。暸解更多"
+    "message": "Samurai 無法還原你的助記詞。暸解更多"
   },
   "endOfFlowMessage9": {
     "message": "深入瞭解。"
@@ -390,7 +396,7 @@
     "message": "ENS 名稱註冊錯誤"
   },
   "ensNotFoundOnCurrentNetwork": {
-    "message": "現有網路中找不到 ENS 名稱。嘗試轉換到主要以太坊網路。"
+    "message": "現有網路中找不到 ENS 名稱。嘗試轉換到主要Alaya網路。"
   },
   "enterAnAlias": {
     "message": "輸入化名"
@@ -402,10 +408,10 @@
     "message": "請輸入密碼"
   },
   "ethereumPublicAddress": {
-    "message": "以太坊公開位址"
+    "message": "Alaya公開位址"
   },
   "etherscanView": {
-    "message": "在 Etherscan 上查看帳戶"
+    "message": "在 Alayascan 上查看帳戶"
   },
   "estimatedProcessingTimes": {
     "message": "預估處理時間"
@@ -455,7 +461,7 @@
     "message": "Gas 用量"
   },
   "gasPrice": {
-    "message": "Gas 價格 (GWEI)"
+    "message": "Gas 價格 (GVON)"
   },
   "gasPriceExtremelyLow": {
     "message": "Gas 價格極低"
@@ -473,11 +479,11 @@
     "message": "貨幣轉換，主要貨幣，語言，區塊鏈哈希頭像"
   },
   "getEther": {
-    "message": "取得乙太幣"
+    "message": "取得ATP"
   },
   "getEtherFromFaucet": {
-    "message": "從水管取得 $1 乙太幣。",
-    "description": "Displays network name for Ether faucet"
+    "message": "從水管取得 $1 ATP。",
+    "description": "Displays network name for ATP faucet"
   },
   "getHelp": {
     "message": "取得協助"
@@ -498,7 +504,7 @@
     "message": "連線硬體錢包"
   },
   "hardwareWalletsMsg": {
-    "message": "選擇要連線到 MetaMask 的硬體錢包"
+    "message": "選擇要連線到 Samurai 的硬體錢包"
   },
   "havingTroubleConnecting": {
     "message": "無法正確連線?"
@@ -527,7 +533,7 @@
     "message": "匯入帳戶"
   },
   "importAccountMsg": {
-    "message": " 匯入的帳戶與您原有 MetaMask 帳戶的助憶詞並無關聯。請查看與匯入帳戶相關的資料 "
+    "message": " 匯入的帳戶與您原有 Samurai 帳戶的助憶詞並無關聯。請查看與匯入帳戶相關的資料 "
   },
   "importAccountSeedPhrase": {
     "message": "利用助憶詞還原"
@@ -570,7 +576,7 @@
     "message": "已知合約位址"
   },
   "invalidAddressRecipientNotEthNetwork": {
-    "message": "非 ETH 網路，設定至小寫"
+    "message": "非 ATP 網路，設定至小寫"
   },
   "invalidInput": {
     "message": "輸入錯誤。"
@@ -625,7 +631,7 @@
     "message": "鎖定"
   },
   "mainnet": {
-    "message": "乙太坊 主網路"
+    "message": "Alaya 主網路"
   },
   "memorizePhrase": {
     "message": "絕對不要忘記您的助憶詞。"
@@ -637,10 +643,10 @@
     "message": "訊息"
   },
   "metamaskDescription": {
-    "message": "MetaMask 是乙太坊安全身份識別金庫"
+    "message": "Samurai 是Alaya安全身份識別金庫"
   },
   "metamaskVersion": {
-    "message": "MetaMask 版本"
+    "message": "Samurai 版本"
   },
   "mobileSyncText": {
     "message": "請輸入密碼確認身份！"
@@ -652,20 +658,20 @@
     "message": "我的錢包帳號"
   },
   "myWalletAccountsDescription": {
-    "message": "所有你在 MetaMask 創建的帳號將自動新增到此區塊。"
+    "message": "所有你在 Samurai 創建的帳號將自動新增到此區塊。"
   },
   "mustSelectOne": {
     "message": "必須選擇至少 1 代幣"
   },
   "needEtherInWallet": {
-    "message": "要使用 MetaMask 存取去中心化應用服務時，您的錢包中需要有乙太幣。"
+    "message": "要使用 Samurai 存取去中心化應用服務時，您的錢包中需要有ATP。"
   },
   "needImportFile": {
     "message": "您必須選擇一個檔案來匯入",
     "description": "User is important an account and needs to add a file to continue"
   },
   "negativeETH": {
-    "message": "不能送出負值的乙太幣"
+    "message": "不能送出負值的ATP"
   },
   "networkName": {
     "message": "網路名稱"
@@ -702,7 +708,7 @@
     "message": "新增網路"
   },
   "newToMetaMask": {
-    "message": "新來到 MetaMask？"
+    "message": "新來到 Samurai？"
   },
   "noAlreadyHaveSeed": {
     "message": "不，我已經有助記詞"
@@ -711,10 +717,10 @@
     "message": "保護你的鑰匙！"
   },
   "protectYourKeysMessage1": {
-    "message": "小心保管你的註記詞—我們接到報告有網站嘗試模仿 MetaMask。MetaMask 永遠不會詢問你的助記詞！"
+    "message": "小心保管你的註記詞—我們接到報告有網站嘗試模仿 Samurai。Samurai 永遠不會詢問你的助記詞！"
   },
   "protectYourKeysMessage2": {
-    "message": "安全存放你的助記詞。如你察覺有異，或你對某網站起疑，請寄信給 support@metamask.io"
+    "message": "安全存放你的助記詞。如你察覺有異，或你對某網站起疑，請寄信給 support@AT.io"
   },
   "rpcUrl": {
     "message": "新的 RPC URL"
@@ -765,7 +771,7 @@
     "message": "參與 MetaMetrics"
   },
   "participateInMetaMetricsDescription": {
-    "message": "參與 MetaMetrics 來協助我們打造更好的 MetaMask"
+    "message": "參與 MetaMetrics 來協助我們打造更好的 Samurai"
   },
   "password": {
     "message": "密碼"
@@ -790,7 +796,7 @@
     "message": "主要顯示"
   },
   "primaryCurrencySettingDescription": {
-    "message": "選擇使用乙太幣(ETH)或是法定貨幣(例如：美金)為主要錢幣顯示單位"
+    "message": "選擇使用Alaya幣(ATP)或是法定貨幣(例如：美金)為主要錢幣顯示單位"
   },
   "privacyMsg": {
     "message": "隱私政策"
@@ -889,8 +895,8 @@
   "readyToConnect": {
     "message": "準備連線？"
   },
-  "rinkeby": {
-    "message": "Rinkeby 測試網路"
+  "alaya": {
+    "message": "Alaya 測試網路"
   },
   "ropsten": {
     "message": "Ropsten 測試網路"
@@ -929,7 +935,7 @@
     "message": "助憶詞將可協助您用更簡單的方式備份帳戶資訊。"
   },
   "secretBackupPhraseWarning": {
-    "message": "警告: 絕對不要洩漏您的助憶詞。任何人只要得知助憶詞代表他可以竊取您所有的乙太幣和代幣。"
+    "message": "警告: 絕對不要洩漏您的助憶詞。任何人只要得知助憶詞代表他可以竊取您所有的ATP和代幣。"
   },
   "secretPhrase": {
     "message": "輸入您的12個助憶詞以回復金庫"
@@ -965,13 +971,13 @@
     "message": "發送數量"
   },
   "sendETH": {
-    "message": "發送乙太幣"
+    "message": "發送ATP"
   },
   "sendTokens": {
     "message": "發送代幣"
   },
   "sentEther": {
-    "message": "發送乙太幣"
+    "message": "發送ATP"
   },
   "sentTokens": {
     "message": "發送代幣"
@@ -1070,7 +1076,7 @@
     "message": "3. 開始使用！"
   },
   "step3HardwareWalletMsg": {
-    "message": "使用您硬體錢包中的帳戶，與去中心化應用服務交易乙太幣、ERC20代幣、或迷戀貓等數位資產。"
+    "message": "使用您硬體錢包中的帳戶，與去中心化應用服務交易ATP、ERC20代幣、或迷戀貓等數位資產。"
   },
   "storePhrase": {
     "message": "您可以用密碼管理系統例如 1Password 等軟體儲存助憶詞。"
@@ -1094,19 +1100,19 @@
     "message": "和移動裝置同步"
   },
   "syncWithMobileDesc": {
-    "message": "你可以用移動裝置同步帳號與資訊。開啟 MetaMask 移動 app，至「設定」並點擊「自瀏覽器擴充功能同步」"
+    "message": "你可以用移動裝置同步帳號與資訊。開啟 Samurai 移動 app，至「設定」並點擊「自瀏覽器擴充功能同步」"
   },
   "syncWithMobileDescNewUsers": {
-    "message": "如你是第一次開啟 MetaMask 移動 app，只要跟著手機上的指示操作即可。"
+    "message": "如你是第一次開啟 Samurai 移動 app，只要跟著手機上的指示操作即可。"
   },
   "syncWithMobileScanThisCode": {
-    "message": "用你的 MetaMask 移動 app 掃描此代碼"
+    "message": "用你的 Samurai 移動 app 掃描此代碼"
   },
   "syncWithMobileBeCareful": {
     "message": "掃描代碼時確保沒有其他人在看你的螢幕"
   },
   "syncWithMobileComplete": {
-    "message": "你的資料已成功同步。開始活用 MetaMask 移動 app！"
+    "message": "你的資料已成功同步。開始活用 Samurai 移動 app！"
   },
   "terms": {
     "message": "使用條款"
@@ -1251,7 +1257,7 @@
     "message": "在 $1 瀏覽"
   },
   "viewOnEtherscan": {
-    "message": "在 Etherscan 上瀏覽"
+    "message": "在 Alayascan 上瀏覽"
   },
   "visitWebSite": {
     "message": "造訪我們的網站"
@@ -1263,7 +1269,7 @@
     "message": "歡迎回來!"
   },
   "welcome": {
-    "message": "歡迎來到 MetaMask"
+    "message": "歡迎來到 Samurai"
   },
   "writePhrase": {
     "message": "將助憶詞寫在紙上，並保存在安全的場所。若想要更安全，將助憶詞分別寫在不同紙張上並存放在不同的地方。"

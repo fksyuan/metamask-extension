@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
   }
 
   return {
-    accountLabel: getCurrentAccountWithSendEtherInfo(state).name,
+    accountLabel: getCurrentAccountWithSendEtherInfo(state) ? getCurrentAccountWithSendEtherInfo(state).name : 'Account-1',
     connectedDomains,
     domains: getPermissionDomains(state),
     domainHostCount: getPermissionsMetadataHostCounts(state),

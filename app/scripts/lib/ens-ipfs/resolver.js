@@ -62,10 +62,8 @@ function hexValueIsEmpty (value) {
 function getRegistryForChainId (chainId) {
   switch (chainId) {
     case 1:
-    case 3:
-    case 4:
-    case 5:
-      // Mainnet, Ropsten, Rinkeby, and Goerli, respectively, use the same address
+    case 201018:
+      // Mainnet, Ropsten, Alaya, and Goerli, respectively, use the same address
       return '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e'
     default:
       return null

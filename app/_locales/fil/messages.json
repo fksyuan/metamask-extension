@@ -76,7 +76,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -215,8 +215,8 @@
   "connectingToRopsten": {
     "message": "Kumokonekta sa Ropsten Test Network"
   },
-  "connectingToRinkeby": {
-    "message": "Kumokonekta sa Rinkeby Test Network"
+  "connectingToAlaya": {
+    "message": "Kumokonekta sa Alaya Test Network"
   },
   "connectingToLocalhost": {
     "message": "Kumokonekta sa Localhost 8545"

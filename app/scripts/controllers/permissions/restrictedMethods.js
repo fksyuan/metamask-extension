@@ -1,6 +1,6 @@
 export default function getRestrictedMethods ({ getIdentities, getKeyringAccounts }) {
   return {
-    'eth_accounts': {
+    'platon_accounts': {
       method: async (_, res, __, end) => {
         try {
           const accounts = await getKeyringAccounts()

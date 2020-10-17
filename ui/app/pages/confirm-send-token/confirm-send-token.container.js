@@ -5,6 +5,7 @@ import ConfirmSendToken from './confirm-send-token.component'
 import { clearConfirmTransaction } from '../../ducks/confirm-transaction/confirm-transaction.duck'
 import { updateSend, showSendTokenPage } from '../../store/actions'
 import { conversionUtil } from '../../helpers/utils/conversion-util'
+import { toBech32Address } from 'ethereumjs-util'
 import { sendTokenTokenAmountAndToAddressSelector } from '../../selectors'
 
 const mapStateToProps = (state) => {
@@ -43,7 +44,7 @@ const mapDispatchToProps = (dispatch) => {
         gasLimit,
         gasPrice,
         gasTotal: null,
-        to,
+        to: toBech32Address('atp', to),
         amount: tokenAmountInHex,
         errors: { to: null, amount: null },
         editingTransactionId: id && id.toString(),

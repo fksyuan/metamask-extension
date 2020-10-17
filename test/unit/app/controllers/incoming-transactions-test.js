@@ -6,16 +6,13 @@ const IncomingTransactionsController = proxyquire('../../../../app/scripts/contr
   '../lib/random-id': { default: () => 54321 },
 }).default
 
-import { ROPSTEN, RINKEBY, KOVAN, GOERLI, MAINNET } from '../../../../app/scripts/controllers/network/enums'
+import { ALAYA, MAINNET } from '../../../../app/scripts/controllers/network/enums'
 
 describe('IncomingTransactionsController', function () {
   const EMPTY_INIT_STATE = {
     incomingTransactions: {},
     incomingTxLastFetchedBlocksByNetwork: {
-      [ROPSTEN]: null,
-      [RINKEBY]: null,
-      [KOVAN]: null,
-      [GOERLI]: null,
+      [ALAYA]: null,
       [MAINNET]: null,
     },
   }

@@ -22,7 +22,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -255,8 +255,8 @@
   "required": {
     "message": "Yêu cầu"
   },
-  "rinkeby": {
-    "message": "Mạng thử nghiệm Rinkeby"
+  "alaya": {
+    "message": "Mạng thử nghiệm Alaya"
   },
   "ropsten": {
     "message": "Mạng thử nghiệm Ropsten"

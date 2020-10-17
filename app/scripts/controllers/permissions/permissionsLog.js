@@ -72,7 +72,7 @@ export default class PermissionsLogController {
     const accountToTimeMap = getAccountToTimeMap(accounts, Date.now())
 
     this.commitNewHistory(origin, {
-      eth_accounts: {
+      platon_accounts: {
         accounts: accountToTimeMap,
       },
     })
@@ -108,12 +108,12 @@ export default class PermissionsLogController {
           // that we can record permissions history
           requestedMethods = this.getRequestedMethods(req)
         }
-      } else if (method === 'eth_requestAccounts') {
+      } else if (method === 'platon_requestAccounts') {
 
-        // eth_requestAccounts is a special case; we need to extract the accounts
+        // platon_requestAccounts is a special case; we need to extract the accounts
         // from it
         activityEntry = this.logRequest(req, isInternal)
-        requestedMethods = [ 'eth_accounts' ]
+        requestedMethods = [ 'platon_accounts' ]
       } else {
         // no-op
         return next()
@@ -130,7 +130,7 @@ export default class PermissionsLogController {
           // so we only log permissions history here
           this.logPermissionsHistory(
             requestedMethods, origin, res.result, time,
-            method === 'eth_requestAccounts',
+            method === 'platon_requestAccounts',
           )
         }
         cb()
@@ -209,7 +209,7 @@ export default class PermissionsLogController {
    * @param {string} origin - The origin of the permissions request.
    * @param {Array<IOcapLdCapability} result - The permissions request response.result.
    * @param {string} time - The time of the request, i.e. Date.now().
-   * @param {boolean} isEthRequestAccounts - Whether the permissions request was 'eth_requestAccounts'.
+   * @param {boolean} isEthRequestAccounts - Whether the permissions request was 'platon_requestAccounts'.
    */
   logPermissionsHistory (
     requestedMethods, origin, result,
@@ -224,7 +224,7 @@ export default class PermissionsLogController {
       const accountToTimeMap = getAccountToTimeMap(accounts, time)
 
       newEntries = {
-        'eth_accounts': {
+        'platon_accounts': {
           accounts: accountToTimeMap,
           lastApproved: time,
         },
@@ -232,12 +232,12 @@ export default class PermissionsLogController {
     } else {
 
       // Records new "lastApproved" times for the granted permissions, if any.
-      // Special handling for eth_accounts, in order to record the time the
+      // Special handling for platon_accounts, in order to record the time the
       // accounts were last seen or approved by the origin.
       newEntries = result
         .map((perm) => {
 
-          if (perm.parentCapability === 'eth_accounts') {
+          if (perm.parentCapability === 'platon_accounts') {
             accounts = this.getAccountsFromPermission(perm)
           }
 
@@ -249,7 +249,7 @@ export default class PermissionsLogController {
           // not just the newly requested ones
           if (requestedMethods.includes(method)) {
 
-            if (method === 'eth_accounts') {
+            if (method === 'platon_accounts') {
 
               const accountToTimeMap = getAccountToTimeMap(accounts, time)
 
@@ -288,12 +288,12 @@ export default class PermissionsLogController {
       ...newEntries,
     }
 
-    // eth_accounts requires special handling, because of information
+    // platon_accounts requires special handling, because of information
     // we store about the accounts
     const existingEthAccountsEntry = (
-      history[origin] && history[origin]['eth_accounts']
+      history[origin] && history[origin]['platon_accounts']
     )
-    const newEthAccountsEntry = newEntries['eth_accounts']
+    const newEthAccountsEntry = newEntries['platon_accounts']
 
     if (existingEthAccountsEntry && newEthAccountsEntry) {
 
@@ -304,8 +304,8 @@ export default class PermissionsLogController {
         existingEthAccountsEntry.lastApproved
       )
 
-      // merge old and new eth_accounts history entries
-      newOriginHistory['eth_accounts'] = {
+      // merge old and new platon_accounts history entries
+      newOriginHistory['platon_accounts'] = {
         lastApproved,
         accounts: {
           ...existingEthAccountsEntry.accounts,
@@ -338,15 +338,15 @@ export default class PermissionsLogController {
   }
 
   /**
-   * Get the permitted accounts from an eth_accounts permissions object.
-   * Returns an empty array if the permission is not eth_accounts.
+   * Get the permitted accounts from an platon_accounts permissions object.
+   * Returns an empty array if the permission is not platon_accounts.
    *
    * @param {Object} perm - The permissions object.
    * @returns {Array<string>} The permitted accounts.
    */
   getAccountsFromPermission (perm) {
 
-    if (perm.parentCapability !== 'eth_accounts' || !perm.caveats) {
+    if (perm.parentCapability !== 'platon_accounts' || !perm.caveats) {
       return []
     }
 

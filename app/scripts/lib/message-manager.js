@@ -86,7 +86,7 @@ export default class MessageManager extends EventEmitter {
           case 'signed':
             return resolve(data.rawSig)
           case 'rejected':
-            return reject(ethErrors.provider.userRejectedRequest('MetaMask Message Signature: User denied message signature.'))
+            return reject(ethErrors.provider.userRejectedRequest('Alaya-MetaMask Message Signature: User denied message signature.'))
           default:
             return reject(new Error(`MetaMask Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
         }

@@ -13,7 +13,7 @@ const cleanContextForImports = () => {
   try {
     global.define = undefined
   } catch (_) {
-    console.warn('MetaMask - global.define could not be deleted.')
+    console.warn('Alaya-MetaMask - global.define could not be deleted.')
   }
 }
 
@@ -24,7 +24,7 @@ const restoreContextAfterImports = () => {
   try {
     global.define = __define
   } catch (_) {
-    console.warn('MetaMask - global.define could not be overwritten.')
+    console.warn('Alaya-MetaMask - global.define could not be overwritten.')
   }
 }
 
@@ -47,8 +47,8 @@ log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
 
 // setup background connection
 const metamaskStream = new LocalMessageDuplexStream({
-  name: 'inpage',
-  target: 'contentscript',
+  name: 'inpagea',
+  target: 'contentscripta',
 })
 
 initProvider({
@@ -59,8 +59,8 @@ initProvider({
 // Setup web3
 
 
-if (typeof window.web3 !== 'undefined') {
-  throw new Error(`MetaMask detected another web3.
+if (typeof window.web3a !== 'undefined') {
+  throw new Error(`Alaya-MetaMask detected another web3.
      MetaMask will not work reliably with another web3 extension.
      This usually happens if you have two MetaMasks installed,
      or MetaMask and another web3 extension. Please remove one

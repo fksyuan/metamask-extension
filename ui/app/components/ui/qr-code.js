@@ -4,7 +4,7 @@ import qrCode from 'qrcode-generator'
 import { connect } from 'react-redux'
 import { isHexPrefixed } from 'ethereumjs-util'
 import ReadOnlyInput from './readonly-input'
-import { checksumAddress } from '../../helpers/utils/util'
+// import { checksumAddress } from '../../helpers/utils/util'
 
 export default connect(mapStateToProps)(QrCodeView)
 
@@ -18,7 +18,7 @@ function mapStateToProps (state) {
 
 function QrCodeView (props) {
   const { message, data } = props.Qr
-  const address = `${isHexPrefixed(data) ? 'ethereum:' : ''}${checksumAddress(data)}`
+  const address = `${isHexPrefixed(data) ? 'ethereum:' : ''}${data}`
   const qrImage = qrCode(4, 'M')
   qrImage.addData(address)
   qrImage.make()
@@ -60,7 +60,7 @@ function QrCodeView (props) {
       <ReadOnlyInput
         wrapperClass="ellip-address-wrapper"
         inputClass="qr-ellip-address"
-        value={checksumAddress(data)}
+        value={data}
       />
     </div>
   )

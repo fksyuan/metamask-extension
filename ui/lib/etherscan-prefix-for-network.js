@@ -8,14 +8,14 @@ import * as networkEnums from '../../app/scripts/controllers/network/enums'
  */
 export function getEtherscanNetworkPrefix (networkId) {
   switch (networkId) {
-    case networkEnums.ROPSTEN_NETWORK_ID:
-      return 'ropsten.'
-    case networkEnums.RINKEBY_NETWORK_ID:
-      return 'rinkeby.'
-    case networkEnums.KOVAN_NETWORK_ID:
-      return 'kovan.'
-    case networkEnums.GOERLI_NETWORK_ID:
-      return 'goerli.'
+    // case networkEnums.ROPSTEN_NETWORK_ID:
+    //   return 'ropsten.'
+    case networkEnums.ALAYA_NETWORK_ID:
+      return 'alaya.'
+    // case networkEnums.KOVAN_NETWORK_ID:
+    //   return 'kovan.'
+    // case networkEnums.GOERLI_NETWORK_ID:
+    //   return 'goerli.'
     default: // also covers mainnet
       return ''
   }

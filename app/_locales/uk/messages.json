@@ -82,7 +82,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "Під'єднуємось до Тестової мережі Ropsten"
   },
-  "connectingToRinkeby": {
-    "message": "Під'єднуємось до тестової мережі Rinkeby"
+  "connectingToAlaya": {
+    "message": "Під'єднуємось до тестової мережі Alaya"
   },
   "connectingToLocalhost": {
     "message": "Під'єднуємось до локального хосту 8545"
@@ -904,8 +904,8 @@
   "readyToConnect": {
     "message": "Готові підключитися?"
   },
-  "rinkeby": {
-    "message": "Тестова мережа Rinkeby"
+  "alaya": {
+    "message": "Тестова мережа Alaya"
   },
   "ropsten": {
     "message": "Тестова мережа Ropsten"

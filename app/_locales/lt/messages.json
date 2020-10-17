@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "Jungiamasi prie „Ropsten“ bandomojo tinklo"
   },
-  "connectingToRinkeby": {
-    "message": "Jungiamasi prie „Rinkeby“ bandomojo tinklo"
+  "connectingToAlaya": {
+    "message": "Jungiamasi prie „Alaya“ bandomojo tinklo"
   },
   "connectingToLocalhost": {
     "message": "Jungiamasi prie vietinio serverio 8545"
@@ -904,8 +904,8 @@
   "readyToConnect": {
     "message": "Pasirengę prisijungti?"
   },
-  "rinkeby": {
-    "message": "„Rinkeby“ bandomasis tinklas"
+  "alaya": {
+    "message": "„Alaya“ bandomasis tinklas"
   },
   "ropsten": {
     "message": "„Ropsten“ bandomasis tinklas"

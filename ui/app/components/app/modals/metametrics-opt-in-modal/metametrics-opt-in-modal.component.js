@@ -25,14 +25,14 @@ export default class MetaMetricsOptInModal extends Component {
             <div className="metametrics-opt-in__body-graphic">
               <img src="images/metrics-chart.svg" />
             </div>
-            <div className="metametrics-opt-in__title">Help Us Improve MetaMask</div>
+            <div className="metametrics-opt-in__title">Help Us Improve Samurai</div>
             <div className="metametrics-opt-in__body">
               <div className="metametrics-opt-in__description">
-               MetaMask would like to gather usage data to better understand how our users interact with the extension. This data
+              Samurai would like to gather usage data to better understand how our users interact with the extension. This data
                will be used to continually improve the usability and user experience of our product and the Ethereum ecosystem.
               </div>
               <div className="metametrics-opt-in__description">
-               MetaMask will..
+              Samurai will..
               </div>
 
               <div className="metametrics-opt-in__committments">
@@ -77,7 +77,7 @@ export default class MetaMetricsOptInModal extends Component {
             <div className="metametrics-opt-in__bottom-text">
               This data is aggregated and is therefore anonymous for the purposes of General Data Protection Regulation (EU) 2016/679. For more information in relation to our privacy practices, please see our&nbsp;
               <a
-                href="https://metamask.io/privacy.html"
+                href="https://aton.test.platon.network/aton-agreement/zh-cn/privacyAgreement.html"
                 target="_blank"
                 rel="noopener noreferrer"
               >

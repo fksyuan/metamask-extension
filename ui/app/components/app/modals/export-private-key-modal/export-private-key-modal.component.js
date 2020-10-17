@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 
 import { stripHexPrefix } from 'ethereumjs-util'
 import copyToClipboard from 'copy-to-clipboard'
-import { checksumAddress } from '../../../../helpers/utils/util'
+// import { checksumAddress } from '../../../../helpers/utils/util'
 import ReadOnlyInput from '../../../ui/readonly-input'
 import Button from '../../../ui/button'
 import AccountModalContainer from '../account-modal-container'
@@ -147,7 +147,7 @@ export default class ExportPrivateKeyModal extends Component {
         <ReadOnlyInput
           wrapperClass="ellip-address-wrapper"
           inputClass="qr-ellip-address ellip-address"
-          value={checksumAddress(address)}
+          value={address}
         />
         <div className="account-modal-divider" />
         <span className="modal-body-title">{this.context.t('showPrivateKeys')}</span>

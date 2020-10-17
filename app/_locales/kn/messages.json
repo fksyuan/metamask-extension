@@ -6,7 +6,7 @@
     "message": "ಒಪ್ಪಂದದ ಸಂವಹನ"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "reject": {
@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "Ropsten ಪರೀಕ್ಷಾ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ"
   },
-  "connectingToRinkeby": {
-    "message": "Rinkeby ಪರೀಕ್ಷಾ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ"
+  "connectingToAlaya": {
+    "message": "Alaya ಪರೀಕ್ಷಾ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ"
   },
   "connectingToLocalhost": {
     "message": "ಲೋಕಲ್‌ಹೋಸ್ಟ್ 8545 ಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ"
@@ -904,8 +904,8 @@
   "readyToConnect": {
     "message": "ಸಂಪರ್ಕಿಸಲು ಸಿದ್ಧವೇ?"
   },
-  "rinkeby": {
-    "message": "Rinkeby ಪರೀಕ್ಷೆ ನೆಟ್‌ವರ್ಕ್"
+  "alaya": {
+    "message": "Alaya ಪರೀಕ್ಷೆ ನೆಟ್‌ವರ್ಕ್"
   },
   "ropsten": {
     "message": "Ropsten ಪರೀಕ್ಷೆ ನೆಟ್‌ವರ್ಕ್"

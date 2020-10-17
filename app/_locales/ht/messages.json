@@ -40,7 +40,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -124,8 +124,8 @@
   "connectingToRopsten": {
     "message": "Konekte ak Ropsten Tès Rezo a"
   },
-  "connectingToRinkeby": {
-    "message": "Konekte nan Rinkeby Tès Rezo a"
+  "connectingToAlaya": {
+    "message": "Konekte nan Alaya Tès Rezo a"
   },
   "continueToCoinSwitch": {
     "message": "Kontinye CoinSwitch"
@@ -552,8 +552,8 @@
   "readyToConnect": {
     "message": "Pare pou konekte?"
   },
-  "rinkeby": {
-    "message": "Rinkeby Tès Rezo"
+  "alaya": {
+    "message": "Alaya Tès Rezo"
   },
   "ropsten": {
     "message": "Ropsten Tès Rezo"

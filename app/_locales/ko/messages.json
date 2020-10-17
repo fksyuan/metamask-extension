@@ -236,8 +236,8 @@
   "connectingToRopsten": {
     "message": "Ropsten 테스트넷 접속 중"
   },
-  "connectingToRinkeby": {
-    "message": "Rinkeby 테스트넷 접속 중"
+  "connectingToAlaya": {
+    "message": "Alaya 테스트넷 접속 중"
   },
   "connectingToLocalhost": {
     "message": "로컬호스트 8545에 연결 중"
@@ -895,8 +895,8 @@
   "readyToConnect": {
     "message": "접속 준비되었나요?"
   },
-  "rinkeby": {
-    "message": "Rinkeby 테스트넷"
+  "alaya": {
+    "message": "Alaya 테스트넷"
   },
   "ropsten": {
     "message": "Ropsten 테스트넷"

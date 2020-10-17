@@ -178,7 +178,7 @@ export default class TransactionController extends EventEmitter {
           case 'submitted':
             return resolve(finishedTxMeta.hash)
           case 'rejected':
-            return reject(cleanErrorStack(ethErrors.provider.userRejectedRequest('MetaMask Tx Signature: User denied transaction signature.')))
+            return reject(cleanErrorStack(ethErrors.provider.userRejectedRequest('Alaya-MetaMask Tx Signature: User denied transaction signature.')))
           case 'failed':
             return reject(cleanErrorStack(ethErrors.rpc.internal(finishedTxMeta.err.message)))
           default:
@@ -211,7 +211,7 @@ export default class TransactionController extends EventEmitter {
       type: TRANSACTION_TYPE_STANDARD,
     })
 
-    if (origin === 'metamask') {
+    if (origin === 'alaya-metamask') {
       // Assert the from address is the selected address
       if (normalizedTxParams.from !== this.getSelectedAddress()) {
         throw ethErrors.rpc.internal({
@@ -494,11 +494,10 @@ export default class TransactionController extends EventEmitter {
   async signTransaction (txId) {
     const txMeta = this.txStateManager.getTx(txId)
     // add network/chain id
-    // const chainId = this.getChainId()
-    const chainId = 201030
+    const chainId = this.getChainId()
     const txParams = Object.assign({}, txMeta.txParams, { chainId })
     // sign tx
-    const fromAddress = ethUtil.decodeBech32Address(txParams.from)
+    const fromAddress = txParams.from
     const ethTx = new Transaction(txParams)
     await this.signEthTx(ethTx, fromAddress)
 

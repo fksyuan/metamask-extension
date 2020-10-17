@@ -20,7 +20,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="https://metamask.io/privacy.html"
+            href="https://aton.test.platon.network/aton-agreement/zh-cn/privacyAgreement.html"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -31,7 +31,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="https://metamask.io/terms.html"
+            href="https://aton.test.platon.network/aton-agreement/zh-cn/v0760/agreement.html"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -98,7 +98,7 @@ export default class InfoTab extends PureComponent {
           <div className="settings-page__content-item settings-page__content-item--without-height">
             <div className="info-tab__logo-wrapper">
               <img
-                src="images/info-logo.png"
+                src="images/icon-64.png"
                 className="info-tab__logo"
               />
             </div>
@@ -112,7 +112,7 @@ export default class InfoTab extends PureComponent {
             </div>
             <div className="info-tab__item">
               <div className="info-tab__about">
-                { t('builtInCalifornia') }
+                { t('buildInShenzhen') }
               </div>
             </div>
           </div>

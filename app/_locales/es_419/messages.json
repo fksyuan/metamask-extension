@@ -82,7 +82,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -227,23 +227,14 @@
   "connectingTo": {
     "message": "Conexión con $1"
   },
-  "connectingToKovan": {
-    "message": "Conexión con la red de prueba Kovan"
-  },
   "connectingToMainnet": {
     "message": "Conexión con la red principal de Ethereum"
   },
-  "connectingToRopsten": {
-    "message": "Conexión con la red de prueba Ropsten"
-  },
-  "connectingToRinkeby": {
-    "message": "Conexión con la red de prueba Rinkeby"
+  "connectingToAlaya": {
+    "message": "Conexión con la red de prueba Alaya"
   },
   "connectingToLocalhost": {
     "message": "Conexión con Localhost 8545"
-  },
-  "connectingToGoerli": {
-    "message": "Conexión con la red de prueba Goerli"
   },
   "continueToWyre": {
     "message": "Continuar a Wyre"
@@ -889,14 +880,8 @@
   "readyToConnect": {
     "message": "¿Listo para conectarte?"
   },
-  "rinkeby": {
-    "message": "Red de prueba Rinkeby"
-  },
-  "ropsten": {
-    "message": "Red de prueba Ropsten"
-  },
-  "goerli": {
-    "message": "Red de prueba Goerli"
+  "alaya": {
+    "message": "Red de prueba Alaya"
   },
   "save": {
     "message": "Guardar"

@@ -65,7 +65,7 @@ export const pending = () => (
     className="list-item"
     subtitleStatus={<span><span style={{ color: '#F56821' }}>Unapproved</span> · </span>}
     subtitle={text('subtitle', 'Turtlefarm.com')}
-    rightContent={<Currencies primary={text('primaryCurrency', '- 0.0732 ETH')} secondary={text('secondaryCurrency', '- $6.00 USD')} />}
+    rightContent={<Currencies primary={text('primaryCurrency', '- 0.0732 ATP')} secondary={text('secondaryCurrency', '- $6.00 USD')} />}
   />
 )
 
@@ -76,7 +76,7 @@ export const approve = () => (
     title={text('title', 'Approve spend limit')}
     className="list-item"
     subtitle={text('subtitle', 'Sept 20 · oxuniverse.com')}
-    rightContent={<Currencies primary={text('primaryCurrency', '- 0 ETH')} secondary={text('secondaryCurrency', '- $0.00 USD')} />}
+    rightContent={<Currencies primary={text('primaryCurrency', '- 0 ATP')} secondary={text('secondaryCurrency', '- $0.00 USD')} />}
   />
 )
 
@@ -86,6 +86,6 @@ export const receive = () => (
     title={text('title', 'Hatch Turtles')}
     className="list-item"
     subtitle={text('subtitle', 'Sept 20 · From: 00X4...3058')}
-    rightContent={<Currencies primary={text('primaryCurrency', '7.5 ETH')} secondary={text('secondaryCurrency', '$1,425.00 USD')} />}
+    rightContent={<Currencies primary={text('primaryCurrency', '7.5 ATP')} secondary={text('secondaryCurrency', '$1,425.00 USD')} />}
   />
 )

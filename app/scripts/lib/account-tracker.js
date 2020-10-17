@@ -15,15 +15,13 @@ import pify from 'pify'
 import Web3 from 'web3'
 import SINGLE_CALL_BALANCES_ABI from 'single-call-balance-checker-abi'
 import { bnToHex } from './util'
-import { MAINNET_NETWORK_ID, RINKEBY_NETWORK_ID, ROPSTEN_NETWORK_ID, KOVAN_NETWORK_ID } from '../controllers/network/enums'
+import { toBech32Address, decodeBech32Address } from 'ethereumjs-util'
+import { MAINNET_NETWORK_ID, ALAYA_NETWORK_ID } from '../controllers/network/enums'
 
 import {
   SINGLE_CALL_BALANCES_ADDRESS,
-  SINGLE_CALL_BALANCES_ADDRESS_RINKEBY,
-  SINGLE_CALL_BALANCES_ADDRESS_ROPSTEN,
-  SINGLE_CALL_BALANCES_ADDRESS_KOVAN,
+  SINGLE_CALL_BALANCES_ADDRESS_ALAYA,
 } from '../controllers/network/contract-addresses'
-import ethUtil from 'ethereumjs-util'
 
 export default class AccountTracker {
 
@@ -203,9 +201,9 @@ export default class AccountTracker {
       // case MAINNET_NETWORK_ID.toString():
       //   await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS)
       //   break
-      //
-      // case RINKEBY_NETWORK_ID.toString():
-      //   await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_RINKEBY)
+
+      // case ALAYA_NETWORK_ID.toString():
+      //   await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_ALAYA)
       //   break
       //
       // case ROPSTEN_NETWORK_ID.toString():
@@ -215,9 +213,20 @@ export default class AccountTracker {
       // case KOVAN_NETWORK_ID.toString():
       //   await this._updateAccountsViaBalanceChecker(addresses, SINGLE_CALL_BALANCES_ADDRESS_KOVAN)
       //   break
-
+      case '201018':
+        // if (addresses[0] && !addresses[0].startsWith('atp')) {
+        //   addresses = addresses.map((address) => {
+        //     return toBech32Address('atp', decodeBech32Address(address))
+        //   })
+        // }
+        await Promise.all(addresses.map((address) => {
+          return this._updateAccount(address, 'atp')
+        }))
+        break
       default:
-        await Promise.all(addresses.map(this._updateAccount.bind(this)))
+        await Promise.all(addresses.map((address) => {
+          return this._updateAccount(address, 'atx')
+        }))
     }
   }
 
@@ -229,16 +238,22 @@ export default class AccountTracker {
    * @returns {Promise} - after the account balance is updated
    *
    */
-  async _updateAccount (address) {
+  async _updateAccount (address, hrp) {
+    const addr = address
+    if (address && !address.startsWith(hrp)) {
+      address = toBech32Address(hrp, decodeBech32Address(address))
+    }
     // query balance
     const balance = await this._query.getBalance(address)
     const result = { address, balance }
     // update accounts state
     const { accounts } = this.store.getState()
+    // const accounts = {}
     // only populate if the entry is still present
-    if (!accounts[address]) {
+    if (!accounts[addr]) {
       return
     }
+    delete accounts[addr]
     accounts[address] = result
     this.store.updateState({ accounts })
   }

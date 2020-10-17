@@ -11,7 +11,7 @@ import BlockTracker from 'eth-block-tracker'
 import * as networkEnums from './enums'
 
 export default function createInfuraClient ({ network }) {
-  const infuraMiddleware = createInfuraMiddleware({ network, maxAttempts: 5, source: 'metamask' })
+  const infuraMiddleware = createInfuraMiddleware({ network, maxAttempts: 5, source: 'alaya-metamask' })
   const infuraProvider = providerFromMiddleware(infuraMiddleware)
   const blockTracker = new BlockTracker({ provider: infuraProvider })
 
@@ -36,28 +36,16 @@ function createNetworkAndChainIdMiddleware ({ network }) {
       netId = networkEnums.MAINNET_NETWORK_ID
       chainId = '0x01'
       break
-    case 'ropsten':
-      netId = networkEnums.ROPSTEN_NETWORK_ID
-      chainId = '0x03'
-      break
-    case 'rinkeby':
-      netId = networkEnums.RINKEBY_NETWORK_ID
-      chainId = '0x04'
-      break
-    case 'kovan':
-      netId = networkEnums.KOVAN_NETWORK_ID
-      chainId = networkEnums.KOVAN_CHAIN_ID
-      break
-    case 'goerli':
-      netId = networkEnums.GOERLI_NETWORK_ID
-      chainId = '0x05'
+    case 'alaya':
+      netId = networkEnums.ALAYA_NETWORK_ID
+      chainId = '0x31146'
       break
     default:
       throw new Error(`createInfuraClient - unknown network "${network}"`)
   }
 
   return createScaffoldMiddleware({
-    eth_chainId: chainId,
+    platon_chainId: chainId,
     net_version: netId,
   })
 }

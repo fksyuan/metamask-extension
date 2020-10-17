@@ -79,7 +79,7 @@ export default class EncryptionPublicKeyManager extends EventEmitter {
   addUnapprovedMessageAsync (address, req) {
     return new Promise((resolve, reject) => {
       if (!address) {
-        return reject(new Error('MetaMask Message: address field is required.'))
+        return reject(new Error('Alaya-MetaMask Message: address field is required.'))
       }
       const msgId = this.addUnapprovedMessage(address, req)
       this.once(`${msgId}:finished`, (data) => {
@@ -87,7 +87,7 @@ export default class EncryptionPublicKeyManager extends EventEmitter {
           case 'received':
             return resolve(data.rawData)
           case 'rejected':
-            return reject(ethErrors.provider.userRejectedRequest('MetaMask EncryptionPublicKey: User denied message EncryptionPublicKey.'))
+            return reject(ethErrors.provider.userRejectedRequest('Alaya-MetaMask EncryptionPublicKey: User denied message EncryptionPublicKey.'))
           default:
             return reject(new Error(`MetaMask EncryptionPublicKey: Unknown problem: ${JSON.stringify(address)}`))
         }

@@ -38,8 +38,8 @@ export default class PermissionPageContainerContent extends PureComponent {
     const items = Object.keys(selectedPermissions).map((permissionName) => {
 
       const description = t(permissionName)
-      // don't allow deselecting eth_accounts
-      const isDisabled = permissionName === 'eth_accounts'
+      // don't allow deselecting platon_accounts
+      const isDisabled = permissionName === 'platon_accounts'
       const isChecked = Boolean(selectedPermissions[permissionName])
       const title = isChecked ? t('permissionCheckedIconDescription') : t('permissionUncheckedIconDescription')
 

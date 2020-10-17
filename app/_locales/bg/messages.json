@@ -82,7 +82,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -152,8 +152,8 @@
   "browserNotSupported": {
     "message": "Браузърът ви не се поддържа ..."
   },
-  "builtInCalifornia": {
-    "message": "MetaMask е проектиран и създаден в Калифорния."
+  "buildInShenzhen": {
+    "message": "Samurai е проектиран и изграден в Шенжен.\n"
   },
   "buyWithWyre": {
     "message": "Купете ETH с Wyre"
@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "Свързване с тестова мрежа Ropsten"
   },
-  "connectingToRinkeby": {
-    "message": "Свързване с тестова мрежа на Rinkeby"
+  "connectingToAlaya": {
+    "message": "Свързване с тестова мрежа на Alaya"
   },
   "connectingToLocalhost": {
     "message": "Свързване с Localhost 8545"
@@ -454,7 +454,7 @@
     "message": "Използван газ"
   },
   "gasPrice": {
-    "message": "Цената на газа (GWEI)"
+    "message": "Цената на газа (GVON)"
   },
   "gasPriceExtremelyLow": {
     "message": "Цена на газа е изключително ниска"
@@ -900,8 +900,8 @@
   "readyToConnect": {
     "message": "Готови ли сте да се свържете? "
   },
-  "rinkeby": {
-    "message": "Тестова мрежа на Rinkeby"
+  "alaya": {
+    "message": "Тестова мрежа на Alaya"
   },
   "ropsten": {
     "message": "Тестова мрежа Ropsten"

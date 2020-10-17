@@ -82,7 +82,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -236,8 +236,8 @@
   "connectingToRopsten": {
     "message": "Yhdistetään Ropstenin koeverkkoon"
   },
-  "connectingToRinkeby": {
-    "message": "Yhdistetään Rinkebyn koeverkkoon"
+  "connectingToALaya": {
+    "message": "Yhdistetään Alayan koeverkkoon"
   },
   "connectingToLocalhost": {
     "message": "Yhdistetään kohteeseen Localhost 8545"
@@ -901,8 +901,8 @@
   "readyToConnect": {
     "message": "Valmiina yhdistämään?"
   },
-  "rinkeby": {
-    "message": "Rinkebyn koeverkko"
+  "alaya": {
+    "message": "Alayan koeverkko"
   },
   "ropsten": {
     "message": "Ropstenin koeverkko"

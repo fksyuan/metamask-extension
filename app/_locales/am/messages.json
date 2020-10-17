@@ -82,7 +82,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Samurai",
     "description": "The name of the application"
   },
   "approve": {
@@ -152,8 +152,8 @@
   "browserNotSupported": {
     "message": "ማሰሺያዎት አልተደገፈም..."
   },
-  "builtInCalifornia": {
-    "message": "MetaMask ካሊፎርኒያ ውስጥ ተዘጋጅቶ የተገነባ ነው።"
+  "buildInShenzhen": {
+    "message": "Samurai በhenንዘን ውስጥ የተነደፈ እና የተመረተ"
   },
   "buyWithWyre": {
     "message": "ETH በ Wyre ይግዙ"
@@ -239,8 +239,8 @@
   "connectingToRopsten": {
     "message": "ከ Ropsten የሙከራ አውታረ መረብ ጋር በመገናኘት ላይ"
   },
-  "connectingToRinkeby": {
-    "message": "ከ Rinkeby የሙከራ አውታረ መረብ ጋር በመገናኘት ላይ"
+  "connectingToAlaya": {
+    "message": "ከ Alayan የሙከራ አውታረ መረብ ጋር በመገናኘት ላይ"
   },
   "connectingToLocalhost": {
     "message": "ከ Localhost 8545 ጋር መገናኘት"
@@ -458,7 +458,7 @@
     "message": "ጥቅም ላይ የዋለ ነዳጅ"
   },
   "gasPrice": {
-    "message": "የነዳጅ ዋጋ (GWEI)"
+    "message": "የነዳጅ ዋጋ (GVON)"
   },
   "gasPriceExtremelyLow": {
     "message": "የነዳጅ ዋጋ እጅግ በጣም ዝቅ ያለ ነው"
@@ -901,8 +901,8 @@
   "readyToConnect": {
     "message": "ለመገናኘት ዝግጁ ነዎት?"
   },
-  "rinkeby": {
-    "message": "Rinkeby የሙከራ አውታረ መረብ"
+  "alaya": {
+    "message": "Alaya የሙከራ አውታረ መረብ"
   },
   "ropsten": {
     "message": "Ropsten የሙከራ አውታረ መረብ "
