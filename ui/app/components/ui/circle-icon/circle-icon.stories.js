@@ -11,6 +11,6 @@ export const basicCircleIcon = () => (
     borderColor="black"
     background="white"
     iconSize="42px"
-    iconSource="images/icon-38.png"
+    iconSource="images/icon-128.svg"
   />
 )

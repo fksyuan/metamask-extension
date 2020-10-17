@@ -19,7 +19,7 @@ export default function UserPreferencedCurrencyDisplay ({
   const prefixComponent = useMemo(() => {
     return currency === ATP && showEthLogo && (
       <img
-        src="/images/icon-19.png"
+        src="/images/icon-128.svg"
         height={ethLogoHeight}
       />
     )

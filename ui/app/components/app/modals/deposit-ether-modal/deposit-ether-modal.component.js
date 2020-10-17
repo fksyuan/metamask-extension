@@ -109,7 +109,7 @@ export default class DepositEtherModal extends Component {
                 <img
                   alt=""
                   className="deposit-ether-modal__logo"
-                  src="./images/icon-19.png"
+                  src="./images/icon-128.svg"
                   style={{
                     height: '75px',
                     width: '75px',

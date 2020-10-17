@@ -21,7 +21,7 @@ describe('Identicon', function () {
       <Identicon store={store} />,
     )
 
-    assert.equal(wrapper.find('img.identicon__eth-logo').prop('src'), './images/icon-38.png')
+    assert.equal(wrapper.find('img.identicon__eth-logo').prop('src'), './images/icon-128.svg')
   })
 
   it('renders custom image and add className props', function () {

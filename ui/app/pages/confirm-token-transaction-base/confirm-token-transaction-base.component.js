@@ -76,7 +76,7 @@ export default class ConfirmTokenTransactionBase extends Component {
       <div>
         <span>{ `${tokensText} + ` }</span>
         <img
-          src="/images/icon-19.png"
+          src="/images/icon-128.svg"
           height="18"
         />
         <span>{ ethTransactionTotal }</span>

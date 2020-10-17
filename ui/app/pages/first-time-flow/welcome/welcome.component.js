@@ -47,7 +47,7 @@ export default class Welcome extends PureComponent {
             width="125"
             height="125"
           /> */}
-          <img src='/images/icon-128.png'></img>
+          <img src='/images/icon-128.svg'></img>
           <div className="welcome-page__header">
             {t('welcome')}
           </div>

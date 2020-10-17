@@ -99,7 +99,7 @@ export default class Identicon extends PureComponent {
     return (
       <img
         className={classnames('identicon__eth-logo', className)}
-        src="./images/icon-38.png"
+        src="./images/icon-128.svg"
         style={getStyles(diameter)}
       />
     )
