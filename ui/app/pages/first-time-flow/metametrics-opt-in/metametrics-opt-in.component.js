@@ -38,7 +38,7 @@ export default class MetaMetricsOptIn extends Component {
           <div className="metametrics-opt-in__body">
             <div className="metametrics-opt-in__description">
             Samurai would like to gather usage data to better understand how our users interact with the extension. This data
-             will be used to continually improve the usability and user experience of our product and the Ethereum ecosystem.
+             will be used to continually improve the usability and user experience of our product and the Alaya ecosystem.
             </div>
             <div className="metametrics-opt-in__description">
             Samurai will..

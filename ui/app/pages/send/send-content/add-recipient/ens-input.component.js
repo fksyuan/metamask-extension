@@ -103,9 +103,14 @@ export default class EnsInput extends Component {
   }
 
   onPaste = (event) => {
+    const { network, updateEnsResolution, updateEnsResolutionError } = this.props
     event.clipboardData.items[0].getAsString((text) => {
-      if (isValidAddress(text)) {
+      if (isValidAddress(text, network)) {
         this.props.onPaste(text)
+      } else {
+        updateEnsResolution('')
+        updateEnsResolutionError('')
+        return
       }
     })
   }
@@ -113,14 +118,15 @@ export default class EnsInput extends Component {
   onChange = (e) => {
     const { network, onChange, updateEnsResolution, updateEnsResolutionError, onValidAddressTyped } = this.props
     const input = e.target.value
-    const networkHasEnsSupport = getNetworkEnsSupport(network)
+    // const networkHasEnsSupport = getNetworkEnsSupport(network)
 
     this.setState({ input }, () => onChange(input))
 
     // Empty ENS state if input is empty
     // maybe scan ENS
 
-    if (!networkHasEnsSupport && !isValidAddress(input) && !isValidAddressHead(input)) {
+    const hrp = network === '201018' ? 'atp' : 'atx'
+    if (!isValidAddressHead(hrp, input)) {
       updateEnsResolution('')
       updateEnsResolutionError('')
       return

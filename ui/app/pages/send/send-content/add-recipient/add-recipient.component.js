@@ -12,6 +12,7 @@ export default class AddRecipient extends Component {
 
   static propTypes = {
     query: PropTypes.string,
+    network: PropTypes.string,
     ownedAccounts: PropTypes.array,
     addressBook: PropTypes.array,
     updateGas: PropTypes.func,
@@ -96,12 +97,12 @@ export default class AddRecipient extends Component {
   }
 
   render () {
-    const { ensResolution, query, addressBookEntryName } = this.props
+    const { network, ensResolution, query, addressBookEntryName } = this.props
     const { isShowingTransfer } = this.state
 
     let content
 
-    if (isValidAddress(query)) {
+    if (isValidAddress(query, network)) {
       content = this.renderExplicitAddress(query)
     } else if (ensResolution) {
       content = this.renderExplicitAddress(ensResolution, addressBookEntryName || query)

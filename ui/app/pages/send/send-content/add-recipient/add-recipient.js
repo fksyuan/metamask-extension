@@ -2,11 +2,9 @@ import {
   REQUIRED_ERROR,
   INVALID_RECIPIENT_ADDRESS_ERROR,
   KNOWN_RECIPIENT_ADDRESS_ERROR,
-  INVALID_RECIPIENT_ADDRESS_NOT_ETH_NETWORK_ERROR,
 } from '../../send.constants'
 
-import { isValidAddress, isEthNetwork, checkExistingAddresses } from '../../../../helpers/utils/util'
-import ethUtil from 'ethereumjs-util'
+import { isValidAddress, checkExistingAddresses } from '../../../../helpers/utils/util'
 import contractMap from 'eth-contract-metadata'
 
 export function getToErrorObject (to, hasHexData = false, network) {

@@ -62,11 +62,16 @@ export function addressSummary (address, firstSegLength = 10, lastSegLength = 4,
   return checked ? checked.slice(0, firstSegLength) + '...' + checked.slice(checked.length - lastSegLength) : '...'
 }
 
-export function isValidAddress (address) {
+export function isValidAddress (address, network) {
   if (!address || address === '0x0000000000000000000000000000000000000000') {
     return false
   }
-  const prefixAt = address.startsWith('atx') || address.startsWith('atp')
+  let prefixAt
+  if (!network) {
+    prefixAt = address.startsWith('atx') || address.startsWith('atp')
+  } else {
+    prefixAt = address.startsWith(network === '201018' ? 'atp' : 'atx')
+  }
   const prefixed = prefixAt ? address : ethUtil.addHexPrefix(address)
   if (prefixAt) {
     return ethUtil.isBech32Address(prefixed)
@@ -292,8 +297,13 @@ export function shortenAddress (address = '') {
   return `${address.slice(0, 6)}...${address.slice(-4)}`
 }
 
-export function isValidAddressHead (address) {
-  return /^a[t]{0,1}[px]{0,1}[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{0,38}$/i.test(address)
+export function isValidAddressHead (hrp, address) {
+  if (address.length <= 3 && hrp.startsWith(address)) {
+    return true
+  } else {
+    const re = new RegExp('^a[t]{0,1}[' + hrp[2] + ']{1}[0-9a-z]{0,39}$', 'i')
+    return re.test(address)
+  }
 }
 
 export function getAccountByAddress (accounts = [], targetAddress) {

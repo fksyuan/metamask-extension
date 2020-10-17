@@ -4,7 +4,7 @@ import {
   getSendEnsResolutionError,
   accountsWithSendEtherInfoSelector,
   getAddressBook,
-  getAddressBookEntry,
+  getAddressBookEntry, getCurrentNetwork,
 } from '../../../../selectors'
 
 import {
@@ -16,6 +16,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(AddRecipient)
 
 function mapStateToProps (state) {
   const ensResolution = getSendEnsResolution(state)
+  const network = getCurrentNetwork(state)
 
   let addressBookEntryName = ''
   if (ensResolution) {
@@ -26,6 +27,7 @@ function mapStateToProps (state) {
   const addressBook = getAddressBook(state)
 
   return {
+    network,
     ownedAccounts: accountsWithSendEtherInfoSelector(state),
     addressBook,
     ensResolution,
