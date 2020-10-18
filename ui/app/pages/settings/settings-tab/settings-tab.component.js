@@ -158,20 +158,20 @@ export default class SettingsTab extends PureComponent {
                   { nativeCurrency }
                 </label>
               </div>
-              <div className="settings-tab__radio-button">
-                <input
-                  type="radio"
-                  id="fiat-primary-currency"
-                  onChange={() => setUseNativeCurrencyAsPrimaryCurrencyPreference(false)}
-                  checked={!useNativeCurrencyAsPrimaryCurrency}
-                />
-                <label
-                  htmlFor="fiat-primary-currency"
-                  className="settings-tab__radio-label"
-                >
-                  { t('fiat') }
-                </label>
-              </div>
+              {/* <div className="settings-tab__radio-button">*/}
+              {/*  <input*/}
+              {/*    type="radio"*/}
+              {/*    id="fiat-primary-currency"*/}
+              {/*    onChange={() => setUseNativeCurrencyAsPrimaryCurrencyPreference(false)}*/}
+              {/*    checked={!useNativeCurrencyAsPrimaryCurrency}*/}
+              {/*  />*/}
+              {/*  <label*/}
+              {/*    htmlFor="fiat-primary-currency"*/}
+              {/*    className="settings-tab__radio-label"*/}
+              {/*  >*/}
+              {/*    { t('fiat') }*/}
+              {/*  </label>*/}
+              {/* </div>*/}
             </div>
           </div>
         </div>
@@ -185,10 +185,10 @@ export default class SettingsTab extends PureComponent {
     return (
       <div className="settings-page__body">
         { warning && <div className="settings-tab__error">{ warning }</div> }
-        { this.renderCurrentConversion() }
+        {/* { this.renderCurrentConversion() }*/}
         { this.renderUsePrimaryCurrencyOptions() }
         { this.renderCurrentLocale() }
-        { this.renderBlockieOptIn() }
+        {/* { this.renderBlockieOptIn() }*/}
       </div>
     )
   }

@@ -77,6 +77,15 @@
   "addAcquiredTokens": {
     "message": "在Samurai上添加已用的代币"
   },
+  "alerts": {
+    "message": "警报"
+  },
+  "alertSettingsUnconnectedAccount": {
+    "message": "浏览选择了未连接帐户的网站"
+  },
+  "alertSettingsUnconnectedAccountDescription": {
+    "message": "浏览连接的Web3站点时，弹出窗口中会显示此警报，但当前所选的帐户未连接"
+  },
   "amount": {
     "message": "数量"
   },
@@ -259,6 +268,9 @@
   },
   "connectingToGoerli": {
     "message": "正在连接 Goerli 测试网络"
+  },
+  "contacts": {
+    "message": "通讯录"
   },
   "contactUs": {
     "message": "联系我们!"
@@ -713,6 +725,12 @@
   "noAlreadyHaveSeed": {
     "message": "不，我已经有一个种子密语了。"
   },
+  "nonceField": {
+    "message": "自定义交易随机数"
+  },
+  "nonceFieldDescription": {
+    "message": "打开此选项可在确认屏幕上更改随机数（交易号）。 这是一项高级功能，请谨慎使用"
+  },
   "protectYourKeys": {
     "message": "妥善保管您的密钥！"
   },
@@ -802,7 +820,7 @@
     "message": "主要货币"
   },
   "primaryCurrencySettingDescription": {
-    "message": "请选择“本地”，优先显示当地货币链价值（如 ATP ）。请选择“法定”，优先显示选定法定货币价值。"
+    "message": "请选择“本地”，优先显示当地货币链价值（如 ATP ）。请选择“法定”，优先显示选定法定货币价值。目前不支持法币选项。"
   },
   "privacyMsg": {
     "message": "隐私政策"
@@ -1027,6 +1045,12 @@
   "showFiatConversionInTestnetsDescription": {
     "message": "请选择该选项，在 Testnets 上显示法定兑换率"
   },
+  "showIncomingTransactions": {
+    "message": "显示传入的交易"
+  },
+  "showIncomingTransactionsDescription": {
+    "message": "选择此项以使用扫描在交易列表中显示传入的交易"
+  },
   "showPrivateKeys": {
     "message": "显示私钥"
   },
@@ -1035,6 +1059,9 @@
   },
   "showHexDataDescription": {
     "message": "请选择该选项，在发送页面显示十六进制数据字域"
+  },
+  "showTransactionTimeDescription": {
+    "message": "选择此选项可在Alaya Network上的“交易列表”选项卡中显示未确认的交易确认时间估计。 注意：估算值是根据网络状况得出的近似值"
   },
   "sign": {
     "message": "签名"
@@ -1252,6 +1279,12 @@
   },
   "usedByClients": {
     "message": "可用于各种不同的客户端"
+  },
+  "usePhishingDetection": {
+    "message": "使用网络钓鱼检测"
+  },
+  "usePhishingDetectionDescription": {
+    "message": "对针对Alaya用户的网络钓鱼域显示警告"
   },
   "userName": {
     "message": "用户名"

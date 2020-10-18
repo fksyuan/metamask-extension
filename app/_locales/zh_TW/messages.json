@@ -77,6 +77,15 @@
   "addAcquiredTokens": {
     "message": "將您已經擁有的代幣顯示於 Samurai"
   },
+  "alerts": {
+    "message": "警報"
+  },
+  "alertSettingsUnconnectedAccount": {
+    "message": "瀏覽選擇了未連接帳戶的網站"
+  },
+  "alertSettingsUnconnectedAccountDescription": {
+    "message": "瀏覽連接的Web3站點時，彈出窗口中會顯示此警報，但當前所選的帳戶未連接"
+  },
   "amount": {
     "message": "數量"
   },
@@ -247,6 +256,9 @@
   },
   "connectingToLocalhost": {
     "message": "連接至本地主機 8545"
+  },
+  "contacts": {
+    "message": "通訊錄"
   },
   "contactUs": {
     "message": "聯繫我們!"
@@ -713,6 +725,12 @@
   "noAlreadyHaveSeed": {
     "message": "不，我已經有助記詞"
   },
+  "nonceField": {
+    "message": "自定義交易隨機數"
+  },
+  "nonceFieldDescription": {
+    "message": "打開此選項可在確認屏幕上更改隨機數（交易號）。這是一項高級功能，請謹慎使用"
+  },
   "protectYourKeys": {
     "message": "保護你的鑰匙！"
   },
@@ -796,7 +814,7 @@
     "message": "主要顯示"
   },
   "primaryCurrencySettingDescription": {
-    "message": "選擇使用Alaya幣(ATP)或是法定貨幣(例如：美金)為主要錢幣顯示單位"
+    "message": "選擇使用Alaya幣(ATP)或是法定貨幣(例如：美金)為主要錢幣顯示單位。目前不支持法幣選項。"
   },
   "privacyMsg": {
     "message": "隱私政策"
@@ -1012,6 +1030,12 @@
   "showFiatConversionInTestnetsDescription": {
     "message": "選擇此來在測試網上顯示法定貨幣匯率"
   },
+  "showIncomingTransactions": {
+    "message": "顯示傳入的交易"
+  },
+  "showIncomingTransactionsDescription": {
+    "message": "選擇此項以使用掃描在交易列表中顯示傳入的交易"
+  },
   "showPrivateKeys": {
     "message": "顯示私鑰"
   },
@@ -1020,6 +1044,9 @@
   },
   "showHexDataDescription": {
     "message": "在交易時顯示16進位資料"
+  },
+  "showTransactionTimeDescription": {
+    "message": "選擇此選項可在Alaya Network上的“交易列表”選項卡中顯示未確認的交易確認時間估計。注意：估算值是根據網絡狀況得出的近似值"
   },
   "sign": {
     "message": "簽署"
@@ -1240,6 +1267,12 @@
   },
   "usedByClients": {
     "message": "可用於各種不同的客戶端"
+  },
+  "usePhishingDetection": {
+    "message": "使用網絡釣魚檢測"
+  },
+  "usePhishingDetectionDescription": {
+    "message": "對針對Alaya用戶的網絡釣魚域顯示警告"
   },
   "userName": {
     "message": "使用者名稱"

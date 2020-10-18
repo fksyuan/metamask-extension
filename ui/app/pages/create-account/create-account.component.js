@@ -29,9 +29,9 @@ export default class CreateAccountPage extends Component {
         <div className={getClassNames(IMPORT_ACCOUNT_ROUTE)} onClick={() => history.push(IMPORT_ACCOUNT_ROUTE)}>
           {this.context.t('import')}
         </div>
-        <div className={getClassNames(CONNECT_HARDWARE_ROUTE)} onClick={() => history.push(CONNECT_HARDWARE_ROUTE)}>
-          {this.context.t('hardware')}
-        </div>
+        {/* <div className={getClassNames(CONNECT_HARDWARE_ROUTE)} onClick={() => history.push(CONNECT_HARDWARE_ROUTE)}>*/}
+        {/*  {this.context.t('hardware')}*/}
+        {/* </div>*/}
       </div>
     )
   }
