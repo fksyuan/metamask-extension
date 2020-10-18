@@ -4,6 +4,6 @@ export const defaultNetworksData = {
     rpcTarget: 'http://10.1.1.50:6790',
     chainId: '201018',
     ticker: 'ATP',
-    blockExplorerUrl: 'https://rinkeby.etherscan.io',
+    blockExplorerUrl: 'https://scan.alaya.network',
   },
 }

@@ -240,5 +240,5 @@ export function getBlockExplorerUrlForTx (networkId, hash, rpcPrefs = {}) {
     return `${rpcPrefs.blockExplorerUrl.replace(/\/+$/, '')}/tx/${hash}`
   }
   const prefix = getEtherscanNetworkPrefix(networkId)
-  return `https://${prefix}etherscan.io/tx/${hash}`
+  return `https://scan.alaya.network/trade-detail?txHash=${hash}`
 }
