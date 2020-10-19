@@ -29,15 +29,21 @@ let defaultProviderConfigURL
 let defaultProviderConfigChainID
 if (process.env.IN_TEST === 'true') {
   defaultProviderConfigType = LOCALHOST
-} else if (METAMASK_DEBUG || env === 'test') {
+} else {
   defaultProviderConfigType = ALAYA
   defaultProviderConfigURL = defaultNetworksData['alaya'].rpcTarget
   defaultProviderConfigChainID = defaultNetworksData['alaya'].chainId
-} else {
-  defaultProviderConfigType = MAINNET
-  defaultProviderConfigURL = defaultNetworksData['mainnet'].rpcTarget
-  defaultProviderConfigChainID = defaultNetworksData['mainnet'].chainId
 }
+
+// else if (METAMASK_DEBUG || env === 'test') {
+//   defaultProviderConfigType = ALAYA
+//   defaultProviderConfigURL = defaultNetworksData['alaya'].rpcTarget
+//   defaultProviderConfigChainID = defaultNetworksData['alaya'].chainId
+// } else {
+//   defaultProviderConfigType = MAINNET
+//   defaultProviderConfigURL = defaultNetworksData['mainnet'].rpcTarget
+//   defaultProviderConfigChainID = defaultNetworksData['mainnet'].chainId
+// }
 
 const defaultProviderConfig = {
   type: defaultProviderConfigType,
