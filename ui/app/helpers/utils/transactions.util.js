@@ -240,5 +240,9 @@ export function getBlockExplorerUrlForTx (networkId, hash, rpcPrefs = {}) {
     return `${rpcPrefs.blockExplorerUrl.replace(/\/+$/, '')}/tx/${hash}`
   }
   const prefix = getEtherscanNetworkPrefix(networkId)
-  return `https://scan.alaya.network/trade-detail?txHash=${hash}`
+  if (networkId === "201018") {
+    return `https://scan.alaya.network/trade-detail?txHash=${hash}`
+  } else {
+    return `https://scanbeta.alaya.network/trade-detail?txHash=${hash}`
+  }
 }

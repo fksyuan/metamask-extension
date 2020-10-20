@@ -18,6 +18,9 @@ export default function getAccountLink (address, network, rpcPrefs) {
     case 201018: // rinkeby test net
       link = `https://scan.alaya.network/address-detail?address=${address}`
       break
+    case 201030: // rinkeby test net
+      link = `https://scanbeta.alaya.network/address-detail?address=${address}`
+      break
     case 42: // kovan test net
       link = `https://kovan.etherscan.io/address/${address}`
       break
