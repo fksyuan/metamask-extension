@@ -30,8 +30,15 @@ export default class TransactionActivityLog extends PureComponent {
     const { primaryTransaction } = this.props
     const { metamaskNetworkId } = primaryTransaction
 
-    const prefix = getEtherscanNetworkPrefix(metamaskNetworkId)
-    const etherscanUrl = `https://${prefix}etherscan.io/tx/${hash}`
+    let etherscanUrl
+    if (metamaskNetworkId === "201018") {
+      etherscanUrl = `https://scan.alaya.network/trade-detail?txHash=${hash}`
+    } else {
+      etherscanUrl = `https://scanbeta.alaya.network/trade-detail?txHash=${hash}`
+    }
+
+    //const prefix = getEtherscanNetworkPrefix(metamaskNetworkId)
+    //const etherscanUrl = `https://${prefix}etherscan.io/tx/${hash}`
 
     global.platform.openTab({ url: etherscanUrl })
   }

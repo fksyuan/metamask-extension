@@ -189,7 +189,13 @@ export default class ExtensionPlatform {
 
     this._subscribeToNotificationClicked()
 
-    const url = explorerLink(txMeta.hash, parseInt(txMeta.metamaskNetworkId))
+    let url
+    if (txMeta.metamaskNetworkId === "201018") {
+      url = `https://scan.alaya.network/trade-detail?txHash=${txMeta.hash}`
+    } else {
+      url = `https://scanbeta.alaya.network/trade-detail?txHash=${txMeta.hash}`
+    }
+    //const url = explorerLink(txMeta.hash, parseInt(txMeta.metamaskNetworkId))
     const nonce = parseInt(txMeta.txParams.nonce, 16)
 
     const title = 'Confirmed transaction'
