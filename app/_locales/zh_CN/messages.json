@@ -472,8 +472,11 @@
   "functionType": {
     "message": "功能类型"
   },
+  "gasLimit": {
+    "message": "Gas 上限"
+  },
   "gasLimitInfoModalContent": {
-    "message": "天然气限制即您个人希望购买的最大单位数量。"
+    "message": "天然气限制即您个人愿意花费的最大天然气单位数量。"
   },
   "gasLimitTooLow": {
     "message": "Gas Limit 至少要 21000"
@@ -485,10 +488,10 @@
     "message": "天然气价格极低"
   },
   "gasPriceInfoModalContent": {
-    "message": "天然气价格将详细列明每个付费天然气单位的以太币金额。"
+    "message": "天然气价格指定您愿意为每单位天然气支付的ATP数量。"
   },
   "gasPriceNoDenom": {
-    "message": "天然气价格"
+    "message": " Gas 价格"
   },
   "general": {
     "message": "通用"
@@ -962,7 +965,7 @@
     "message": "您的个人私密备份密语可以帮助您轻松备份和恢复个人账户。"
   },
   "secretBackupPhraseWarning": {
-    "message": "警告：切勿向他人透露您的备份密语。任何人一旦持有该密语，即可取走您的以太币。"
+    "message": "警告：切勿向他人透露您的备份密语。任何人一旦持有该密语，即可取走您的ATP。"
   },
   "secretPhrase": {
     "message": "输入12位助记词以恢复金库."
