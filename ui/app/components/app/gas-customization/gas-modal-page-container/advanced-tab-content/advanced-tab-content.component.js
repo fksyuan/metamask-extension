@@ -96,7 +96,7 @@ export default class AdvancedTabContent extends Component {
                 </div>
               </div>
             )
-            : <div className="advanced-tab__fee-chart__title">{ t('chartOnlyAvailableEth') }</div>
+            : <div className="advanced-tab__fee-chart__title"></div>
           }
         </div>
       </div>
