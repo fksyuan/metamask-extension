@@ -22,7 +22,7 @@ Uncompressed builds can be found in `/dist`, compressed builds can be found in `
 
 ## Architecture
 
-[![Architecture Diagram](./docs/architecture.png)
+[![Architecture Diagram](./docs/architecture.png)][1]
 
 ## Development
 

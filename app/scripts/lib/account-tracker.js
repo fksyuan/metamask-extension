@@ -195,7 +195,10 @@ export default class AccountTracker {
   async _updateAccounts () {
     const accounts = this.store.getState().accounts
     const addresses = Object.keys(accounts)
-    const currentNetwork = this.network.getNetworkState()
+    let currentNetwork = this.network.getNetworkState()
+    if (currentNetwork === 'loading') {
+      currentNetwork = this.network.providerStore.getState().chainId
+    }
 
     switch (currentNetwork) {
       // case MAINNET_NETWORK_ID.toString():

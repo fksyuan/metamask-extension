@@ -1,7 +1,5 @@
 ## Add Custom Build to Chrome
 
-![Load dev build](./load-dev-build-chrome.gif)
-
 * Open `Settings` > `Extensions`.
 * Check "Developer mode".
 * Alternatively, use the URL `chrome://extensions/` in your address bar
