@@ -34,14 +34,15 @@ import {
   qrCodeDetected,
   updateSendEnsResolution,
   updateSendEnsResolutionError,
+  fetchBasicGasEstimatesAction,
 } from '../../store/actions'
 import {
   resetSendState,
   updateSendErrors,
 } from '../../ducks/send/send.duck'
-import {
-  fetchBasicGasEstimates,
-} from '../../ducks/gas/gas.duck'
+//import {
+//  fetchBasicGasEstimates,
+//} from '../../ducks/gas/gas.duck'
 import { getTokens } from '../../ducks/metamask/metamask'
 import {
   calcGasTotal,
@@ -106,7 +107,7 @@ function mapDispatchToProps (dispatch) {
     scanQrCode: () => dispatch(showQrScanner()),
     qrCodeDetected: (data) => dispatch(qrCodeDetected(data)),
     updateSendTo: (to, nickname) => dispatch(updateSendTo(to, nickname)),
-    fetchBasicGasEstimates: () => dispatch(fetchBasicGasEstimates()),
+    fetchBasicGasEstimates: () => dispatch(fetchBasicGasEstimatesAction()),
     updateSendEnsResolution: (ensResolution) => dispatch(updateSendEnsResolution(ensResolution)),
     updateSendEnsResolutionError: (message) => dispatch(updateSendEnsResolutionError(message)),
     updateToNicknameIfNecessary: (to, toNickname, addressBook) => {

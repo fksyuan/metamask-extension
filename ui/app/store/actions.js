@@ -21,6 +21,10 @@ import {
 } from '../selectors'
 import { switchedToUnconnectedAccount } from '../ducks/alerts/unconnected-account'
 import { getUnconnectedAccountAlertEnabledness } from '../ducks/metamask/metamask'
+import {
+  fetchBasicGasEstimates,
+  fetchBasicGasAndTimeEstimates,
+} from '../ducks/gas/gas.duck'
 
 let background = null
 let promisifiedBackground = null
@@ -2418,4 +2422,12 @@ export function getCurrentWindowTab () {
     const currentWindowTab = await global.platform.currentTab()
     dispatch(setCurrentWindowTab(currentWindowTab))
   }
+}
+
+export function fetchBasicGasEstimatesAction () {
+  return fetchBasicGasEstimates(promisifiedBackground.gasPrice, promisifiedBackground.blockNumber)
+}
+
+export function fetchBasicGasAndTimeEstimatesAction () {
+  return fetchBasicGasAndTimeEstimates(promisifiedBackground.gasPrice, promisifiedBackground.blockNumber)
 }

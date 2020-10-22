@@ -198,7 +198,7 @@ async function queryEthGasStationPredictionTable () {
   )
 }
 
-export function fetchBasicGasEstimates () {
+export function fetchBasicGasEstimates (gasPriceMethod, blockNumberMethod) {
   return async (dispatch, getState) => {
     const { basicPriceEstimatesLastRetrieved } = getState().gas
     const timeLastRetrieved = basicPriceEstimatesLastRetrieved || loadLocalStorageData('BASIC_PRICE_ESTIMATES_LAST_RETRIEVED') || 0
@@ -207,10 +207,10 @@ export function fetchBasicGasEstimates () {
 
     let basicEstimates
     if (Date.now() - timeLastRetrieved > 75000) {
-      basicEstimates = await fetchExternalBasicGasEstimates(dispatch)
+      basicEstimates = await fetchExternalBasicGasEstimates(dispatch, gasPriceMethod, blockNumberMethod)
     } else {
       const cachedBasicEstimates = loadLocalStorageData('BASIC_PRICE_ESTIMATES')
-      basicEstimates = cachedBasicEstimates || await fetchExternalBasicGasEstimates(dispatch)
+      basicEstimates = cachedBasicEstimates || await fetchExternalBasicGasEstimates(dispatch, gasPriceMethod, blockNumberMethod)
     }
 
     dispatch(setBasicGasEstimateData(basicEstimates))
@@ -220,10 +220,12 @@ export function fetchBasicGasEstimates () {
   }
 }
 
-async function fetchExternalBasicGasEstimates (dispatch) {
-  const response = await queryEthGasStationBasic()
+async function fetchExternalBasicGasEstimates (dispatch, gasPriceMethod, blockNumberMethod) {
+  //const response = await queryEthGasStationBasic()
+  const nodeGasPrice = await gasPriceMethod()
+  const nodeBlockNum = await blockNumberMethod()
 
-  const {
+  /*const {
     safeLow: safeLowTimes10,
     average: averageTimes10,
     fast: fastTimes10,
@@ -237,7 +239,14 @@ async function fetchExternalBasicGasEstimates (dispatch) {
     fastTimes10,
     fastestTimes10,
     safeLowTimes10,
-  ].map((price) => (new BigNumber(price)).div(10).toNumber())
+  ].map((price) => (new BigNumber(price)).div(10).toNumber())*/
+
+  const average = new BigNumber("0x"+nodeGasPrice).div(1e9).toNumber()
+  const safeLow = average * 0.9
+  const fast = average * 1.2
+  const fastest = average * 1.3
+  const blockTime = 3
+  const blockNum = new BigNumber("0x"+nodeBlockNum).toNumber()
 
   const basicEstimates = {
     safeLow,
@@ -256,7 +265,7 @@ async function fetchExternalBasicGasEstimates (dispatch) {
   return basicEstimates
 }
 
-export function fetchBasicGasAndTimeEstimates () {
+export function fetchBasicGasAndTimeEstimates (gasPriceMethod, blockNumberMethod) {
   return async (dispatch, getState) => {
     const { basicPriceAndTimeEstimatesLastRetrieved } = getState().gas
     const timeLastRetrieved = basicPriceAndTimeEstimatesLastRetrieved || loadLocalStorageData('BASIC_GAS_AND_TIME_API_ESTIMATES_LAST_RETRIEVED') || 0
@@ -265,10 +274,10 @@ export function fetchBasicGasAndTimeEstimates () {
 
     let basicEstimates
     if (Date.now() - timeLastRetrieved > 75000) {
-      basicEstimates = await fetchExternalBasicGasAndTimeEstimates(dispatch)
+      basicEstimates = await fetchExternalBasicGasAndTimeEstimates(dispatch, gasPriceMethod, blockNumberMethod)
     } else {
       const cachedBasicEstimates = loadLocalStorageData('BASIC_GAS_AND_TIME_API_ESTIMATES')
-      basicEstimates = cachedBasicEstimates || await fetchExternalBasicGasAndTimeEstimates(dispatch)
+      basicEstimates = cachedBasicEstimates || await fetchExternalBasicGasAndTimeEstimates(dispatch, gasPriceMethod, blockNumberMethod)
     }
 
     dispatch(setBasicGasEstimateData(basicEstimates))
@@ -277,10 +286,12 @@ export function fetchBasicGasAndTimeEstimates () {
   }
 }
 
-async function fetchExternalBasicGasAndTimeEstimates (dispatch) {
-  const response = await queryEthGasStationBasic()
+async function fetchExternalBasicGasAndTimeEstimates (dispatch, gasPriceMethod, blockNumberMethod) {
+  //const response = await queryEthGasStationBasic()
+  const nodeGasPrice = await gasPriceMethod()
+  const nodeBlockNum = await blockNumberMethod()
 
-  const {
+  /*const {
     average: averageTimes10,
     avgWait,
     block_time: blockTime,
@@ -298,7 +309,19 @@ async function fetchExternalBasicGasAndTimeEstimates (dispatch) {
     fastTimes10,
     fastestTimes10,
     safeLowTimes10,
-  ].map((price) => (new BigNumber(price)).div(10).toNumber())
+  ].map((price) => (new BigNumber(price)).div(10).toNumber())*/
+
+  const average = new BigNumber("0x"+nodeGasPrice).div(1e9).toNumber()
+  const safeLow = average * 0.9
+  const fast = average * 1.2
+  const fastest = average * 1.3
+  const blockTime = 3
+  const blockNum = new BigNumber("0x"+nodeBlockNum).toNumber()
+  const avgWait = 0.2
+  const fastWait = 0.1
+  const fastestWait = 0.05
+  const safeLowWait = 1.5
+  const speed = 0.5
 
   const basicEstimates = {
     average,
