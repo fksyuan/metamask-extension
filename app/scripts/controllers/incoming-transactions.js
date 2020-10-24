@@ -173,33 +173,34 @@ export default class IncomingTransactionsController {
   }
 
   async _fetchTxs (address, fromBlock, networkType) {
-    let etherscanSubdomain = 'api'
-    const currentNetworkID = NETWORK_TYPE_TO_ID_MAP[networkType]?.networkId
-
-    if (!currentNetworkID) {
-      return {}
-    }
-
-    if (networkType !== MAINNET) {
-      etherscanSubdomain = `api-${networkType}`
-    }
-    if (networkType === ALAYA) {
-      etherscanSubdomain = `api-rinkeby`
-    }
-    const apiUrl = `https://${etherscanSubdomain}.etherscan.io`
-    let url = `${apiUrl}/api?module=account&action=txlist&address=${address}&tag=latest&page=1`
-
-    if (fromBlock) {
-      url += `&startBlock=${parseInt(fromBlock, 10)}`
-    }
-    const response = await fetch(url)
-    const parsedResponse = await response.json()
-
-    return {
-      ...parsedResponse,
-      address,
-      currentNetworkID,
-    }
+    return {}
+    // let etherscanSubdomain = 'api'
+    // const currentNetworkID = NETWORK_TYPE_TO_ID_MAP[networkType]?.networkId
+    //
+    // if (!currentNetworkID) {
+    //   return {}
+    // }
+    //
+    // if (networkType !== MAINNET) {
+    //   etherscanSubdomain = `api-${networkType}`
+    // }
+    // if (networkType === ALAYA) {
+    //   etherscanSubdomain = `api-rinkeby`
+    // }
+    // const apiUrl = `https://${etherscanSubdomain}.etherscan.io`
+    // let url = `${apiUrl}/api?module=account&action=txlist&address=${address}&tag=latest&page=1`
+    //
+    // if (fromBlock) {
+    //   url += `&startBlock=${parseInt(fromBlock, 10)}`
+    // }
+    // const response = await fetch(url)
+    // const parsedResponse = await response.json()
+    //
+    // return {
+    //   ...parsedResponse,
+    //   address,
+    //   currentNetworkID,
+    // }
   }
 
   _processTxFetchResponse ({ status, result = [], address, currentNetworkID }) {
