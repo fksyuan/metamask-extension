@@ -1,5 +1,5 @@
-import ethUtil from 'ethereumjs-util'
-import MethodRegistry from 'eth-method-registry'
+import ethUtil from '@fksyuan/ethereumjs-util'
+import MethodRegistry from '@fksyuan/eth-method-registry'
 import abi from 'human-standard-token-abi'
 import abiDecoder from 'abi-decoder'
 import {

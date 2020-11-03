@@ -1,4 +1,4 @@
-import ethUtil from 'ethereumjs-util'
+import ethUtil from '@fksyuan/ethereumjs-util'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { ENVIRONMENT_TYPE_NOTIFICATION } from '../../../../app/scripts/lib/enums'

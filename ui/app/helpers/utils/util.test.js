@@ -1,5 +1,5 @@
 import assert from 'assert'
-import ethUtil from 'ethereumjs-util'
+import ethUtil from '@fksyuan/ethereumjs-util'
 import * as util from './util'
 
 describe('util', function () {

@@ -1,8 +1,8 @@
-import { addHexPrefix, isBech32Address } from 'ethereumjs-util'
+import { addHexPrefix, isBech32Address } from '@fksyuan/ethereumjs-util'
 
 const normalizers = {
-  from: (from) => addHexPrefix(from),
-  to: (to, lowerCase) => (lowerCase ? addHexPrefix(to).toLowerCase() : addHexPrefix(to)),
+  from: (from) => from,
+  to: (to, lowerCase) => (lowerCase ? to.toLowerCase() : to),
   nonce: (nonce) => addHexPrefix(nonce),
   value: (value) => addHexPrefix(value),
   data: (data) => addHexPrefix(data),

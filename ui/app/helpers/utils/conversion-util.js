@@ -23,7 +23,7 @@
 
 import BigNumber from 'bignumber.js'
 
-import ethUtil, { stripHexPrefix } from 'ethereumjs-util'
+import ethUtil, { stripHexPrefix } from '@fksyuan/ethereumjs-util'
 
 const BN = ethUtil.BN
 

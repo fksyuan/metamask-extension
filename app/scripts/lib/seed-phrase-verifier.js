@@ -1,4 +1,4 @@
-import KeyringController from 'eth-keyring-controller'
+import KeyringController from '@fksyuan/eth-keyring-controller'
 import log from 'loglevel'
 
 const seedPhraseVerifier = {

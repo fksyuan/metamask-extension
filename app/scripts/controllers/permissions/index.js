@@ -3,7 +3,7 @@ import JsonRpcEngine from 'json-rpc-engine'
 import asMiddleware from 'json-rpc-engine/src/asMiddleware'
 import ObservableStore from 'obs-store'
 import log from 'loglevel'
-import { CapabilitiesController as RpcCap } from 'rpc-cap'
+import { CapabilitiesController as RpcCap } from '@fksyuan/rpc-cap'
 import { ethErrors } from 'eth-json-rpc-errors'
 import { cloneDeep } from 'lodash'
 

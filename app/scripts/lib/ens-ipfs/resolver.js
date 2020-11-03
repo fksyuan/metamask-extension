@@ -1,5 +1,5 @@
 import namehash from 'eth-ens-namehash'
-import Eth from 'ethjs-query'
+import Eth from '@fksyuan/ethjs-query'
 import EthContract from 'ethjs-contract'
 import registryAbi from './contracts/registry'
 import resolverAbi from './contracts/resolver'

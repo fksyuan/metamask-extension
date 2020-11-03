@@ -1,5 +1,5 @@
 let iconFactory
-import { isValidAddress } from 'ethereumjs-util'
+import { isValidAddress } from '@fksyuan/ethereumjs-util'
 // import { checksumAddress } from '../app/helpers/utils/util'
 import contractMap from 'eth-contract-metadata'
 

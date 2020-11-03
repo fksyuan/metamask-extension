@@ -6,7 +6,7 @@ import { ellipsify } from '../../send.utils'
 
 import { debounce } from 'lodash'
 import copyToClipboard from 'copy-to-clipboard/index'
-import ENS from 'ethjs-ens'
+import ENS from '@fksyuan/ethjs-ens'
 import networkMap from 'ethereum-ens-network-map'
 import log from 'loglevel'
 

@@ -1,7 +1,7 @@
 import log from 'loglevel'
 import Wallet from 'ethereumjs-wallet'
 import importers from 'ethereumjs-wallet/thirdparty'
-import ethUtil from 'ethereumjs-util'
+import ethUtil from '@fksyuan/ethereumjs-util'
 
 const accountImporter = {
 

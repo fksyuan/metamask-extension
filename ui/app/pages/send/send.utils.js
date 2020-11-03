@@ -20,7 +20,7 @@ import {
 } from './send.constants'
 
 import abi from 'ethereumjs-abi'
-import ethUtil from 'ethereumjs-util'
+import ethUtil from '@fksyuan/ethereumjs-util'
 
 export {
   addGasBuffer,

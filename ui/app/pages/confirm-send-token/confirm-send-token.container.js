@@ -5,7 +5,7 @@ import ConfirmSendToken from './confirm-send-token.component'
 import { clearConfirmTransaction } from '../../ducks/confirm-transaction/confirm-transaction.duck'
 import { updateSend, showSendTokenPage } from '../../store/actions'
 import { conversionUtil } from '../../helpers/utils/conversion-util'
-import { toBech32Address } from 'ethereumjs-util'
+import { toBech32Address } from '@fksyuan/ethereumjs-util'
 import { sendTokenTokenAmountAndToAddressSelector } from '../../selectors'
 
 const mapStateToProps = (state) => {

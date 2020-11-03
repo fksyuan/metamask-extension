@@ -1,5 +1,5 @@
 import { multiplyCurrencies, subtractCurrencies } from '../../../../../helpers/utils/conversion-util'
-import ethUtil from 'ethereumjs-util'
+import ethUtil from '@fksyuan/ethereumjs-util'
 
 export function calcMaxAmount ({ balance, gasTotal, sendToken, tokenBalance }) {
   const { decimals } = sendToken || {}

@@ -1,5 +1,5 @@
 import abi from 'human-standard-token-abi'
-import ethUtil from 'ethereumjs-util'
+import ethUtil from '@fksyuan/ethereumjs-util'
 import { DateTime } from 'luxon'
 import punycode from 'punycode'
 

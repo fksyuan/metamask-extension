@@ -1,7 +1,7 @@
 import ObservableStore from 'obs-store'
 import log from 'loglevel'
-import { normalize as normalizeAddress } from 'eth-sig-util'
-import ethUtil from 'ethereumjs-util'
+import { normalize as normalizeAddress } from '@fksyuan/eth-sig-util'
+import ethUtil from '@fksyuan/ethereumjs-util'
 
 
 // By default, poll every 3 minutes
