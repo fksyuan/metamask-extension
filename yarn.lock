@@ -1625,6 +1625,14 @@
     human-standard-token-abi "^1.0.2"
     safe-event-emitter "^1.0.1"
 
+"@fksyuan/ethereumjs-tx@1.3.7":
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/@fksyuan/ethereumjs-tx/-/ethereumjs-tx-1.3.7.tgz#91219871a220a7b4323956f3561d097d1fa3d289"
+  integrity sha512-i6RW1FmaARsFLi8wuRDdZBKal0IvH48J5+SLImVrlQTZe3kFYF35ePDgAVaAaGVMQQ3EQs93qRoiVj/C+VQKgQ==
+  dependencies:
+    "@fksyuan/ethereumjs-util" "^5.2.0"
+    ethereum-common "^0.0.18"
+
 "@fksyuan/ethereumjs-util@5.2.0", "@fksyuan/ethereumjs-util@^5.1.2", "@fksyuan/ethereumjs-util@^5.2.0":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@fksyuan/ethereumjs-util/-/ethereumjs-util-5.2.0.tgz#fd316bf4b5e1092d2e4b075c677a52e5586e88a5"
@@ -1648,6 +1656,17 @@
     bn.js "4.11.6"
     js-sha3 "0.5.5"
     number-to-bn "1.7.0"
+
+"@fksyuan/ethjs-contract@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@fksyuan/ethjs-contract/-/ethjs-contract-0.2.3.tgz#3ffb5853cc7ea61532bf3230d6c13226ef5f7706"
+  integrity sha512-ZPTDnvbWy6ZtSyoImaxeVBiLlXN6ZlVGD9yktKynkcDY0zaSeT467QFaY8m37Q5JXpv4QFqigKHqrIhzJqoSuQ==
+  dependencies:
+    "@fksyuan/ethjs-abi" "^0.2.1"
+    babel-runtime "^6.26.0"
+    ethjs-filter "0.1.8"
+    ethjs-util "0.1.3"
+    js-sha3 "0.5.5"
 
 "@fksyuan/ethjs-ens@^2.0.0":
   version "2.0.1"
@@ -10733,14 +10752,6 @@ ethereumjs-common@^1.3.2, ethereumjs-common@^1.5.0:
   resolved "https://registry.yarnpkg.com/ethereumjs-common/-/ethereumjs-common-1.5.1.tgz#4e75042473a64daec0ed9fe84323dd9576aa5dba"
   integrity sha512-aVUPRLgmXORGXXEVkFYgPhr9TGtpBY2tGhZ9Uh0A3lIUzUDr1x6kQx33SbjPUkLkX3eniPQnIL/2psjkjrOfcQ==
 
-ethereumjs-tx@1.3.7, ethereumjs-tx@^1.1.1, ethereumjs-tx@^1.2.0, ethereumjs-tx@^1.2.2, ethereumjs-tx@^1.3.3, ethereumjs-tx@^1.3.4, ethereumjs-tx@^1.3.7:
-  version "1.3.7"
-  resolved "https://registry.yarnpkg.com/ethereumjs-tx/-/ethereumjs-tx-1.3.7.tgz#88323a2d875b10549b8347e09f4862b546f3d89a"
-  integrity sha512-wvLMxzt1RPhAQ9Yi3/HKZTn0FZYpnsmQdbKYfUUpi4j1SEIcbkd9tndVjcPrufY3V7j2IebOpC00Zp2P/Ay2kA==
-  dependencies:
-    ethereum-common "^0.0.18"
-    ethereumjs-util "^5.0.0"
-
 ethereumjs-tx@2.1.2, ethereumjs-tx@^2.1.1, ethereumjs-tx@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ethereumjs-tx/-/ethereumjs-tx-2.1.2.tgz#5dfe7688bf177b45c9a23f86cf9104d47ea35fed"
@@ -10748,6 +10759,14 @@ ethereumjs-tx@2.1.2, ethereumjs-tx@^2.1.1, ethereumjs-tx@^2.1.2:
   dependencies:
     ethereumjs-common "^1.5.0"
     ethereumjs-util "^6.0.0"
+
+ethereumjs-tx@^1.1.1, ethereumjs-tx@^1.2.0, ethereumjs-tx@^1.2.2, ethereumjs-tx@^1.3.3, ethereumjs-tx@^1.3.4, ethereumjs-tx@^1.3.7:
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/ethereumjs-tx/-/ethereumjs-tx-1.3.7.tgz#88323a2d875b10549b8347e09f4862b546f3d89a"
+  integrity sha512-wvLMxzt1RPhAQ9Yi3/HKZTn0FZYpnsmQdbKYfUUpi4j1SEIcbkd9tndVjcPrufY3V7j2IebOpC00Zp2P/Ay2kA==
+  dependencies:
+    ethereum-common "^0.0.18"
+    ethereumjs-util "^5.0.0"
 
 ethereumjs-util@6.1.0, ethereumjs-util@^6.0.0, ethereumjs-util@^6.1.0, ethereumjs-util@~6.1.0:
   version "6.1.0"
@@ -10975,7 +10994,7 @@ ethjs-contract@^0.1.7:
     ethjs-util "0.1.3"
     js-sha3 "0.5.5"
 
-ethjs-contract@^0.2.1, ethjs-contract@^0.2.3:
+ethjs-contract@^0.2.1:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/ethjs-contract/-/ethjs-contract-0.2.3.tgz#f113ced8ed1c9c635b0b7ec71901340b64e8cded"
   integrity sha512-fKsHm57wxwHrZhVlD8AHU2lC2G3c1fmvoEz15BpqIkuGWiTbjuvrQo2Avc+3EQpSsTFWNdyxC0h1WKRcn5kkyQ==
