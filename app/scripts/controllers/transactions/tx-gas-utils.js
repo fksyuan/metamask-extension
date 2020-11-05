@@ -1,4 +1,4 @@
-import EthQuery from '@fksyuan/ethjs-query'
+import EthQuery from '@alayanetwork/ethjs-query'
 import { hexToBn, BnMultiplyByFraction, bnToHex } from '../../lib/util'
 import log from 'loglevel'
 

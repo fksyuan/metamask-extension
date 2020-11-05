@@ -1,5 +1,5 @@
 import { NETWORK_TYPES } from '../helpers/constants/common'
-import { stripHexPrefix, addHexPrefix, toBech32Address, decodeBech32Address } from '@fksyuan/ethereumjs-util'
+import { stripHexPrefix, addHexPrefix, toBech32Address, decodeBech32Address } from '@alayanetwork/ethereumjs-util'
 import { createSelector } from 'reselect'
 import {
   shortenAddress,

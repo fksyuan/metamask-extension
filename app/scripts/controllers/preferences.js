@@ -1,7 +1,7 @@
 import ObservableStore from 'obs-store'
 import { addInternalMethodPrefix } from './permissions'
-import { normalize as normalizeAddress } from '@fksyuan/eth-sig-util'
-import { isValidAddress, sha3, bufferToHex, toBech32Address } from '@fksyuan/ethereumjs-util'
+import { normalize as normalizeAddress } from '@alayanetwork/eth-sig-util'
+import { isValidAddress, sha3, bufferToHex, toBech32Address } from '@alayanetwork/ethereumjs-util'
 
 export default class PreferencesController {
 

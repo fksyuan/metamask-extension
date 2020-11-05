@@ -1,6 +1,6 @@
 import EventEmitter from 'safe-event-emitter'
 import log from 'loglevel'
-import EthQuery from '@fksyuan/ethjs-query'
+import EthQuery from '@alayanetwork/ethjs-query'
 
 /**
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 import { multiplyCurrencies } from '../../../../helpers/utils/conversion-util'
 import withModalProps from '../../../../helpers/higher-order-components/with-modal-props'
 import CancelTransaction from './cancel-transaction.component'

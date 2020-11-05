@@ -8,7 +8,7 @@ import log from 'loglevel'
 import migrations from '../migrations'
 import Migrator from '../lib/migrator'
 import JsonRpcEngine from 'json-rpc-engine'
-import providerFromEngine from '@fksyuan/eth-json-rpc-middleware/providerFromEngine'
+import providerFromEngine from '@alayanetwork/eth-json-rpc-middleware/providerFromEngine'
 import createMetamaskMiddleware from './network/createMetamaskMiddleware'
 import createOriginMiddleware from '../lib/createOriginMiddleware'
 

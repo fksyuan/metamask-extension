@@ -1,10 +1,10 @@
 import mergeMiddleware from 'json-rpc-engine/src/mergeMiddleware'
-import createFetchMiddleware from '@fksyuan/eth-json-rpc-middleware/fetch'
-import createBlockRefRewriteMiddleware from '@fksyuan/eth-json-rpc-middleware/block-ref-rewrite'
-import createBlockTrackerInspectorMiddleware from '@fksyuan/eth-json-rpc-middleware/block-tracker-inspector'
+import createFetchMiddleware from '@alayanetwork/eth-json-rpc-middleware/fetch'
+import createBlockRefRewriteMiddleware from '@alayanetwork/eth-json-rpc-middleware/block-ref-rewrite'
+import createBlockTrackerInspectorMiddleware from '@alayanetwork/eth-json-rpc-middleware/block-tracker-inspector'
 import createAsyncMiddleware from 'json-rpc-engine/src/createAsyncMiddleware'
-import providerFromMiddleware from '@fksyuan/eth-json-rpc-middleware/providerFromMiddleware'
-import BlockTracker from '@fksyuan/eth-block-tracker'
+import providerFromMiddleware from '@alayanetwork/eth-json-rpc-middleware/providerFromMiddleware'
+import BlockTracker from '@alayanetwork/eth-block-tracker'
 
 const inTest = process.env.IN_TEST === 'true'
 

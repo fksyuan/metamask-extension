@@ -1,6 +1,6 @@
 const version = 37
 import { cloneDeep } from 'lodash'
-import { util } from '@fksyuan/controllers'
+import { util } from '@alayanetwork/controllers'
 
 /**
  * The purpose of this migration is to update the address book state

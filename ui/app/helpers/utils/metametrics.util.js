@@ -1,6 +1,6 @@
 /* eslint camelcase: 0 */
 
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 
 const inDevelopment = process.env.METAMASK_DEBUG || process.env.IN_TEST
 

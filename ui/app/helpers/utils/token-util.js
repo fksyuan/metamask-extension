@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js'
 import contractMap from 'eth-contract-metadata'
 import { conversionUtil, multiplyCurrencies } from './conversion-util'
 import { formatCurrency } from './confirm-tx.util'
-import { toBech32Address } from '@fksyuan/ethereumjs-util'
+import { toBech32Address } from '@alayanetwork/ethereumjs-util'
 
 const casedContractMap = Object.keys(contractMap).reduce((acc, base) => {
   return {

@@ -18,7 +18,7 @@ import {
 import {
   calcGasTotal,
 } from '../pages/send/send.utils'
-import { addHexPrefix } from '@fksyuan/ethereumjs-util'
+import { addHexPrefix } from '@alayanetwork/ethereumjs-util'
 
 import { GAS_ESTIMATE_TYPES } from '../helpers/constants/common'
 

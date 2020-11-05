@@ -1,5 +1,5 @@
 import extension from 'extensionizer'
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 import assert from 'assert'
 import BN from 'bn.js'
 import { memoize } from 'lodash'

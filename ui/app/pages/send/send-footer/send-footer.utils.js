@@ -1,5 +1,5 @@
 import ethAbi from 'ethereumjs-abi'
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 import { TOKEN_TRANSFER_FUNCTION_SIGNATURE } from '../send.constants'
 
 export function addHexPrefixToObjectValues (obj) {

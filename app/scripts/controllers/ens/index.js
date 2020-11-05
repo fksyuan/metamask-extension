@@ -1,4 +1,4 @@
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 import ObservableStore from 'obs-store'
 import punycode from 'punycode'
 import log from 'loglevel'

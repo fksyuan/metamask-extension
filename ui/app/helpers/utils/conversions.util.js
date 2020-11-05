@@ -1,4 +1,4 @@
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 import { ATP, GWEI, WEI } from '../constants/common'
 import { conversionUtil, addCurrencies, subtractCurrencies } from './conversion-util'
 

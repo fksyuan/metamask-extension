@@ -6,7 +6,7 @@ const version = 25
 normalizes txParams on unconfirmed txs
 
 */
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 
 import { cloneDeep } from 'lodash'
 

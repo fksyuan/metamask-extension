@@ -7,7 +7,7 @@
  * on each new block.
  */
 
-import EthQuery from '@fksyuan/eth-query'
+import EthQuery from '@alayanetwork/eth-query'
 
 import ObservableStore from 'obs-store'
 import log from 'loglevel'
@@ -15,7 +15,7 @@ import pify from 'pify'
 import Web3 from 'web3'
 import SINGLE_CALL_BALANCES_ABI from 'single-call-balance-checker-abi'
 import { bnToHex } from './util'
-import { toBech32Address, decodeBech32Address } from '@fksyuan/ethereumjs-util'
+import { toBech32Address, decodeBech32Address } from '@alayanetwork/ethereumjs-util'
 import { MAINNET_NETWORK_ID, ALAYA_NETWORK_ID } from '../controllers/network/enums'
 
 import {

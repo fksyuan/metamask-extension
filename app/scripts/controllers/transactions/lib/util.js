@@ -1,4 +1,4 @@
-import { addHexPrefix, isBech32Address } from '@fksyuan/ethereumjs-util'
+import { addHexPrefix, isBech32Address } from '@alayanetwork/ethereumjs-util'
 
 const normalizers = {
   from: (from) => from,

@@ -1,6 +1,6 @@
 import EventEmitter from 'events'
 import ObservableStore from 'obs-store'
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 import { ethErrors } from 'eth-json-rpc-errors'
 import createId from './random-id'
 import { MESSAGE_TYPE } from './enums'

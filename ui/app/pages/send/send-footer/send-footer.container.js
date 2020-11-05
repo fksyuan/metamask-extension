@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import ethUtil from '@fksyuan/ethereumjs-util'
+import ethUtil from '@alayanetwork/ethereumjs-util'
 import {
   addToAddressBook,
   clearSend,
