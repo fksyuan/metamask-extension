@@ -1,7 +1,7 @@
 export const defaultNetworksData = {
   alaya: {
     providerType: 'alaya',
-    rpcTarget: 'http://10.1.1.50:6790',
+    rpcTarget: 'http://samurai.alaya.network',
     chainId: '201018',
     ticker: 'ATP',
     blockExplorerUrl: 'https://scan.alaya.network',

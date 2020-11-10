@@ -215,6 +215,11 @@
     safe-buffer "^5.1.1"
     secp256k1 "^3.0.1"
 
+"@alayanetwork/etherscan-link@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@alayanetwork/etherscan-link/-/etherscan-link-1.1.0.tgz#98a3bdfdad292c32a3a414376ff84ac113ec4f2b"
+  integrity sha512-jSml0Gxw6imJZiPWW+4OHh28QMqN/s04K7TanQu9LZwCCTc9Qhb6IjGOEvpm8Vxpsp2+qNZ64QwVChCrIbEN/Q==
+
 "@alayanetwork/ethjs-abi@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@alayanetwork/ethjs-abi/-/ethjs-abi-0.2.1.tgz#934ef510cecb5065ff6548921c5bdd7835da4ab7"
@@ -288,6 +293,26 @@
     js-sha3 "0.5.5"
     number-to-bn "1.7.0"
 
+"@alayanetwork/forwarder@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@alayanetwork/forwarder/-/forwarder-1.1.0.tgz#5a8a0dd3d0a837ffd2dcb586ec0eec5abcbfeb69"
+  integrity sha512-az1IBp25ycqsv1MVJ+iGZEiC4x9571+usvShWy8dc1LxTSUUsbRpxzOF/uENIgFHC84FpvpDAf/sAOLXq/evvg==
+
+"@alayanetwork/inpage-provider@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@alayanetwork/inpage-provider/-/inpage-provider-6.1.0.tgz#cb131b700d969565a1ba47549d47871192b53a27"
+  integrity sha512-miB9BDbiypTcpSjHm/xAspuSmjxekpZeuEB596YwXO9Fo9jDkO9ZApYf+vYKFFhXlfXrtrlZTv8ezs7BgE6LMg==
+  dependencies:
+    eth-json-rpc-errors "^2.0.2"
+    fast-deep-equal "^2.0.1"
+    json-rpc-engine "^5.1.5"
+    json-rpc-middleware-stream "^2.1.1"
+    loglevel "^1.6.1"
+    obj-multiplex "^1.0.0"
+    obs-store "^4.0.3"
+    pump "^3.0.0"
+    safe-event-emitter "^1.0.1"
+
 "@alayanetwork/nonce-tracker@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@alayanetwork/nonce-tracker/-/nonce-tracker-1.0.1.tgz#1bfcd33403232bbb137df8a25514a276801137f9"
@@ -307,6 +332,17 @@
     is-subset "^0.1.1"
     json-rpc-engine "^5.2.0"
     uuid "^3.3.2"
+
+"@alayanetwork/web3@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@alayanetwork/web3/-/web3-0.1.0.tgz#7c5262b17f499010f6b3af2dc3f4170de0a7ac8b"
+  integrity sha512-2N4UDg4MVtmZpDIsNcNeMvl1RSknPYR68uQzECcnOAMHw1+gVPpDOTX9O86OvtgNMLSnRbqwIhx07H8NuJp5pg==
+  dependencies:
+    bignumber.js "git+https://github.com/frozeman/bignumber.js-nolookahead.git"
+    crypto-js "^3.1.4"
+    utf8 "^2.1.1"
+    xhr2 "*"
+    xmlhttprequest "*"
 
 "@babel/code-frame@7.0.0":
   version "7.0.0"
@@ -1978,31 +2014,6 @@
     ethereumjs-util "^5.1.5"
     events "^2.0.0"
     hdkey "0.8.0"
-
-"@metamask/etherscan-link@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@metamask/etherscan-link/-/etherscan-link-1.1.0.tgz#8c69f3659558074e48e85d52b3db36a3dd93e3e3"
-  integrity sha512-kdgz4OpAQM6kOSuXv8/yfW9kTKxPCFUxQGE4RKBzlpy9HkFcI6XWu3Uw3hOWPBFmI8uPwU8KxBIpdCts8jL7WA==
-
-"@metamask/forwarder@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@metamask/forwarder/-/forwarder-1.1.0.tgz#13829d8244bbf19ea658c0b20d21a77b67de0bdd"
-  integrity sha512-Hggj4y0QIjDzKGTXzarhEPIQyFSB2bi2y6YLJNwaT4JmP30UB5Cj6gqoY0M4pj3QT57fzp0BUuGp7F/AUe28tw==
-
-"@metamask/inpage-provider@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@metamask/inpage-provider/-/inpage-provider-6.1.0.tgz#6a4ec9437169b6d6f2b439dd7a2e604ebcfc2fca"
-  integrity sha512-Sgl+kHyJCTkyWzNKIX18/O+CJUMWlc5jWB27p3NBfA/r1ldr87n7wdJhK9VnHrKZ2GMJtwBmtuE9Do+mLIKHXA==
-  dependencies:
-    eth-json-rpc-errors "^2.0.2"
-    fast-deep-equal "^2.0.1"
-    json-rpc-engine "^5.1.5"
-    json-rpc-middleware-stream "^2.1.1"
-    loglevel "^1.6.1"
-    obj-multiplex "^1.0.0"
-    obs-store "^4.0.3"
-    pump "^3.0.0"
-    safe-event-emitter "^1.0.1"
 
 "@metamask/test-dapp@^3.1.0":
   version "3.1.0"
