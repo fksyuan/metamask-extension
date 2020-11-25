@@ -53,6 +53,9 @@ export default class AdvancedGasInputs extends Component {
   }
 
   onChangeGasPrice = (e) => {
+    if (Number(e.target.value) < 0) {
+      e.target.value = 0;
+    }
     this.setState({ gasPrice: e.target.value })
     this.changeGasPrice({ target: { value: e.target.value } })
   }

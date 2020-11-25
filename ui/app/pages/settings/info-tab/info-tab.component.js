@@ -40,48 +40,15 @@ export default class InfoTab extends PureComponent {
             </span>
           </a>
         </div>
-        <div className="info-tab__link-item">
-          <a
-            href="https://metamask.io/attributions.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="info-tab__link-text">
-              { t('attributions') }
-            </span>
-          </a>
-        </div>
         <hr className="info-tab__separator" />
         <div className="info-tab__link-item">
           <a
-            href="https://support.metamask.io"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="info-tab__link-text">
-              { t('supportCenter') }
-            </span>
-          </a>
-        </div>
-        <div className="info-tab__link-item">
-          <a
-            href="https://metamask.io/"
+            href="https://alaya.network/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <span className="info-tab__link-text">
               { t('visitWebSite') }
-            </span>
-          </a>
-        </div>
-        <div className="info-tab__link-item">
-          <a
-            href="https://metamask.zendesk.com/hc/en-us/requests/new"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="info-tab__link-text">
-              { t('contactUs') }
             </span>
           </a>
         </div>

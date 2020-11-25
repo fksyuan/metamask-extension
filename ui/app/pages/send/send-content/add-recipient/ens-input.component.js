@@ -171,19 +171,6 @@ export default class EnsInput extends Component {
             autoFocus
             data-testid="ens-input"
           />
-          <div
-            className={classnames('ens-input__wrapper__action-icon', {
-              'ens-input__wrapper__action-icon--erase': input,
-              'ens-input__wrapper__action-icon--qrcode': !input,
-            })}
-            onClick={() => {
-              if (input) {
-                this.resetInput()
-              } else {
-                this.props.scanQrCode()
-              }
-            }}
-          />
         </div>
       </div>
     )
