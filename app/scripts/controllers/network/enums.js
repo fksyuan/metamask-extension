@@ -14,7 +14,7 @@ export const ALAYA_NETWORK_ID = '201018'
 // export const KOVAN_NETWORK_ID = '42'
 
 export const MAINNET_CHAIN_ID = '0x1'
-export const ALAYA_CHAIN_ID = '0x31146'
+export const ALAYA_CHAIN_ID = '0x3113A'
 // export const ROPSTEN_CHAIN_ID = '0x3'
 // export const RINKEBY_CHAIN_ID = '0x4'
 // export const GOERLI_CHAIN_ID = '0x5'

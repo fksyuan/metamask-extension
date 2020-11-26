@@ -38,7 +38,7 @@ function createNetworkAndChainIdMiddleware ({ network }) {
       break
     case 'alaya':
       netId = networkEnums.ALAYA_NETWORK_ID
-      chainId = '0x31146'
+      chainId = '0x3113A'
       break
     default:
       throw new Error(`createInfuraClient - unknown network "${network}"`)
