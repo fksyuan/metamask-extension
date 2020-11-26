@@ -17,7 +17,7 @@ unzip samurai-chrome-8.0.10.zip -d ${SAMURAIPATH}
 #### 3.1 API列表
 
 ##### Alaya JSON-RPC API
-有关Alaya JSON-RPC API的信息，请参阅[Alaya-devdocs](https://luo-dahui.github.io/alaya-devdocs/zh-CN/Json_Rpc)
+有关Alaya JSON-RPC API的信息，请参阅[Alaya-devdocs](https://devdocs.alaya.network/alaya-devdocs/zh-CN/Json_Rpc/)
 
 比较重要的API方法如下：
 + platon_accounts
@@ -52,32 +52,13 @@ Promise {<pending>}
 > web3a.platon.sendTransaction({from: alaya.selectedAddress,to: "atp1dt2wx0xjkd2je8ev4t3ysmte6n90kc9gm9mkrr", value: 1e16}, function(err, transactionHash) {if (err) { console.log(err); } else {console.log(transactionHash);}});
 ```
 
-##### 4.2 合约交易
-假设你在alaya网络上已经部署好了标准的ERC20代笔合约
-+ 如果未请求Samurai账户授权，需要请求Samurai授权，如果已经授权过则略过
-```
-> alaya.request({ method: 'platon_requestAccounts' });
-```
-+ 初始化合约对象
-```
-> var addr = "atp1c5xxup4au4pqkgkm6a3p6hj3x0vvekdj52z2la"
-> var abi = [{"inputs":[{"internalType":"uint256","name":"initialSupply","type":"uint256"},{"internalType":"string","name":"tokenName","type":"string"},{"internalType":"string","name":"tokenSymbol","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Burn","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"constant":true,"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_spender","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"burn","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_from","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"burnFrom","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"_owner","type":"address"},{"internalType":"address","name":"_spender","type":"address"}],"name":"getAllowance","outputs":[{"internalType":"uint256","name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"_owner","type":"address"}],"name":"getBalanceOf","outputs":[{"internalType":"uint256","name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getDecimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getSymbol","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getTotalSupply","outputs":[{"internalType":"uint256","name":"theTotalSupply","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_from","type":"address"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]
-> var contract = web3a.platon.contract(abi).at(addr)
-> contract.getBalanceOf(alaya.selectedAddress, {from: alaya.selectedAddress}, function(err, res) {console.log(res)})
-```
-
-+ 发起代币转账, 运行下面的命令会唤起Samurai处理该交易，可以进行再编辑等操作
-```
-> contract.transfer("atp1dt2wx0xjkd2je8ev4t3ysmte6n90kc9gm9mkrr", 1e13, {from: alaya.selectedAddress}, function(err, res) {console.log(res)})
-```
-
-##### 4.3 Dapp开发集成
-在开发Dapp页面，由于Samurai在打开页面会注入alaya对象，因此在开发的时候可以通过javascript直接调用该对象完成对应的操作。需要web3a对象的引入及使用见[js-sdk文档](https://github.com/PlatONnetwork/client-sdk-js/tree/df-dev)
+##### 4.2 Dapp开发集成
+在开发Dapp页面，由于Samurai在打开页面会注入alaya对象，因此在开发的时候可以通过javascript直接调用该对象完成对应的操作。需要web3a对象的引入及使用见[js-sdk文档](https://devdocs.alaya.network/alaya-devdocs/zh-CN/JS_SDK/)
 
 下面例子展示的是比如点击一个页面按钮发起转账操作，在其后调用的对应的javascript脚本
 
 ```
-var Web3A = require('web3a');
+var Web3A = require('web3');
 var web3alaya = new Web3A(alaya)
 contract = new web3alaya.platon.Contract(abi, address);
 toAccount = "atp1jtfqqqr6436ppj6ccnrh8xjg7qals3ctnnmurp";

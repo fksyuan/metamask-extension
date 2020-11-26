@@ -1,8 +1,8 @@
 # Samurai Browser Extension
 
-You can find the latest version of Samurai on Release
- 
-Samurai supports Firefox, Google Chrome, and Chromium-based browsers. We recommend using the latest available browser version.
+You can find the latest version of Samurai on [User manual](./docs/user-manual.md).
+
+Samurai supports Google Chrome, and Firefox, Chromium-based browsers. We recommend using the latest available browser version.
 
 ## Building locally
 
@@ -36,7 +36,3 @@ yarn start
 ```bash
 yarn dist
 ```
-
-## Other Docs
-
-- [User manual](./docs/user-manual.md)
