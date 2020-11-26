@@ -6,7 +6,7 @@ const defaultNetworksData = [
     rpcUrl: 'https://samurai.alaya.network',
     chainId: '201018',
     ticker: 'ATP',
-    blockExplorerUrl: 'https://scan.alaya.network.io',
+    blockExplorerUrl: 'https://scan.alaya.network',
   },
 ]
 

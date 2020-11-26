@@ -385,31 +385,31 @@ class NetworkDropdown extends Component {
         {/* </DropdownMenuItem>*/}
         {this.renderCustomOption(this.props.provider)}
         {this.renderCommonRpc(rpcListDetail, this.props.provider)}
-        <DropdownMenuItem
-          closeMenu={() => this.props.hideNetworkDropdown()}
-          onClick={() => {
-            setNetworksTabAddMode(true)
-            this.props.history.push(NETWORKS_ROUTE)
-          }}
-          style={dropdownMenuItemStyle}
-        >
-          {
-            activeNetwork === 'custom'
-              ? <i className="fa fa-check" />
-              : <div className="network-check__transparent">✓</div>
-          }
-          <NetworkDropdownIcon isSelected={activeNetwork === 'custom'} innerBorder="1px solid #9b9b9b" />
-          <span
-            className="network-name-item"
-            style={{
-              color: activeNetwork === 'custom'
-                ? '#ffffff'
-                : '#9b9b9b',
-            }}
-          >
-            {this.context.t('customRPC')}
-          </span>
-        </DropdownMenuItem>
+        {/*  <DropdownMenuItem*/}
+        {/*    closeMenu={() => this.props.hideNetworkDropdown()}*/}
+        {/*    onClick={() => {*/}
+        {/*      setNetworksTabAddMode(true)*/}
+        {/*      this.props.history.push(NETWORKS_ROUTE)*/}
+        {/*    }}*/}
+        {/*    style={dropdownMenuItemStyle}*/}
+        {/*  >*/}
+        {/*    {*/}
+        {/*      activeNetwork === 'custom'*/}
+        {/*        ? <i className="fa fa-check" />*/}
+        {/*        : <div className="network-check__transparent">✓</div>*/}
+        {/*    }*/}
+        {/*    <NetworkDropdownIcon isSelected={activeNetwork === 'custom'} innerBorder="1px solid #9b9b9b" />*/}
+        {/*    <span*/}
+        {/*      className="network-name-item"*/}
+        {/*      style={{*/}
+        {/*        color: activeNetwork === 'custom'*/}
+        {/*          ? '#ffffff'*/}
+        {/*          : '#9b9b9b',*/}
+        {/*      }}*/}
+        {/*    >*/}
+        {/*      {this.context.t('customRPC')}*/}
+        {/*    </span>*/}
+        {/*  </DropdownMenuItem>*/}
       </Dropdown>
     )
   }

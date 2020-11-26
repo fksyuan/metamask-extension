@@ -237,7 +237,7 @@
     "message": "Kobler til Ropsten testnettverk"
   },
   "connectingToAlaya": {
-    "message": "Kobler til Alaya Test Network "
+    "message": "Kobler til Alaya Network "
   },
   "connectingToLocalhost": {
     "message": "Kobler til lokalvert 8545"

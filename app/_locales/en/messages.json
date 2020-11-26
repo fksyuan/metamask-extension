@@ -395,7 +395,7 @@
     "message": "Connecting to Ropsten Test Network"
   },
   "connectingToAlaya": {
-    "message": "Connecting to Alaya Test Network"
+    "message": "Connecting to Alaya Network"
   },
   "connectingToLocalhost": {
     "message": "Connecting to Localhost 8545"
@@ -1223,7 +1223,7 @@
     "message": "Ready to Connect?"
   },
   "alaya": {
-    "message": "Alaya Test Network"
+    "message": "Alaya Network"
   },
   "ropsten": {
     "message": "Ropsten Test Network"

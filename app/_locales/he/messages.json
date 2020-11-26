@@ -240,7 +240,7 @@
     "message": "מתחבר אל רשת בדיקה Ropsten "
   },
   "connectingToAlaya": {
-    "message": "מתחבר ל- Alaya Test Network  "
+    "message": "מתחבר ל- Alaya Network  "
   },
   "connectingToLocalhost": {
     "message": "מתחבר אל Localhost 8545"
