@@ -20,7 +20,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="https://aton.test.platon.network/aton-agreement/zh-cn/privacyAgreement.html"
+            href="https://www.alaya.network/privacy-policy/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -31,7 +31,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="https://aton.test.platon.network/aton-agreement/zh-cn/v0760/agreement.html"
+            href="https://samurai.alaya.network/samurai-agreement/agreement.html"
             target="_blank"
             rel="noopener noreferrer"
           >
